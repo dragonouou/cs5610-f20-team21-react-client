@@ -23,10 +23,10 @@ export class NavBarComponent extends React.Component {
                         </div>
 
                         <ul className="" style={{listStyleType: "none", paddingLeft: "0px"}}>
-                            <li><a href="/" title="" className="" style={{fontWeight: "bold"}}>Home</a></li>
-                            <li><a href="/search" title="" className="">Search</a></li>
-                            <li><a href="/about" title="" className="">About</a></li>
-                            <li><a href="/policy" title="" className="">Policy</a></li>
+                            <li><a href="/" title="" className="" style={{fontWeight: this.props.page === "home" ? "bold":"none"}}>Home</a></li>
+                            <li><a href="/search" title="" className="" style={{fontWeight: this.props.page === "search" ? "bold":"none"}}>Search</a></li>
+                            <li><a href="/about" title="" className="" style={{fontWeight: this.props.page === "about" ? "bold":"none"}}>About</a></li>
+                            <li><a href="/policy" title="" className="" style={{fontWeight: this.props.page === "policy" ? "bold":"none"}}>Policy</a></li>
                         </ul>
 
                         {/*logged in version*/}

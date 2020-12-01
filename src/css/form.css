@@ -1,0 +1,15 @@
+label {
+    width: 80px;
+}
+
+input {
+    width: 180px;
+}
+
+button {
+    width: 260px;
+}
+
+.line {
+    margin-top: 10px;
+}

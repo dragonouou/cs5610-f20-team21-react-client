@@ -12,28 +12,36 @@ import {SearchComponent} from "./components/SearchComponent";
 import {BrowserRouter, Route} from "react-router-dom";
 import {DetailComponent} from "./components/DetailComponent";
 import WikiComponent from "./components/WikiComponent";
+import {LoginComponent} from "./components/LoginComponent";
+import {RegisterComponent} from "./components/RegisterComponent";
 
 ReactDOM.render(
     <BrowserRouter>
-        <Route path="/" exact>
+        <Route path="/wiki" exact>
             <WikiComponent/>
         </Route>
         <Route path="/search/:recipeId" component={DetailComponent} exact/>
-        {/*<Route path="/" exact>*/}
-        {/*    <HomeComponent />*/}
-        {/*</Route>*/}
-        {/*<Route path="/search" exact>*/}
-        {/*    <SearchComponent />*/}
-        {/*</Route>*/}
-        {/*<Route path="/detail" exact>*/}
-        {/*    <DetailComponent />*/}
-        {/*</Route>*/}
-        {/*<Route path="/about" exact>*/}
-        {/*    <AboutComponent />*/}
-        {/*</Route>*/}
-        {/*<Route path="/policy" exact>*/}
-        {/*    <PolicyComponent />*/}
-        {/*</Route>*/}
+        <Route path="/" exact>
+            <HomeComponent />
+        </Route>
+        <Route path="/search" exact>
+            <SearchComponent />
+        </Route>
+        <Route path="/detail" exact>
+            <DetailComponent />
+        </Route>
+        <Route path="/about" exact>
+            <AboutComponent />
+        </Route>
+        <Route path="/policy" exact>
+            <PolicyComponent />
+        </Route>
+        <Route path="/login" exact>
+            <LoginComponent />
+        </Route>
+        <Route path="/register" exact>
+            <RegisterComponent />
+        </Route>
     </BrowserRouter>,
     document.getElementById('root')
 );

@@ -51,14 +51,21 @@ export class NavBarComponent extends React.Component {
                             </div>
                             <div><a href="">Logout</a></div>
                             <div>
-                                <a href="">Login</a>
+                                <a href="/login">Login</a>
                                 /
-                                <a href="">Register</a>
+                                <a href="/register">Register</a>
                             </div>
-                            <p style={{marginTop: "8vh"}}>© Untitled | Website created with <a href="http://www.mashup-template.com/"
-                                                                                               title="Create website with free html template">Mashup
-                                Template</a>/<a href="https://www.unsplash.com/"
-                                                title="Beautiful Free Images">Unsplash</a></p>
+                            <p style={{marginTop: "8vh"}}>© Untitled
+                                {/*<a href="http://www.mashup-template.com/"*/}
+                                {/*   title="Create website with free html template">Mashup*/}
+                                {/*Template*/}
+                                {/*</a>*/}
+                                {/*/*/}
+                                {/*<a href="https://www.unsplash.com/"*/}
+                                {/*   title="Beautiful Free Images">*/}
+                                {/*    Unsplash*/}
+                                {/*</a>*/}
+                            </p>
                         </nav>
                     </div>
                 </nav>

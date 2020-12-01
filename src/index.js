@@ -52,9 +52,9 @@ ReactDOM.render(
         <Route path="/profile" exact>
             <ProfileBuyerComponent />
         </Route>
-        {/*<Route path="/myprofile" exact>*/}
-        {/*    <MyProfileComponent />*/}
-        {/*</Route>*/}
+        <Route path="/myprofile" exact>
+            <MyProfileComponent />
+        </Route>
         <Route path="/myinformation" exact>
             <ProfileBuyerComponent />
         </Route>

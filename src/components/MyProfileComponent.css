@@ -1,0 +1,20 @@
+.profile-header {
+    transform: translateY(5rem);
+}
+
+.myprofile-body{
+    /*background: #654ea3;*/
+    /*background: -webkit-linear-gradient(to right, #654ea3, #eaafc8);*/
+    /*background: linear-gradient(to right, #654ea3, #eaafc8);*/
+    /*background: -webkit-linear-gradient(to right, #FFE4F3, #91BAD7);*/
+    /*background: linear-gradient(to right, #FFE4F3, #91BAD7);*/
+    background: -webkit-linear-gradient(to right, #AFF1DA, #F9EA8F);
+    background: linear-gradient(to right, #AFF1DA, #F9EA8F);
+    min-height: 100vh;
+}
+
+.recipe-img{
+    height: 30vh;
+    width: 20vw;
+    object-fit: cover;
+}

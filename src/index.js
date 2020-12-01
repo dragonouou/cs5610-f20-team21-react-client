@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import "bootstrap/dist/css/bootstrap.css";
+import "font-awesome/css/font-awesome.css"
 import TestComponent from "./components/TestComponent";
 import {SearchResultComponent} from "./components/SearchResultComponent";
 import {HomeComponent} from "./components/HomeComponent";
@@ -14,6 +16,7 @@ import {DetailComponent} from "./components/DetailComponent";
 import WikiComponent from "./components/WikiComponent";
 import {LoginComponent} from "./components/LoginComponent";
 import {RegisterComponent} from "./components/RegisterComponent";
+import MyProfileComponent from "./components/MyProfileComponent";
 
 ReactDOM.render(
     <BrowserRouter>

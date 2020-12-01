@@ -17,7 +17,7 @@ export class LoginComponent extends React.Component {
                         <input type="email" placeholder="abc@example.com"/>
                     </div>
                     <div className="line">
-                        <label htmlFor="pw">password</label>
+                        <label htmlFor="pw">Password</label>
                         <input type="text" id="pw" placeholder="password"/>
                     </div>
                     <div className="line">

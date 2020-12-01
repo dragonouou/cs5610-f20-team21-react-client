@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import "bootstrap/dist/css/bootstrap.css";
-import "font-awesome/css/font-awesome.css"
+import "font-awesome/css/font-awesome.css";
 import TestComponent from "./components/TestComponent";
 import {SearchResultComponent} from "./components/SearchResultComponent";
 import {HomeComponent} from "./components/HomeComponent";
@@ -17,6 +17,10 @@ import WikiComponent from "./components/WikiComponent";
 import {LoginComponent} from "./components/LoginComponent";
 import {RegisterComponent} from "./components/RegisterComponent";
 import MyProfileComponent from "./components/MyProfileComponent";
+import ProfileBuyerComponent from "./components/ProfileBuyerComponent";
+import OrderDetailComponent from "./components/OrderDetailComponent";
+import AccountFavoriteComponent from "./components/AccountFavoriteComponent";
+import CartComponent from "./components/CartComponent";
 
 ReactDOM.render(
     <BrowserRouter>
@@ -44,6 +48,24 @@ ReactDOM.render(
         </Route>
         <Route path="/register" exact>
             <RegisterComponent />
+        </Route>
+        <Route path="/profile" exact>
+            <ProfileBuyerComponent />
+        </Route>
+        {/*<Route path="/myprofile" exact>*/}
+        {/*    <MyProfileComponent />*/}
+        {/*</Route>*/}
+        <Route path="/myinformation" exact>
+            <ProfileBuyerComponent />
+        </Route>
+        <Route path="/myorders" exact>
+            <OrderDetailComponent />
+        </Route>
+        <Route path="/myfavorites" exact>
+            <AccountFavoriteComponent />
+        </Route>
+        <Route path="/cart" exact>
+            <CartComponent />
         </Route>
     </BrowserRouter>,
     document.getElementById('root')

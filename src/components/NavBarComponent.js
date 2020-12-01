@@ -23,10 +23,10 @@ export class NavBarComponent extends React.Component {
                         </div>
 
                         <ul className="" style={{listStyleType: "none", paddingLeft: "0px"}}>
-                            <li><a href="/" title="" className="" style={{fontWeight: "bold"}}>Home</a></li>
-                            <li><a href="/search" title="" className="">Search</a></li>
-                            <li><a href="/about" title="" className="">About</a></li>
-                            <li><a href="/policy" title="" className="">Policy</a></li>
+                            <li><a href="/" title="" className="" style={{fontWeight: this.props.page === "home" ? "bold":"none"}}>Home</a></li>
+                            <li><a href="/search" title="" className="" style={{fontWeight: this.props.page === "search" ? "bold":"none"}}>Search</a></li>
+                            <li><a href="/about" title="" className="" style={{fontWeight: this.props.page === "about" ? "bold":"none"}}>About</a></li>
+                            <li><a href="/policy" title="" className="" style={{fontWeight: this.props.page === "policy" ? "bold":"none"}}>Policy</a></li>
                         </ul>
 
                         {/*logged in version*/}
@@ -51,14 +51,21 @@ export class NavBarComponent extends React.Component {
                             </div>
                             <div><a href="">Logout</a></div>
                             <div>
-                                <a href="">Login</a>
+                                <a href="/login">Login</a>
                                 /
-                                <a href="">Register</a>
+                                <a href="/register">Register</a>
                             </div>
-                            <p style={{marginTop: "8vh"}}>© Untitled | Website created with <a href="http://www.mashup-template.com/"
-                                                                                               title="Create website with free html template">Mashup
-                                Template</a>/<a href="https://www.unsplash.com/"
-                                                title="Beautiful Free Images">Unsplash</a></p>
+                            <p style={{marginTop: "8vh"}}>© Untitled
+                                {/*<a href="http://www.mashup-template.com/"*/}
+                                {/*   title="Create website with free html template">Mashup*/}
+                                {/*Template*/}
+                                {/*</a>*/}
+                                {/*/*/}
+                                {/*<a href="https://www.unsplash.com/"*/}
+                                {/*   title="Beautiful Free Images">*/}
+                                {/*    Unsplash*/}
+                                {/*</a>*/}
+                            </p>
                         </nav>
                     </div>
                 </nav>

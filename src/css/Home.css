@@ -1,11 +1,9 @@
-.box {
-    width: 150px;
-    height: 150px;
-    border: 2px solid red;
-}
+/*.box {*/
+/*    height: 150px;*/
+/*}*/
 
 img {
-    height: 60vh;
-    width: 80vw;
+    height: 30vh;
+    /*width: 80vw;*/
     object-fit: cover;
 }

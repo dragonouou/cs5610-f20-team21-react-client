@@ -129,7 +129,7 @@ class CartComponent extends React.Component{
                                 <a href="catalog.html" className="btn btn-primary mb-4 btn-lg pl-5 pr-5">Place Order</a>
                             </div>
                             <div className="col-sm-6 mb-3 mb-m-1 order-md-1 text-md-left">
-                                <a href="catalog.html">
+                                <a href="/">
                                     <i className="fa fa-arrow-left mr-2"></i> Continue Shopping</a>
                             </div>
                         </div>

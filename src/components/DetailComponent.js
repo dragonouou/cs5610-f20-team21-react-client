@@ -23,8 +23,8 @@ export class DetailComponent extends React.Component {
     // }
 
     state = {
-        recipe:'',
-        summary:''
+        recipe: '',
+        summary: ''
     }
 
     componentDidMount() {

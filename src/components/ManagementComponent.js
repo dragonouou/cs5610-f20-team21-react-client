@@ -49,55 +49,68 @@ class ManagementComponent extends React.Component {
                 <Route path="/search/:recipeId" component={DetailComponent} exact/>
                 <Route path="/" exact>
                     <HomeComponent
-                        userId={this.state.userId}/>
+                        userId={this.state.userId}
+                        userInfo={this.state.userInfo}/>
                 </Route>
                 <Route path="/search" exact>
                     <SearchComponent
-                        userId={this.state.userId}/>
+                        userId={this.state.userId}
+                        userInfo={this.state.userInfo}/>
                 </Route>
                 <Route path="/detail" exact>
                     <DetailComponent
-                        userId={this.state.userId}/>
+                        userId={this.state.userId}
+                        userInfo={this.state.userInfo}/>
                 </Route>
                 <Route path="/about" exact>
                     <AboutComponent
-                        userId={this.state.userId}/>
+                        userId={this.state.userId}
+                        userInfo={this.state.userInfo}/>
                 </Route>
                 <Route path="/policy" exact>
                     <PolicyComponent
-                        userId={this.state.userId}/>
+                        userId={this.state.userId}
+                        userInfo={this.state.userInfo}/>
                 </Route>
                 <Route path="/login" exact>
                     <LoginComponent
-                        userId={this.state.userId}/>
+                        userId={this.state.userId}
+                        userInfo={this.state.userInfo}/>
                 </Route>
                 <Route path="/register" exact>
                     <RegisterComponent
-                        userId={this.state.userId}/>
+                        userId={this.state.userId}
+                        userInfo={this.state.userInfo}/>
                 </Route>
                 <Route path="/profile" exact>
                     <ProfileBuyerComponent
-                        userId={this.state.userId}/>
+                        userId={this.state.userId}
+                        userInfo={this.state.userInfo}/>
                 </Route>
                 <Route path="/myprofile" exact>
                     <MyProfileComponent
-                        userId={this.state.userId}/>
+                        userId={this.state.userId}
+                        userInfo={this.state.userInfo}/>
                 </Route>
                 <Route path="/myinformation" exact>
                     <ProfileBuyerComponent
-                        userId={this.state.userId}/>
+                        userId={this.state.userId}
+                        userInfo={this.state.userInfo}/>
                 </Route>
                 <Route path="/myorders" exact>
                     <OrderDetailComponent
-                        userId={this.state.userId}/>
+                        userId={this.state.userId}
+                        userInfo={this.state.userInfo}/>
                 </Route>
                 <Route path="/myfavorites" exact>
                     <AccountFavoriteComponent
-                        userId={this.state.userId}/>
+                        userId={this.state.userId}
+                        userInfo={this.state.userInfo}/>
                 </Route>
                 <Route path="/cart" exact>
                     <CartComponent
-                        userId={this.state.userId}/>
+                        userId={this.state.userId}
+                        userInfo={this.state.userInfo}/>
                 </Route>
             </BrowserRouter>
         )

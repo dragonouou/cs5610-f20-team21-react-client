@@ -9,9 +9,9 @@ class MyProfileComponent extends React.Component{
                 <div className="row py-5 px-4">
                     <div className="col-xl-4 col-md-6 col-sm-10 mx-auto">
                         <div>
-                            <Link to='/'>
+                            <Link to='/profile'>
                                 <i className="fa fa-chevron-left mr-2"></i>
-                                Home
+                                Back
                             </Link>
                         </div>
                         <div className="bg-white shadow rounded overflow-hidden">

@@ -66,7 +66,7 @@ class AccountFavoriteComponent extends React.Component{
                                 <li className="">
                                     <Link to='/'>
                                         <i className="fa fa-sign-out logout-icon" aria-hidden="true"></i>
-                                        Log out
+                                        Logout
                                     </Link>
                                 </li>
                             </ul>

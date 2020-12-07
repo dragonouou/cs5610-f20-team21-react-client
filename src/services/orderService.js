@@ -1,16 +1,20 @@
-const orderUrl = "http://localhost:8080/api/orders"
+const url = "http://localhost:8080.com/api"
 
-const findAllOrder = () =>
-    fetch(orderUrl)
+export const findAllOrders = () =>
+    fetch(`${url}/orders`)
         .then(response => response.json())
 
-const createOrder = (userid,order) =>
-    fetch(`${orderUrl}/${userid}/orders`,{
-        method: "POST",
-        body: JSON.stringify(order),
-        headers: {
-            "content-type": "application/json"
+export const createOrder = (newOrder) =>
+    fetch(`${url}/orders`,{
+        method:"POST",
+        body:JSON.stringify(newOrder),
+        headers:{
+            'content-type': 'application/json'
         }
-    }).then(response => response.json())
+    })
+        .then(response => response.json())
 
+export default {
+    findAllOrders, createOrder
+}
 

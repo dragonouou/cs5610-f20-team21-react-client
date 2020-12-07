@@ -84,7 +84,6 @@ export class SearchComponent extends React.Component {
                                 </div>
                             )
                         }
-
                     </div>
                 </div>
             </div>

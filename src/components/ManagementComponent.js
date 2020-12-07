@@ -82,11 +82,6 @@ class ManagementComponent extends React.Component {
                         userId={this.state.userId}
                         userInfo={this.state.userInfo}/>
                 </Route>
-                <Route path="/profile" exact>
-                    <ProfileComponent
-                        userId={this.state.userId}
-                        userInfo={this.state.userInfo}/>
-                </Route>
                 <Route path="/profile/:userId" exact>
                     <UserProfileCardComponent
                         userId={this.state.userId}

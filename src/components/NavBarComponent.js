@@ -39,13 +39,13 @@ export class NavBarComponent extends React.Component {
 
                         <nav className="nav-footer">
                             <p className="nav-footer-social-buttons">
-                                <a className="fa-icon" href="" title="" style={{marginLeft: "8px"}}>
+                                <a className="fa-icon" href="/profile" title="" style={{marginLeft: "8px"}}>
                                     <i className="fa fa-2x fa-user-circle-o" aria-hidden="true"></i>
                                 </a>
                             </p>
                             <div>
                                 Hello USERNAME!
-                                <a className="fa-icon" href="" title="">
+                                <a className="fa-icon" href="/cart" title="">
                                     <i className="fa fa-shopping-cart" aria-hidden="true"></i>
                                 </a>
                             </div>

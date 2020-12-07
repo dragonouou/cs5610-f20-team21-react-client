@@ -1,10 +1,11 @@
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import "bootstrap/dist/css/bootstrap.css";
-import "font-awesome/css/font-awesome.css"
+import "font-awesome/css/font-awesome.css";
 import TestComponent from "./components/TestComponent";
 import {SearchResultComponent} from "./components/SearchResultComponent";
 import {HomeComponent} from "./components/HomeComponent";
@@ -18,36 +19,13 @@ import {LoginComponent} from "./components/LoginComponent";
 import {RegisterComponent} from "./components/RegisterComponent";
 import MyProfileComponent from "./components/MyProfileComponent";
 import ProfileBuyerComponent from "./components/ProfileBuyerComponent";
-
+import OrderDetailComponent from "./components/OrderDetailComponent";
+import AccountFavoriteComponent from "./components/AccountFavoriteComponent";
+import CartComponent from "./components/CartComponent";
+import ManagementComponent from "./components/ManagementComponent";
 
 ReactDOM.render(
-    <BrowserRouter>
-        <Route path="/wiki" exact>
-            <WikiComponent/>
-        </Route>
-        <Route path="/search/:recipeId" component={DetailComponent} exact/>
-        <Route path="/" exact>
-            <ProfileBuyerComponent />
-        </Route>
-        <Route path="/search" exact>
-            <SearchComponent />
-        </Route>
-        <Route path="/detail" exact>
-            <DetailComponent />
-        </Route>
-        <Route path="/about" exact>
-            <AboutComponent />
-        </Route>
-        <Route path="/policy" exact>
-            <PolicyComponent />
-        </Route>
-        <Route path="/login" exact>
-            <LoginComponent />
-        </Route>
-        <Route path="/register" exact>
-            <RegisterComponent />
-        </Route>
-    </BrowserRouter>,
+    <ManagementComponent />,
     document.getElementById('root')
 );
 

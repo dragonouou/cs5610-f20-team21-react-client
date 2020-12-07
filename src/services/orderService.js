@@ -17,3 +17,7 @@ export const createOrder = (newOrder) =>
 export default {
     findAllOrders, createOrder
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 43678878bd6b221086ec933905be554ece7e4ec2

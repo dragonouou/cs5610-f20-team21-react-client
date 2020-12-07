@@ -25,7 +25,6 @@ export default class ProfileCardComponent extends React.Component {
                                         Favorites
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>

@@ -17,6 +17,8 @@ import WikiComponent from "./components/WikiComponent";
 import {LoginComponent} from "./components/LoginComponent";
 import {RegisterComponent} from "./components/RegisterComponent";
 import MyProfileComponent from "./components/MyProfileComponent";
+import ProfileBuyerComponent from "./components/ProfileBuyerComponent";
+
 
 ReactDOM.render(
     <BrowserRouter>
@@ -25,7 +27,7 @@ ReactDOM.render(
         </Route>
         <Route path="/search/:recipeId" component={DetailComponent} exact/>
         <Route path="/" exact>
-            <HomeComponent />
+            <ProfileBuyerComponent />
         </Route>
         <Route path="/search" exact>
             <SearchComponent />

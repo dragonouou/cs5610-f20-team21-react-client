@@ -21,53 +21,10 @@ import ProfileBuyerComponent from "./components/ProfileBuyerComponent";
 import OrderDetailComponent from "./components/OrderDetailComponent";
 import AccountFavoriteComponent from "./components/AccountFavoriteComponent";
 import CartComponent from "./components/CartComponent";
+import ManagementComponent from "./components/ManagementComponent";
 
 ReactDOM.render(
-    <BrowserRouter>
-        <Route path="/wiki" exact>
-            <WikiComponent/>
-        </Route>
-        <Route path="/search/:recipeId" component={DetailComponent} exact/>
-        <Route path="/" exact>
-            <HomeComponent />
-        </Route>
-        <Route path="/search" exact>
-            <SearchComponent />
-        </Route>
-        <Route path="/detail" exact>
-            <DetailComponent />
-        </Route>
-        <Route path="/about" exact>
-            <AboutComponent />
-        </Route>
-        <Route path="/policy" exact>
-            <PolicyComponent />
-        </Route>
-        <Route path="/login" exact>
-            <LoginComponent />
-        </Route>
-        <Route path="/register" exact>
-            <RegisterComponent />
-        </Route>
-        <Route path="/profile" exact>
-            <ProfileBuyerComponent />
-        </Route>
-        <Route path="/myprofile" exact>
-            <MyProfileComponent />
-        </Route>
-        <Route path="/myinformation" exact>
-            <ProfileBuyerComponent />
-        </Route>
-        <Route path="/myorders" exact>
-            <OrderDetailComponent />
-        </Route>
-        <Route path="/myfavorites" exact>
-            <AccountFavoriteComponent />
-        </Route>
-        <Route path="/cart" exact>
-            <CartComponent />
-        </Route>
-    </BrowserRouter>,
+    <ManagementComponent />,
     document.getElementById('root')
 );
 

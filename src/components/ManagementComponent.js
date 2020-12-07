@@ -7,8 +7,8 @@ import {AboutComponent} from "./AboutComponent";
 import {PolicyComponent} from "./PolicyComponent";
 import {LoginComponent} from "./LoginComponent";
 import {RegisterComponent} from "./RegisterComponent";
-import ProfileBuyerComponent from "./ProfileBuyerComponent";
-import MyProfileComponent from "./MyProfileComponent";
+import ProfileComponent from "./ProfileComponent";
+import UserProfileCardComponent from "./UserProfileCardComponent";
 import OrderDetailComponent from "./OrderDetailComponent";
 import AccountFavoriteComponent from "./AccountFavoriteComponent";
 import CartComponent from "./CartComponent";
@@ -83,26 +83,26 @@ class ManagementComponent extends React.Component {
                         userInfo={this.state.userInfo}/>
                 </Route>
                 <Route path="/profile" exact>
-                    <ProfileBuyerComponent
+                    <ProfileComponent
                         userId={this.state.userId}
                         userInfo={this.state.userInfo}/>
                 </Route>
-                <Route path="/myprofile" exact>
-                    <MyProfileComponent
+                <Route path="/profile/:userId" exact>
+                    <UserProfileCardComponent
                         userId={this.state.userId}
                         userInfo={this.state.userInfo}/>
                 </Route>
-                <Route path="/myinformation" exact>
-                    <ProfileBuyerComponent
+                <Route path="/profile" exact>
+                    <ProfileComponent
                         userId={this.state.userId}
                         userInfo={this.state.userInfo}/>
                 </Route>
-                <Route path="/myorders" exact>
+                <Route path="/orders" exact>
                     <OrderDetailComponent
                         userId={this.state.userId}
                         userInfo={this.state.userInfo}/>
                 </Route>
-                <Route path="/myfavorites" exact>
+                <Route path="/favorites" exact>
                     <AccountFavoriteComponent
                         userId={this.state.userId}
                         userInfo={this.state.userInfo}/>

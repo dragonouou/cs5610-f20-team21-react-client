@@ -21,29 +21,22 @@ class OrderDetailComponent extends React.Component{
                             <h1 className="title">My Account</h1>
                             <ul className="" >
                                 <li className="">
-                                    <Link to='/myprofile'>
-                                        <i className="fa fa-smile-o follow-icon" aria-hidden="true"></i>
-                                        My Profile
-                                    </Link>
-
-                                </li>
-                                <li className="">
-                                    <Link to='/myinformation'>
+                                    <Link to='/profile'>
                                         <i className="fa fa-id-card profile-icon" aria-hidden="true"></i>
                                         My Information
                                     </Link>
                                 </li>
                                 <li className="">
-                                    <Link to='/myorders'><i className="fa fa-shopping-bag order-icon" aria-hidden="true"></i> My Order</Link>
+                                    <Link to='/orders'><i className="fa fa-shopping-bag order-icon" aria-hidden="true"></i> My Order</Link>
                                 </li>
                                 <li className="">
-                                    <Link to='/myfavorites'>
+                                    <Link to='/favorites'>
                                         <i className="fa fa-heart-o favorite-icon" aria-hidden="true"></i>
                                         My Favorites
                                     </Link>
                                 </li>
                                 <li className="">
-                                    <Link to='/myfavorites'>
+                                    <Link to='/favorites'>
                                         <i className="fa fa-user favorite-icon" aria-hidden="true"></i>
                                         My Following
                                     </Link>

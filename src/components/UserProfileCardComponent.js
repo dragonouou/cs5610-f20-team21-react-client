@@ -1,8 +1,8 @@
 import React from "react";
-import "./MyProfileComponent.css"
+import "./UserProfileCardComponent.css"
 import {Link} from "react-router-dom";
 
-class MyProfileComponent extends React.Component{
+class UserProfileCardComponent extends React.Component{
     render() {
         return (
             <div className="myprofile-body">
@@ -101,4 +101,4 @@ class MyProfileComponent extends React.Component{
         )
     }
 }
-export default MyProfileComponent;
+export default UserProfileCardComponent;

@@ -13,21 +13,40 @@ export class RegisterComponent extends React.Component {
                 <div className="hero-full-wrapper col-10" style={{paddingRight: "5vw", marginTop: "1vh"}}>
                     <h1 style={{marginBottom: "50px"}}>Register</h1>
                     <div className="line">
-                        <label htmlFor="name">Name</label>
-                        <input type="text" placeholder="name"/>
+                        <label htmlFor="username">UserName</label>
+                        <input id="username" type="text" placeholder="username"/>
+                    </div>
+                    <div className="line">
+                        <label htmlFor="firstname">First Name</label>
+                        <input id="firstname" type="text" placeholder="firstname"/>
+                    </div>
+                    <div className="line">
+                        <label htmlFor="lastname">Last Name</label>
+                        <input id="lastname" type="text" placeholder="lastname"/>
                     </div>
                     <div className="line">
                         <label htmlFor="email" style={{width: "80px"}}>Email</label>
-                        <input type="email" placeholder="abc@example.com"/>
+                        <input id="email" type="email" placeholder="abc@example.com"/>
                     </div>
                     <div className="line">
                         <label htmlFor="pw">Password</label>
                         <input type="text" id="pw" placeholder="password"/>
                     </div>
+
+                    <div className="line">
+                        <label htmlFor="phonenumber">PhoneNumber</label>
+                        <input id="phonenumber" type="number" placeholder="000-000-0000"/>
+                    </div>
+
+                    <div className="line">
+                        <label htmlFor="address">Address</label>
+                        <input id="address" type="text" placeholder="Your address"/>
+                    </div>
+
                     <div className="line">
                         <label htmlFor="role">Role</label>
                         <select type="text" id="role" placeholder="password" style={{width: "180px"}}>
-                            <option value="buyer">Buyer</option>
+                            <option value="buyer">Customer</option>
                             <option value="chef">Chef</option>
                         </select>
                     </div>

@@ -15,4 +15,6 @@ export const findRecipeById = (recipeId) =>
     fetch(`${url}/${recipeId}/information?${apiKey}`)
         .then(response => response.json())
 
-
+export const findRecipeForUser = (userId) =>
+    fetch(`${url}/users/${userId}/recipes`)
+        .then(response => response.json())

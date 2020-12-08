@@ -1,7 +1,7 @@
 import React from "react";
 import "./AccountFavoriteComponent.css"
 import {Link} from "react-router-dom";
-import OrderDetailComponent from "./OrderDetailComponent";
+import OrderHistoryComponent from "./OrderHistoryComponent";
 
 
 
@@ -67,6 +67,20 @@ class AccountFavoriteComponent extends React.Component{
 
                         <div className="col-8 favorite-content">
                             <h1>favorite recipe</h1>
+                            <ul className="list-group" >
+                                code for recipe detail
+                                {/*{*/}
+                                {/*    this.props.userInfo.favorites.map(recipe =>*/}
+                                {/*            <li className="list-group-item">*/}
+                                {/*                <Link to={`/recipes/${recipe._id}`}>*/}
+                                {/*                    <i className="fa fa-cube order-icon" aria-hidden="true"></i>*/}
+                                {/*                    {recipe.title}*/}
+                                {/*                </Link>*/}
+                                {/*            </li>*/}
+                                {/*    )*/}
+                                {/*}*/}
+                            </ul>
+
                         </div>
                     </div>
 

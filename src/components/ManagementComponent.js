@@ -9,11 +9,12 @@ import {LoginComponent} from "./LoginComponent";
 import {RegisterComponent} from "./RegisterComponent";
 import ProfileComponent from "./ProfileComponent";
 import UserProfileCardComponent from "./UserProfileCardComponent";
-import OrderDetailComponent from "./OrderDetailComponent";
+import OrderHistoryComponent from "./OrderHistoryComponent";
 import AccountFavoriteComponent from "./AccountFavoriteComponent";
 import CartComponent from "./CartComponent";
 import React from "react";
 import {findUserById, updateUser, createUser} from "../services/UserService"
+import OrderDetailComponent from "./OrderDetailComponent";
 
 class ManagementComponent extends React.Component {
 
@@ -82,11 +83,6 @@ class ManagementComponent extends React.Component {
                         userId={this.state.userId}
                         userInfo={this.state.userInfo}/>
                 </Route>
-                <Route path="/profile" exact>
-                    <ProfileComponent
-                        userId={this.state.userId}
-                        userInfo={this.state.userInfo}/>
-                </Route>
                 <Route path="/profile/:userId" exact>
                     <UserProfileCardComponent
                         userId={this.state.userId}
@@ -98,6 +94,11 @@ class ManagementComponent extends React.Component {
                         userInfo={this.state.userInfo}/>
                 </Route>
                 <Route path="/orders" exact>
+                    <OrderHistoryComponent
+                        userId={this.state.userId}
+                        userInfo={this.state.userInfo}/>
+                </Route>
+                <Route path="/orders/:orderId" exact>
                     <OrderDetailComponent
                         userId={this.state.userId}
                         userInfo={this.state.userInfo}/>

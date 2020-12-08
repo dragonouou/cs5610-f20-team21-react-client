@@ -2,24 +2,14 @@ import React from "react";
 import "./ProfileComponent.css"
 import {BrowserRouter, Redirect, Route} from "react-router-dom";
 import {Link} from "react-router-dom";
-import OrderDetailComponent from "./OrderDetailComponent";
+import OrderHistoryComponent from "./OrderHistoryComponent";
 import {NavBarComponent} from "./NavBarComponent";
 
 
 class ProfileComponent extends React.Component{
-    constructor(props, context) {
-        super(props, context);
-
-        this.state = {
-            open: true,
-        };
-    }
 
     render() {
-        const { open } = this.state;
         return (
-
-
             <div>
 
                 <div className="container" >
@@ -83,7 +73,7 @@ class ProfileComponent extends React.Component{
                                            type="text"
                                            id="usernameFld"
                                            placeholder="username"
-                                           value="teddyBear33" readOnly/>
+                                           value={this.props.userInfo.username} readOnly/>
                                 </div>
                             </div>
 
@@ -96,7 +86,7 @@ class ProfileComponent extends React.Component{
                                            type="text"
                                            id="firstFld"
                                            placeholder="firstname"
-                                           value="Teddy"/>
+                                           value={this.props.userInfo.firstname}/>
                                 </div>
                             </div>
 
@@ -109,7 +99,7 @@ class ProfileComponent extends React.Component{
                                            type="text"
                                            id="firstFld"
                                            placeholder="lastname"
-                                           value="Bear"/>
+                                           value={this.props.userInfo.lastname}/>
                                 </div>
                             </div>
 
@@ -122,7 +112,7 @@ class ProfileComponent extends React.Component{
                                            className="form-control"
                                            id="emailFld"
                                            placeholder="teddybear@kitcken.com"
-                                           value="teddybear@kitcken.com"/>
+                                           value={this.props.userInfo.email}/>
                                 </div>
                             </div>
 
@@ -131,11 +121,23 @@ class ProfileComponent extends React.Component{
                                     Phone
                                 </label>
                                 <div className="col-sm-10">
-                                    <input type="text"
+                                    <input type="number"
                                            className="form-control"
                                            id="phoneFld"
                                            placeholder="000-000-0000"
-                                           value="321-456-7777"/>
+                                           value={this.props.userInfo.phoneNumber}/>
+                                </div>
+                            </div>
+
+                            <div className="form-group">
+                                <label htmlFor="addressFld"className="col-sm-2 col-form-label">
+                                    Address
+                                </label>
+                                <div className="col-sm-10">
+                                    <input type="text"
+                                           className="form-control"
+                                           id="addressFld"
+                                           value={this.props.userInfo.address}/>
                                 </div>
                             </div>
 
@@ -148,84 +150,24 @@ class ProfileComponent extends React.Component{
                                            type="text"
                                            id="roleFld"
                                            placeholder="Role"
-                                           value="Client" readOnly/>
+                                           value={this.props.userInfo.role} readOnly/>
                                 </div>
                             </div>
 
-                            <div className="form-group">
-                                <label className="col-sm-2 col-form-label"></label>
-                                <div className="col-sm-10">
-                                    <button className="btn col-6 btn-light">
-                                        Cancel
-                                    </button>
+                            {/*<div className="form-group">*/}
+                            {/*    <label className="col-sm-2 col-form-label"></label>*/}
+                            {/*    <div className="col-sm-10">*/}
+                            {/*        <button className="btn col-6 btn-light">*/}
+                            {/*            Cancel*/}
+                            {/*        </button>*/}
 
-                                    <button href="" className="btn col-6 btn-info"
-                                       id="logoutBtn">
-                                        Save
-                                    </button>
-                                </div>
-                            </div>
+                            {/*        <button href="" className="btn col-6 btn-info"*/}
+                            {/*           id="logoutBtn">*/}
+                            {/*            Save*/}
+                            {/*        </button>*/}
+                            {/*    </div>*/}
+                            {/*</div>*/}
 
-                            <div className="form-group">
-                                <div className="col-sm-10">
-                                    <button
-                                        className="btn col-12 btn-info"
-                                        onClick={() => this.setState({ open: !open })}
-                                        aria-controls="example-collapse-text"
-                                        aria-expanded={open}>
-                                        <i className="fa fa-home home-icon" aria-hidden="true"></i>
-                                        Address
-                                    </button>
-                                </div>
-                                <collapse in={this.state.open}>
-                                    <div id="example-collapse-text">
-                                        <div>
-                                            <label htmlFor="addressFld"className="col-sm-2 col-form-label">
-                                                Address1
-                                            </label>
-                                            <div className="col-sm-10">
-                                                <input type="text"
-                                                       className="form-control"
-                                                       id="addressFld"
-                                                       value="6650 North Stree..."/>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <label htmlFor="addressFld"className="col-sm-2 col-form-label">
-                                                Address2
-                                            </label>
-                                            <div className="col-sm-10">
-                                                <input type="text"
-                                                       className="form-control"
-                                                       id="addressFld"
-                                                       value="#APT"/>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <label htmlFor="addressFld"className="col-sm-2 col-form-label">
-                                                Zip Code
-                                            </label>
-                                            <div className="col-sm-10">
-                                                <input type="text"
-                                                       className="form-control"
-                                                       id="addressFld"
-                                                       value="808080"/>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <label htmlFor="addressFld"className="col-sm-2 col-form-label">
-                                                City
-                                            </label>
-                                            <div className="col-sm-10">
-                                                <input type="text"
-                                                       className="form-control"
-                                                       id="addressFld"
-                                                       value="New York City"/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </collapse>
-                            </div>
                         </form>
                     </div>
 

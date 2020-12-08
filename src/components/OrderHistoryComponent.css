@@ -1,0 +1,78 @@
+*{
+    /*list-style: none;*/
+}
+
+.wrapper .sidebar{
+    /*position: fixed;*/
+    /*width: 200px;*/
+    /*height: 100%;*/
+    background:#F4F6F6;
+    padding: 30px 0;
+}
+
+.wrapper .sidebar .title{
+    color: grey;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.wrapper .sidebar ul li{
+    padding: 15px;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    border-top: 1px solid rgba(225,225,225,0.05);
+}
+
+.wrapper .sidebar ul li a{
+    color: #bdb8d7;
+    display: block;
+}
+
+.wrapper .sidebar ul li a .fa{
+    width: 25px;
+}
+
+.wrapper .sidebar ul li:hover{
+    background: #D1F2EB;
+}
+
+.wrapper .sidebar ul li:hover a{
+    color: #fff;
+}
+
+.order-content{
+    margin-left: 100px;
+    padding-top: 55px;
+}
+.order-title{
+    color: grey;
+}
+.order-time{
+    color:#76D7C4 ;
+    font-weight: bold;
+}
+.order-number{
+
+}
+.recipe-name{
+    text-align: left;
+
+}
+
+.recipe-count{
+    text-align: right;
+}
+.recipe-price{
+    text-align: right;
+}
+.order-total{
+    text-align: right;
+    font-weight: bold;
+}
+.order-address{
+    text-align: left;
+    font-weight: bold;
+}
+.order-detail{
+    background: #F4F6F6;
+    padding:10px;
+}

@@ -1,8 +1,37 @@
 import React from "react";
 import "./UserProfileCardComponent.css"
 import {Link} from "react-router-dom";
+import {findRecipeForUser,findRecipeById} from "../services/recipeService";
+import {findUserById} from "../services/UserService";
+
 
 class UserProfileCardComponent extends React.Component{
+
+    state = {
+        // User Recipes
+        userRecipes: [],
+        profileUser:[]
+    }
+
+    //wait for :userid
+
+    // componentDidMount() {
+    //     const userId = this.props.match.params.userId
+    //     findRecipeForUser (userId)
+    //         .then(recipes => {
+    //             this.setState({
+    //                 userRecipes:recipes
+    //             })
+    //     })
+    //
+    //     findUserById(this.state.userId)
+    //         .then(user => {
+    //             this.setState({
+    //                 profileUser: user
+    //             })
+    //         })
+    // }
+
     render() {
         return (
             <div className="myprofile-body">
@@ -27,7 +56,7 @@ class UserProfileCardComponent extends React.Component{
                                     </div>
 
                                     <div className="media-body mb-5 col-7 text-white">
-                                        <h4 className="mt-0 mb-0">Adam Tarly</h4>
+                                        <h4 className="mt-0 mb-0">{this.props.userInfo.firstname} {this.props.userInfo.lastname}</h4>
                                         <p className="small mb-4">
                                             <i className="fa fa-map-marker mr-2"></i>
                                             San Farcisco
@@ -54,15 +83,15 @@ class UserProfileCardComponent extends React.Component{
                                 <div className="py-4">
                                     <h5 className="mb-3">About Me</h5>
                                     <div className="p-4 bg-light rounded shadow-sm">
-                                        <p className="font-italic mb-0">"Hey, I'm Chef Tarly."</p>
-                                        <ul className="list-inline small text-muted mt-3 mb-0">
-                                            <li className="list-inline-item"><i className="fa fa-comment-o mr-2"></i>
-                                                12 Comments
-                                            </li>
-                                            <li className="list-inline-item"><i className="fa fa-heart-o mr-2"></i>
-                                                200 Likes
-                                            </li>
-                                        </ul>
+                                        <p className="font-italic mb-0">{this.props.userInfo.aboutMe}</p>
+                                        {/*<ul className="list-inline small text-muted mt-3 mb-0">*/}
+                                        {/*    <li className="list-inline-item"><i className="fa fa-comment-o mr-2"></i>*/}
+                                        {/*        12 Comments*/}
+                                        {/*    </li>*/}
+                                        {/*    <li className="list-inline-item"><i className="fa fa-heart-o mr-2"></i>*/}
+                                        {/*        200 Likes*/}
+                                        {/*    </li>*/}
+                                        {/*</ul>*/}
                                     </div>
                                 </div>
 
@@ -70,6 +99,22 @@ class UserProfileCardComponent extends React.Component{
                                     <h5 className="mb-0">Recent Recipes</h5>
                                 </div>
                                 <div className="row">
+
+                                    {/*render img of recipes wait for userId*/}
+                                    {/*{*/}
+                                    {/*    this.state.userRecipes.map(recipe =>*/}
+                                    {/*        <img*/}
+                                    {/*            src={recipe.imgUrl}*/}
+                                    {/*            alt="" className="img-fluid rounded shadow-sm recipe-img"/>*/}
+                                    {/*    )*/}
+                                    {/*}*/}
+
+                                    <div className="col-lg-6 mb-2 pr-lg-1">
+                                        <img
+                                            src="https://cdn.sallysbakingaddiction.com/wp-content/uploads/2019/06/homemade-tiramisu-2.jpg"
+                                            alt="" className="img-fluid rounded shadow-sm recipe-img"/>
+                                    </div>
+
                                     <div className="col-lg-6 mb-2 pr-lg-1">
                                         <img
                                         src="https://cdn.sallysbakingaddiction.com/wp-content/uploads/2019/06/homemade-tiramisu-2.jpg"
@@ -91,8 +136,6 @@ class UserProfileCardComponent extends React.Component{
                                         alt="" className="img-fluid rounded shadow-sm recipe-img"/>
                                     </div>
                                 </div>
-
-
                             </div>
                         </div>
                     </div>

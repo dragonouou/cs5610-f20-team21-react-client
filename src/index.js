@@ -18,7 +18,7 @@ import {LoginComponent} from "./components/LoginComponent";
 import {RegisterComponent} from "./components/RegisterComponent";
 import UserProfileCardComponent from "./components/UserProfileCardComponent";
 import ProfileComponent from "./components/ProfileComponent";
-import OrderDetailComponent from "./components/OrderDetailComponent";
+import OrderHistoryComponent from "./components/OrderHistoryComponent";
 import AccountFavoriteComponent from "./components/AccountFavoriteComponent";
 import CartComponent from "./components/CartComponent";
 import ManagementComponent from "./components/ManagementComponent";

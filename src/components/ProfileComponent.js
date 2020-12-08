@@ -2,7 +2,7 @@ import React from "react";
 import "./ProfileComponent.css"
 import {BrowserRouter, Redirect, Route} from "react-router-dom";
 import {Link} from "react-router-dom";
-import OrderDetailComponent from "./OrderDetailComponent";
+import OrderHistoryComponent from "./OrderHistoryComponent";
 import {NavBarComponent} from "./NavBarComponent";
 
 
@@ -121,7 +121,7 @@ class ProfileComponent extends React.Component{
                                     Phone
                                 </label>
                                 <div className="col-sm-10">
-                                    <input type="text"
+                                    <input type="number"
                                            className="form-control"
                                            id="phoneFld"
                                            placeholder="000-000-0000"
@@ -131,7 +131,7 @@ class ProfileComponent extends React.Component{
 
                             <div className="form-group">
                                 <label htmlFor="addressFld"className="col-sm-2 col-form-label">
-                                    Address1
+                                    Address
                                 </label>
                                 <div className="col-sm-10">
                                     <input type="text"
@@ -154,19 +154,19 @@ class ProfileComponent extends React.Component{
                                 </div>
                             </div>
 
-                            <div className="form-group">
-                                <label className="col-sm-2 col-form-label"></label>
-                                <div className="col-sm-10">
-                                    <button className="btn col-6 btn-light">
-                                        Cancel
-                                    </button>
+                            {/*<div className="form-group">*/}
+                            {/*    <label className="col-sm-2 col-form-label"></label>*/}
+                            {/*    <div className="col-sm-10">*/}
+                            {/*        <button className="btn col-6 btn-light">*/}
+                            {/*            Cancel*/}
+                            {/*        </button>*/}
 
-                                    <button href="" className="btn col-6 btn-info"
-                                       id="logoutBtn">
-                                        Save
-                                    </button>
-                                </div>
-                            </div>
+                            {/*        <button href="" className="btn col-6 btn-info"*/}
+                            {/*           id="logoutBtn">*/}
+                            {/*            Save*/}
+                            {/*        </button>*/}
+                            {/*    </div>*/}
+                            {/*</div>*/}
 
                         </form>
                     </div>

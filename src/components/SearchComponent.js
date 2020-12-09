@@ -57,8 +57,6 @@ export class SearchComponent extends React.Component {
                 </div>
 
                 <div className="hero-full-wrapper col-10" style={{paddingLeft: "0px"}}>
-
-
                     <div className="grid row">
                         {/*<div className="gutter-sizer"></div>*/}
                         {/*<div className="grid-sizer"></div>*/}

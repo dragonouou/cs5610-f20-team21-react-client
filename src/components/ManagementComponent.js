@@ -13,7 +13,7 @@ import OrderHistoryComponent from "./OrderHistoryComponent";
 import AccountFavoriteComponent from "./AccountFavoriteComponent";
 import CartComponent from "./CartComponent";
 import React from "react";
-import {findUserById, updateUser, createUser} from "../services/UserService"
+import {findUserById, updateUser, createUser,register} from "../services/UserService"
 import OrderDetailComponent from "./OrderDetailComponent";
 
 class ManagementComponent extends React.Component {
@@ -24,7 +24,7 @@ class ManagementComponent extends React.Component {
 
     state = {
         // USER 1
-        userId: '5fc9cde5d839e57c51ef3b4c',
+        userId: '',
         // CHEF 1
         // userId: '5fc9dcf17ecf2884edd15894',
         userInfo: []
@@ -39,6 +39,25 @@ class ManagementComponent extends React.Component {
                     })
                 })
         }
+    }
+
+    register = () => {
+        const newUser = {
+            username: document.getElementById("username").value,
+            firstname: document.getElementById("firstname").value,
+            lastname: document.getElementById("lastname").value,
+            email: document.getElementById("email").value,
+            password: document.getElementById("pw").value,
+            phoneNumber: document.getElementById("phonenumber").value,
+            address: document.getElementById("address").value,
+            role: document.getElementById("role").value,
+        }
+        register(newUser)
+            .then(newUser => {
+                this.setState({userInfo:newUser,userId:newUser._id})
+                console.log(this.state.userId)
+                console.log(this.state.userInfo)
+            })
     }
 
     render() {
@@ -81,7 +100,8 @@ class ManagementComponent extends React.Component {
                 <Route path="/register" exact>
                     <RegisterComponent
                         userId={this.state.userId}
-                        userInfo={this.state.userInfo}/>
+                        userInfo={this.state.userInfo}
+                        register={this.register}/>
                 </Route>
                 <Route path="/profile/:userId" exact>
                     <UserProfileCardComponent

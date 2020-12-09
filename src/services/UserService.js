@@ -23,3 +23,14 @@ export const updateUser = (uid, newUser) =>
         }
     })
         .then(response => response.json())
+
+//createUser
+export const register = (user) =>
+    fetch(url,{
+        method:'POST',
+        body:JSON.stringify(user),
+        headers:{
+            'content-type':'application/json'
+        },
+        credentials:"include"
+    }).then(response => response.json())

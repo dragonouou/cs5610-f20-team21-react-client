@@ -8,6 +8,10 @@ import {NavBarComponent} from "./NavBarComponent";
 
 class ProfileComponent extends React.Component{
 
+    componentDidMount() {
+
+    }
+
     render() {
         return (
             <div>

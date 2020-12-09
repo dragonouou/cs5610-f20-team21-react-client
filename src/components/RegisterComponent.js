@@ -1,8 +1,11 @@
 import React from "react";
+import {Link} from "react-router-dom";
 import {NavBarComponent} from "./NavBarComponent";
 import '../css/form.css'
 
 export class RegisterComponent extends React.Component {
+
+
     render() {
         return (
             <div className="row">
@@ -51,7 +54,10 @@ export class RegisterComponent extends React.Component {
                         </select>
                     </div>
                     <div className="line">
-                        <button type="button" className="btn btn-success">Submit</button>
+                        <Link to="/profile">
+                        <button type="button" className="btn btn-success" onClick={this.props.register}>
+                            Submit
+                        </button></Link>
                     </div>
                 </div>
             </div>

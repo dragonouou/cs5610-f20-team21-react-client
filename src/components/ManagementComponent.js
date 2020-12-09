@@ -13,7 +13,7 @@ import OrderHistoryComponent from "./OrderHistoryComponent";
 import AccountFavoriteComponent from "./AccountFavoriteComponent";
 import CartComponent from "./CartComponent";
 import React from "react";
-import {findUserById, updateUser, createUser,register} from "../services/UserService"
+import {findUserById, updateUser, createUser, register, profile} from "../services/UserService"
 import OrderDetailComponent from "./OrderDetailComponent";
 
 class ManagementComponent extends React.Component {
@@ -27,18 +27,25 @@ class ManagementComponent extends React.Component {
         userId: '',
         // CHEF 1
         // userId: '5fc9dcf17ecf2884edd15894',
-        userInfo: []
+        userInfo: {}
     }
 
     componentDidMount() {
-        if (this.state.userId) {
-            findUserById(this.state.userId)
-                .then(user => {
-                    this.setState({
-                        userInfo: user
-                    })
-                })
-        }
+        // TO TEST THE GIVEN USER
+        // if (this.state.userId) {
+        //     findUserById(this.state.userId)
+        //         .then(user => {
+        //             this.setState({
+        //                 userInfo: user
+        //             })
+        //         })
+        // }
+
+        // TO FETCH THE USER FROM THE SESSION
+        profile()
+            .then(profile => this.setState({
+                userInfo: profile
+            }))
     }
 
     register = () => {

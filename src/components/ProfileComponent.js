@@ -4,13 +4,10 @@ import {BrowserRouter, Redirect, Route} from "react-router-dom";
 import {Link} from "react-router-dom";
 import OrderHistoryComponent from "./OrderHistoryComponent";
 import {NavBarComponent} from "./NavBarComponent";
+import {profile} from "../services/UserService";
 
 
 class ProfileComponent extends React.Component{
-
-    componentDidMount() {
-
-    }
 
     render() {
         return (

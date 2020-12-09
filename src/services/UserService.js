@@ -1,4 +1,5 @@
 const url = "http://localhost:8080/api/users"
+const base_url = "http://localhost:8080/api"
 
 export const findUserById = (uid) =>
     fetch(`${url}/${uid}`)
@@ -32,5 +33,12 @@ export const register = (user) =>
         headers:{
             'content-type':'application/json'
         },
+        credentials:"include"
+    }).then(response => response.json())
+
+
+export const profile = () =>
+    fetch(`${base_url}/profile`,{
+        method:'POST',
         credentials:"include"
     }).then(response => response.json())

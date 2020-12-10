@@ -40,5 +40,9 @@ export const register = (user) =>
 export const profile = () =>
     fetch(`${base_url}/profile`,{
         method:'POST',
+        body: JSON.stringify({}),
+        headers:{
+            'content-type':'application/json'
+        },
         credentials:"include"
     }).then(response => response.json())

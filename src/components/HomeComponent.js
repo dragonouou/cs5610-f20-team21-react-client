@@ -74,8 +74,10 @@ export class HomeComponent extends React.Component {
                                     <a href="/" className="project-description">
                                         <div className="project-text-holder">
                                             <div className="project-text-inner">
-                                                <h3>{recipe.title}</h3>
-                                                <p>Discover more</p>
+                                                <a href="/search/5fc9d695834555ac753d139e">
+                                                    <h3>{recipe.title}</h3>
+                                                    <p>Discover more</p>
+                                                </a>
                                             </div>
                                         </div>
                                     </a>

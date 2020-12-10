@@ -11,7 +11,7 @@ export class DetailComponent extends React.Component {
     state = {
         recipeId: '',
         summary: '',
-        recipe: {},
+        recipe: {review: []},
         chefId: '',
         chef: {},
         userId: "",
@@ -104,6 +104,13 @@ export class DetailComponent extends React.Component {
                                 favorite
                             </button>
                         </div>
+                    }
+
+                    <h2 style={{marginTop: "5vh", fontSize: "20px"}}>Comments</h2>
+                    {
+                        this.state.recipe.review.map(rev =>
+                            <p>{rev}</p>
+                        )
                     }
                 </div>
             </div>

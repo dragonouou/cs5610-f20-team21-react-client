@@ -66,19 +66,18 @@ class AccountFavoriteComponent extends React.Component{
                         </div>
 
                         <div className="col-8 favorite-content">
-                            <h1>favorite recipe</h1>
+                            <h1>Your favorite recipe</h1>
                             <ul className="list-group" >
-                                code for recipe detail
-                                {/*{*/}
-                                {/*    this.props.userInfo.favorites.map(recipe =>*/}
-                                {/*            <li className="list-group-item">*/}
-                                {/*                <Link to={`/recipes/${recipe._id}`}>*/}
-                                {/*                    <i className="fa fa-cube order-icon" aria-hidden="true"></i>*/}
-                                {/*                    {recipe.title}*/}
-                                {/*                </Link>*/}
-                                {/*            </li>*/}
-                                {/*    )*/}
-                                {/*}*/}
+                                {
+                                    this.props.userInfo.favorites.map(recipe =>
+                                            <li className="list-group-item">
+                                                <Link to={`/recipes/${recipe._id}`}>
+                                                    <i className="fa fa-cube order-icon" aria-hidden="true"></i>
+                                                    {recipe.title}
+                                                </Link>
+                                            </li>
+                                    )
+                                }
                             </ul>
 
                         </div>

@@ -48,6 +48,7 @@ class ManagementComponent extends React.Component {
         //             userInfo: profile
         //         })
         //     })
+
     }
 
     register = () => {

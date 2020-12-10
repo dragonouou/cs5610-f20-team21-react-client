@@ -1,4 +1,4 @@
-import {BrowserRouter, Route} from "react-router-dom";
+import {BrowserRouter, Router, Route} from "react-router-dom";
 import WikiComponent from "./WikiComponent";
 import {DetailComponent} from "./DetailComponent";
 import {HomeComponent} from "./HomeComponent";
@@ -13,8 +13,9 @@ import OrderHistoryComponent from "./OrderHistoryComponent";
 import AccountFavoriteComponent from "./AccountFavoriteComponent";
 import CartComponent from "./CartComponent";
 import React from "react";
-import {findUserById, updateUser, createUser, register, profile} from "../services/UserService"
+import {findUserById, updateUser, createUser, register, profile, login} from "../services/UserService"
 import OrderDetailComponent from "./OrderDetailComponent";
+import history from "./history";
 
 class ManagementComponent extends React.Component {
 
@@ -32,22 +33,23 @@ class ManagementComponent extends React.Component {
 
     componentDidMount() {
         // TO TEST THE GIVEN USER
-        if (this.state.userId) {
-            findUserById(this.state.userId)
-                .then(user => {
-                    this.setState({
-                        userInfo: user
-                    })
-                })
-        }
+        // if (this.state.userId) {
+        //     findUserById(this.state.userId)
+        //         .then(user => {
+        //             this.setState({
+        //                 userInfo: user
+        //             })
+        //         })
+        // }
 
         // TO FETCH THE USER FROM THE SESSION
-        // profile()
-        //     .then(profile => {
-        //         this.setState({
-        //             userInfo: profile
-        //         })
-        //     })
+        profile()
+            .then(profile => {
+                this.setState({
+                    userInfo: profile
+                })
+            })
+
     }
 
     register = () => {
@@ -69,9 +71,24 @@ class ManagementComponent extends React.Component {
             })
     }
 
+    login = () => {
+        const user = {
+            email: document.getElementById("login-email").value,
+            password: document.getElementById("pw").value
+        }
+        login(user)
+            .then(currentUser => {
+                if (currentUser.length != 0) {
+                    this.setState({userInfo:currentUser[0],userId:currentUser[0]._id})
+                    history.push("/profile")
+                }
+            })
+    }
+
     render() {
         return (
             <BrowserRouter>
+                <Router history={history}>
                 <Route path="/wiki" exact>
                     <WikiComponent/>
                 </Route>
@@ -109,7 +126,8 @@ class ManagementComponent extends React.Component {
                 <Route path="/login" exact>
                     <LoginComponent
                         userId={this.state.userId}
-                        userInfo={this.state.userInfo}/>
+                        userInfo={this.state.userInfo}
+                        login={this.login}/>
                 </Route>
                 <Route path="/register" exact>
                     <RegisterComponent
@@ -147,6 +165,7 @@ class ManagementComponent extends React.Component {
                         userId={this.state.userId}
                         userInfo={this.state.userInfo}/>
                 </Route>
+                </Router>
             </BrowserRouter>
         )
     }

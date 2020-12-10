@@ -46,3 +46,13 @@ export const profile = () =>
         },
         credentials:"include"
     }).then(response => response.json())
+
+export const login = (user) =>
+    fetch(`${base_url}/login`,{
+        method: 'POST',
+        body: JSON.stringify(user),
+        headers: {
+            'content-type': 'application/json'
+        },
+        credentials:"include"
+    }).then(response => response.json())

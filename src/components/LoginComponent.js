@@ -3,6 +3,7 @@ import {NavBarComponent} from "./NavBarComponent";
 import '../css/form.css'
 
 export class LoginComponent extends React.Component {
+
     render() {
         return (
             <div className="row">
@@ -14,14 +15,14 @@ export class LoginComponent extends React.Component {
                     <h1 style={{marginBottom: "50px"}}>Login</h1>
                     <div className="line">
                         <label htmlFor="email" style={{width: "80px"}}>Email</label>
-                        <input type="email" placeholder="abc@example.com"/>
+                        <input id="login-email" type="email" placeholder="abc@example.com"/>
                     </div>
                     <div className="line">
                         <label htmlFor="pw">Password</label>
                         <input type="text" id="pw" placeholder="password"/>
                     </div>
                     <div className="line">
-                        <button type="button" className="btn btn-success">Login</button>
+                        <button type="button" className="btn btn-success" onClick={this.props.login}>Login</button>
                     </div>
                 </div>
             </div>

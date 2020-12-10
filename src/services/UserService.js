@@ -5,6 +5,10 @@ export const findUserById = (uid) =>
     fetch(`${url}/${uid}/details`)
         .then(response => response.json())
 
+export const findUserByIdSimple = (uid) =>
+    fetch(`${url}/${uid}`)
+        .then(response => response.json())
+
 export const createUser = (newUser) =>
     fetch(url, {
         method: 'POST',

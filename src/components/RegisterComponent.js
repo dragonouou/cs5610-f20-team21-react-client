@@ -10,7 +10,9 @@ export class RegisterComponent extends React.Component {
         return (
             <div className="row">
                 <div className="col-2">
-                    <NavBarComponent />
+                    <NavBarComponent
+                        userId={this.props.userId}
+                        user={this.props.userInfo}/>
                 </div>
 
                 <div className="hero-full-wrapper col-10" style={{paddingRight: "5vw", marginTop: "1vh"}}>
@@ -49,7 +51,7 @@ export class RegisterComponent extends React.Component {
                     <div className="line">
                         <label htmlFor="role">Role</label>
                         <select type="text" id="role" placeholder="password" style={{width: "180px"}}>
-                            <option value="buyer">Customer</option>
+                            <option value="customer">Customer</option>
                             <option value="chef">Chef</option>
                         </select>
                     </div>

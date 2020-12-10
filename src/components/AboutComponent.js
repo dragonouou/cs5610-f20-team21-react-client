@@ -7,7 +7,9 @@ export class AboutComponent extends React.Component {
             <div className="row">
                 <div className="col-2">
                     <NavBarComponent
-                        page="about"/>
+                        page="about"
+                        userId={this.props.userId}
+                        user={this.props.userInfo}/>
                 </div>
 
                 <div className="hero-full-wrapper col-10" style={{paddingRight: "5vw", marginTop: "1vh"}}>

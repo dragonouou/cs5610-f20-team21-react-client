@@ -1,8 +1,14 @@
-const url = "http://localhost:8080/api/users"
-const base_url = "http://localhost:8080/api"
+// const url = "http://localhost:8080/api/users"
+// const base_url = "http://localhost:8080/api"
+const url = "https://homekitchenserver.herokuapp.com/api/users"
+const base_url = "https://homekitchenserver.herokuapp.com/api"
 
 export const findUserById = (uid) =>
     fetch(`${url}/${uid}/details`)
+        .then(response => response.json())
+
+export const findUserByIdSimple = (uid) =>
+    fetch(`${url}/${uid}`)
         .then(response => response.json())
 
 export const createUser = (newUser) =>

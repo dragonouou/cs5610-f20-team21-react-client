@@ -6,7 +6,10 @@ export class PolicyComponent extends React.Component {
         return (
             <div className="row">
                 <div className="col-2">
-                    <NavBarComponent page="policy"/>
+                    <NavBarComponent
+                        page="policy"
+                        userId={this.props.userId}
+                        user={this.props.userInfo}/>
                 </div>
 
                 <div className="hero-full-wrapper col-10" style={{paddingRight: "5vw", marginTop: "1vh"}}>

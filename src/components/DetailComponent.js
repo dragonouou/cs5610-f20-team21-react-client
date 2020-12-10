@@ -4,7 +4,7 @@ import {NavBarComponent} from "./NavBarComponent";
 // import {findRecipeById, findSummaryById} from "../services/recipeService";
 import { Markup } from 'interweave';
 import {findRecipeById} from "../services/recipeDatabaseService";
-import {findUserById, findUserByIdSimple, updateUser} from "../services/UserService";
+import {findUserById, findUserByIdSimple, profile, updateUser} from "../services/UserService";
 
 export class DetailComponent extends React.Component {
 
@@ -12,8 +12,9 @@ export class DetailComponent extends React.Component {
         recipeId: '',
         summary: '',
         recipe: {},
+        chefId: '',
         chef: {},
-        userId: "5fc9cde5d839e57c51ef3b4c",
+        userId: "",
         userInfo: {favorites: []}
     }
 
@@ -28,15 +29,31 @@ export class DetailComponent extends React.Component {
         findRecipeById(recipeId)
             .then(recipe => {this.setState({recipe:recipe})})
 
-        findUserByIdSimple(this.state.userId)
-            .then(user => {this.setState({userInfo : user})})
+        profile()
+            .then(profile => {
+                // console.log(profile)
+                // this.setState({
+                //     userId: profile[0]._id
+                // })
+                // console.log(profile)
+                this.setState({userInfo:profile[0]})
+                // findUserByIdSimple(profile[0].userId)
+                //     .then(user => {
+                //         console.log(user)
+                //         // this.setState({userInfo : user})}
+                //     })
+            })
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        // if (this.state.recipe) {
-        //     findUserById(this.state.recipe.chefId)
-        //         .then(chef => this.setState({chef: chef}))
-        // }
+        // findUserById(this.state.recipe.chefId)
+        //     .then(chef => this.setState({chef: chef}))
+        // console.log(this.state.userInfo)
+        // findUserByIdSimple(this.state.userId)
+        //     .then(user => {
+        //         console.log(user)
+        //         // this.setState({userInfo : user})}
+        //     })
     }
 
     favorite = (recipeId) => {
@@ -48,8 +65,8 @@ export class DetailComponent extends React.Component {
                 recipeId
             ]
         }
-        updateUser(this.state.userId, newUser)
-            .then(newUser => {
+        updateUser(this.state.userInfo._id, newUser)
+            .then(status => {
                 this.setState({userInfo : newUser})
             })
     }
@@ -58,9 +75,11 @@ export class DetailComponent extends React.Component {
         return (
             <div className="row">
                 <div className="col-2">
-                    <NavBarComponent />
+                    <NavBarComponent
+                        userId={this.props.userId}
+                        user={this.props.userInfo}/>
                 </div>
-
+                {/*{console.log(this.state.userInfo)}*/}
                 <div className="hero-full-wrapper col-10" style={{paddingRight: "5vw", marginTop: "1vh"}}>
                     <h2>{this.state.recipe.title}</h2>
                     <img src={this.state.recipe.img} alt=""/>
@@ -74,13 +93,18 @@ export class DetailComponent extends React.Component {
                     </div>
 
                     <br style={{marginTop: "5vh"}}/>
-                    <button className="btn btn-success">
-                        Add to cart
-                    </button>
-                    <br/>
-                    <button style={{marginTop: "1vh"}} className="btn btn-info" onClick={() => this.favorite(this.state.recipeId)}>
-                        favorite
-                    </button>
+                    {
+                        this.state.userId !== "" &&
+                        <div>
+                            <button className="btn btn-success">
+                                Add to cart
+                            </button>
+                            <br/>
+                            <button style={{marginTop: "1vh"}} className="btn btn-info" onClick={() => this.favorite(this.state.recipeId)}>
+                                favorite
+                            </button>
+                        </div>
+                    }
                 </div>
             </div>
 

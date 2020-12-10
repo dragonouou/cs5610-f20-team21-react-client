@@ -74,13 +74,17 @@ export class HomeComponent extends React.Component {
             <div className="row">
                 <div className="col-2">
                     <NavBarComponent
-                        page="home"/>
+                        page="home"
+                        userId={this.props.userId}
+                        user={this.props.userInfo}/>
                 </div>
                 <div className="hero-full-wrapper col-10" style={{marginTop: "25px"}}>
                     <div className="grid row">
                         {/*<div className="gutter-sizer"></div>*/}
                         {/*<div className="grid-sizer"></div>*/}
+                        {
 
+                        }
                         {
                             this.state.recipes.map(recipe =>
                                 <div className="grid-item col-4">

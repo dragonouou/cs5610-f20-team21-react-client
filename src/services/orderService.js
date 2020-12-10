@@ -1,4 +1,5 @@
-const url = "http://localhost:8080.com/api"
+// const url = "http://localhost:8080.com/api"
+const url = "https://homekitchenserver.herokuapp.com/api"
 
 export const findAllOrders = () =>
     fetch(`${url}/orders`)

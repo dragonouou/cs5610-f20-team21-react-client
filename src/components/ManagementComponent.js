@@ -32,22 +32,22 @@ class ManagementComponent extends React.Component {
 
     componentDidMount() {
         // TO TEST THE GIVEN USER
-        // if (this.state.userId) {
-        //     findUserById(this.state.userId)
-        //         .then(user => {
-        //             this.setState({
-        //                 userInfo: user
-        //             })
-        //         })
-        // }
+        if (this.state.userId) {
+            findUserById(this.state.userId)
+                .then(user => {
+                    this.setState({
+                        userInfo: user
+                    })
+                })
+        }
 
         // TO FETCH THE USER FROM THE SESSION
-        profile()
-            .then(profile => {
-                this.setState({
-                    userInfo: profile
-                })
-            })
+        // profile()
+        //     .then(profile => {
+        //         this.setState({
+        //             userInfo: profile
+        //         })
+        //     })
     }
 
     register = () => {
@@ -69,10 +69,6 @@ class ManagementComponent extends React.Component {
             })
     }
 
-    favorite = () => {
-
-    }
-
     render() {
         return (
             <BrowserRouter>
@@ -90,6 +86,10 @@ class ManagementComponent extends React.Component {
                         userId={this.state.userId}
                         userInfo={this.state.userInfo}/>
                 </Route>
+                <Route path="/detail/:recipeId"
+                       component={DetailComponent}
+                       favorite={this.favorite}
+                       exact/>
                 {/*<Route path="/detail/:recipeId" exact>*/}
                 {/*    <DetailComponent*/}
                 {/*        userId={this.state.userId}*/}

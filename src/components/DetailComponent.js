@@ -4,7 +4,7 @@ import {NavBarComponent} from "./NavBarComponent";
 // import {findRecipeById, findSummaryById} from "../services/recipeService";
 import { Markup } from 'interweave';
 import {findRecipeById} from "../services/recipeDatabaseService";
-import {findUserById} from "../services/UserService";
+import {findUserById, updateUser} from "../services/UserService";
 
 export class DetailComponent extends React.Component {
 
@@ -33,6 +33,7 @@ export class DetailComponent extends React.Component {
 
     componentDidMount() {
         const recipeId = this.props.match.params.recipeId
+
         // findSummaryById(recipeId)
         //     .then(recipe => this.setState({summary:recipe.summary}))
         // findRecipeById(recipeId)
@@ -49,6 +50,8 @@ export class DetailComponent extends React.Component {
         }
     }
 
+    favorite = () => {
+    }
 
     render() {
         return (
@@ -74,7 +77,7 @@ export class DetailComponent extends React.Component {
                         Add to cart
                     </button>
                     <br/>
-                    <button style={{marginTop: "1vh"}} className="btn btn-info">
+                    <button style={{marginTop: "1vh"}} className="btn btn-info" onClick={this.props.favorite}>
                         favorite
                     </button>
                 </div>

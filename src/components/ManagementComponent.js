@@ -35,9 +35,7 @@ class ManagementComponent extends React.Component {
         if (this.state.userId) {
             findUserById(this.state.userId)
                 .then(user => {
-                    console.log(user)
                     this.setState({
-                        userId: '5fc9cde5d839e57c51ef3b4c',
                         userInfo: user
                     })
                 })
@@ -45,9 +43,12 @@ class ManagementComponent extends React.Component {
 
         // TO FETCH THE USER FROM THE SESSION
         // profile()
-        //     .then(profile => this.setState({
-        //         userInfo: profile
-        //     }))
+        //     .then(profile => {
+        //         this.setState({
+        //             userInfo: profile
+        //         })
+        //     })
+
     }
 
     register = () => {
@@ -86,11 +87,16 @@ class ManagementComponent extends React.Component {
                         userId={this.state.userId}
                         userInfo={this.state.userInfo}/>
                 </Route>
-                <Route path="/detail" exact>
-                    <DetailComponent
-                        userId={this.state.userId}
-                        userInfo={this.state.userInfo}/>
-                </Route>
+                <Route path="/detail/:recipeId"
+                       component={DetailComponent}
+                       favorite={this.favorite}
+                       exact/>
+                {/*<Route path="/detail/:recipeId" exact>*/}
+                {/*    <DetailComponent*/}
+                {/*        userId={this.state.userId}*/}
+                {/*        userInfo={this.state.userInfo}*/}
+                {/*        favorite={this.favorite}/>*/}
+                {/*</Route>*/}
                 <Route path="/about" exact>
                     <AboutComponent
                         userId={this.state.userId}

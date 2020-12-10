@@ -8,13 +8,13 @@ export class NavBarComponent extends React.Component {
                     <button type="button" className="navbar-toggle collapsed">
                         <span className="sr-only">Toggle navigation</span>
                     </button>
-                    <a href="./index.html" className="navbar-brand">Kitchen</a>
-                </div>
+                    <a href="/" className="navbar-brand">Kitchen</a>
+                </div> d
 
                 <nav className="sidebar">
                     <div className="navbar-collapse" id="navbar-collapse">
                         <div className="site-header hidden-xs">
-                            <a className="site-brand" href="/index.html" title="">
+                            <a className="site-brand" href="/" title="">
                                 <img className="img-responsive site-logo" src="../assets/images/mashup-logo.svg" alt=""/>
                                 Happy Kitchen
                             </a>

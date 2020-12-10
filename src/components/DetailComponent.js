@@ -1,8 +1,10 @@
 import React from "react";
 import "../css/Home.css";
 import {NavBarComponent} from "./NavBarComponent";
-import {findRecipeById, findSummaryById} from "../services/recipeService";
+// import {findRecipeById, findSummaryById} from "../services/recipeService";
 import { Markup } from 'interweave';
+import {findRecipeById} from "../services/recipeDatabaseService";
+import {findUserById, updateUser} from "../services/UserService";
 
 export class DetailComponent extends React.Component {
 
@@ -23,18 +25,33 @@ export class DetailComponent extends React.Component {
     // }
 
     state = {
-        recipe: '',
-        summary: ''
+        recipeId: '',
+        summary: '',
+        recipe: {},
+        chef: {}
     }
 
     componentDidMount() {
         const recipeId = this.props.match.params.recipeId
+
         // findSummaryById(recipeId)
         //     .then(recipe => this.setState({summary:recipe.summary}))
+        // findRecipeById(recipeId)
+        //     .then(recipe => this.setState({recipe:recipe}))
+
         findRecipeById(recipeId)
-            .then(recipe => this.setState({recipe:recipe}))
+            .then(recipe => {this.setState({recipe:recipe})})
     }
 
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if (this.state.recipe) {
+            findUserById(this.state.recipe.chefId)
+                .then(chef => this.setState({chef: chef}))
+        }
+    }
+
+    favorite = () => {
+    }
 
     render() {
         return (
@@ -45,11 +62,24 @@ export class DetailComponent extends React.Component {
 
                 <div className="hero-full-wrapper col-10" style={{paddingRight: "5vw", marginTop: "1vh"}}>
                     <h2>{this.state.recipe.title}</h2>
-                    <img src={this.state.recipe.image} alt=""/>
+                    <img src={this.state.recipe.img} alt=""/>
                     <h2 style={{marginTop: "5vh", fontSize: "20px"}}>Summary</h2>
                     <div>
                         <Markup content={this.state.recipe.summary}/>
                     </div>
+                    <h2 style={{marginTop: "5vh", fontSize: "20px"}}>Chef Information</h2>
+                    <div>
+                        <a href={"/profile/" + this.state.chef.username}>{this.state.chef.username}</a>
+                    </div>
+
+                    <br style={{marginTop: "5vh"}}/>
+                    <button className="btn btn-success">
+                        Add to cart
+                    </button>
+                    <br/>
+                    <button style={{marginTop: "1vh"}} className="btn btn-info" onClick={this.props.favorite}>
+                        favorite
+                    </button>
                 </div>
             </div>
 

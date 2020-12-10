@@ -1,4 +1,4 @@
-const url = "http://localhost:8080.com/api"
+const url = "http://localhost:8080/api"
 
 export const findAllRecipes = () =>
     fetch(`${url}/recipes`)

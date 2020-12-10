@@ -55,7 +55,7 @@ class OrderDetailComponent extends React.Component{
                             <h3 className="order-title">My Order History</h3>
                             <div>
                                 <ul className="list-group" >
-                                    code for order detail
+                                    {/*code for order detail*/}
                                     {/*{*/}
                                     {/*    this.props.userInfo.orders.map(order =>*/}
                                     {/*        <li className="list-group-item">*/}
@@ -66,212 +66,45 @@ class OrderDetailComponent extends React.Component{
                                     {/*        </li>*/}
                                     {/*    )*/}
                                     {/*}*/}
-                                    {/*{*/}
-                                    {/*    this.props.userInfo.orders.map(order =>*/}
-                                    {/*        <li className="list-group-item order-list-item">*/}
-                                    {/*            <div className="row">*/}
-                                    {/*                <Link to={`/orders/${order._id}`}>*/}
-                                    {/*                    <i className="fa fa-cube order-icon" aria-hidden="true"></i>*/}
-                                    {/*                    Order Number: {order._id}*/}
-                                    {/*                </Link>*/}
-                                    {/*            </div>*/}
 
-                                    {/*            <div className="order-detail">*/}
-                                    {/*                <ul className="list-group">*/}
-                                    {/*                    <li className="order-time">*/}
-                                    {/*                        Order Date: {order.date}*/}
-                                    {/*                    </li>*/}
-                                    {/*                    <li className="row">*/}
-                                    {/*                        {order.recipes.map(recipe =>*/}
-                                    {/*                            <div>*/}
-                                    {/*                                <div className="col-6 recipe-name">*/}
-                                    {/*                                    recipe.title*/}
-                                    {/*                                </div>*/}
-                                    {/*                                <div className="col-3 recipe-count">*/}
-                                    {/*                                    X 1*/}
-                                    {/*                                </div>*/}
-                                    {/*                            </div>*/}
-                                    {/*                        )}*/}
-                                    {/*                        <div className="col-8 order-address">*/}
-                                    {/*                            <div>Pick up information</div>*/}
-                                    {/*                            <p>1005 Main St APT123 </p>*/}
-                                    {/*                        </div>*/}
+                                    {
+                                        this.props.userInfo.orders.map(order =>
+                                            <li className="list-group-item order-list-item">
+                                                <div className="row">
+                                                    <Link to={`/orders/${order._id}`}>
+                                                        <i className="fa fa-cube order-icon" aria-hidden="true"></i>
+                                                        Order Number: {order._id}
+                                                    </Link>
+                                                </div>
 
-                                    {/*                    </li>*/}
-                                    {/*                </ul>*/}
-                                    {/*            </div>*/}
-                                    {/*        </li>*/}
-                                    {/*    )*/}
-                                    {/*}*/}
+                                                <div className="order-detail">
+                                                    <ul className="list-group">
+                                                        {/*<li className="order-time">*/}
+                                                        {/*    Order Date: {order.date}*/}
+                                                        {/*</li>*/}
+                                                        <li className="row">
+                                                            {order.recipes.map(recipe =>
+                                                                <div>
+                                                                    <div className="col-6 recipe-name">
+                                                                        {recipe.title}
+                                                                    </div>
+                                                                </div>
+                                                            )}
+                                                            <div className="col-3 recipe-count">
+                                                                X 1
+                                                            </div>
+                                                            <div className="col-8 order-address">
+                                                                <div>Pick up information</div>
+                                                                <p>1005 Main St APT123 </p>
+                                                            </div>
 
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                        )
+                                    }
 
-                                    <li className="list-group-item order-list-item">
-                                        <div className="row">
-                                            <div className="col-6">
-                                                <i className="fa fa-cube order-icon" aria-hidden="true"></i>
-                                                Order1
-                                            </div>
-                                            <div className="col-6 order-number">
-                                                Order Number:1120120012
-                                            </div>
-                                        </div>
-
-                                        <div className="order-detail">
-
-                                            <ul className="list-group">
-                                                <li className="order-time">
-                                                    11/27/2020 | 11:30am
-                                                </li>
-                                                <li className="row">
-                                                    <div className="col-6 recipe-name">
-                                                        Tomato Soup
-                                                    </div>
-                                                    <div className="col-3 recipe-count">
-                                                        X 1
-                                                    </div>
-
-                                                    <div className="col-6 recipe-name">
-                                                        Roast Duck
-                                                    </div>
-                                                    <div className="col-3 recipe-count">
-                                                        X 1
-                                                    </div>
-
-                                                    <div className="col-6 recipe-name">
-                                                        Bubble Tea
-                                                    </div>
-                                                    <div className="col-3 recipe-count">
-                                                        X 1
-                                                    </div>
-
-                                                    <div className="col-6 recipe-name">
-                                                        Mapo Tofu
-                                                    </div>
-                                                    <div className="col-3 recipe-count">
-                                                        X 1
-                                                    </div>
-
-
-                                                    <div className="col-8 order-address">
-                                                        <div>Pick up information</div>
-                                                        <p>1005 Main St APT123 </p>
-                                                    </div>
-
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </li>
-
-                                    <li className="list-group-item order-list-item">
-                                        <div className="row">
-                                            <div className="col-6">
-                                                <i className="fa fa-cube order-icon" aria-hidden="true"></i>
-                                                Order1
-                                            </div>
-                                            <div className="col-6 order-number">
-                                                Order Number:1120120012
-                                            </div>
-                                        </div>
-
-                                        <div className="order-detail">
-
-                                            <ul className="list-group">
-                                                <li className="order-time">
-                                                    11/27/2020 | 11:30am
-                                                </li>
-                                                <li className="row">
-                                                    <div className="col-6 recipe-name">
-                                                        Tomato Soup
-                                                    </div>
-                                                    <div className="col-3 recipe-count">
-                                                        X 1
-                                                    </div>
-
-                                                    <div className="col-6 recipe-name">
-                                                        Roast Duck
-                                                    </div>
-                                                    <div className="col-3 recipe-count">
-                                                        X 1
-                                                    </div>
-
-                                                    <div className="col-6 recipe-name">
-                                                        Bubble Tea
-                                                    </div>
-                                                    <div className="col-3 recipe-count">
-                                                        X 1
-                                                    </div>
-
-                                                    <div className="col-6 recipe-name">
-                                                        Mapo Tofu
-                                                    </div>
-                                                    <div className="col-3 recipe-count">
-                                                        X 1
-                                                    </div>
-                                                    <div className="col-8 order-address">
-                                                        <div>Pick up information</div>
-                                                        <p>1005 Main St APT123 </p>
-                                                    </div>
-
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li className="list-group-item order-list-item">
-                                        <div className="row">
-                                            <div className="col-6">
-                                                <i className="fa fa-cube order-icon" aria-hidden="true"></i>
-                                                Order1
-                                            </div>
-                                            <div className="col-6 order-number">
-                                                Order Number:1120120012
-                                            </div>
-                                        </div>
-
-                                        <div className="order-detail">
-
-                                            <ul className="list-group">
-                                                <li className="order-time">
-                                                    11/27/2020 | 11:30am
-                                                </li>
-                                                <li className="row">
-                                                    <div className="col-6 recipe-name">
-                                                        Tomato Soup
-                                                    </div>
-                                                    <div className="col-3 recipe-count">
-                                                        X 1
-                                                    </div>
-
-                                                    <div className="col-6 recipe-name">
-                                                        Roast Duck
-                                                    </div>
-                                                    <div className="col-3 recipe-count">
-                                                        X 1
-                                                    </div>
-
-                                                    <div className="col-6 recipe-name">
-                                                        Bubble Tea
-                                                    </div>
-                                                    <div className="col-3 recipe-count">
-                                                        X 1
-                                                    </div>
-
-                                                    <div className="col-6 recipe-name">
-                                                        Mapo Tofu
-                                                    </div>
-                                                    <div className="col-3 recipe-count">
-                                                        X 1
-                                                    </div>
-
-
-                                                    <div className="col-8 order-address">
-                                                        <div>Pick up information</div>
-                                                        <p>1005 Main St APT123 </p>
-                                                    </div>
-
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </li>
                                 </ul>
                             </div>
                         </form>

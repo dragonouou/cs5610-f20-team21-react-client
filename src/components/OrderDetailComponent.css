@@ -55,7 +55,7 @@
 }
 .recipe-name{
     text-align: left;
-
+    font-weight: bold;
 }
 
 .recipe-count{
@@ -70,7 +70,7 @@
 }
 .order-address{
     text-align: left;
-    font-weight: bold;
+
 }
 .order-detail{
     background: #F4F6F6;

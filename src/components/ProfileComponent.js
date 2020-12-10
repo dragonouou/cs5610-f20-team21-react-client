@@ -155,19 +155,19 @@ class ProfileComponent extends React.Component{
                                 </div>
                             </div>
 
-                            {/*<div className="form-group">*/}
-                            {/*    <label className="col-sm-2 col-form-label"></label>*/}
-                            {/*    <div className="col-sm-10">*/}
-                            {/*        <button className="btn col-6 btn-light">*/}
-                            {/*            Cancel*/}
-                            {/*        </button>*/}
+                            <div className="form-group">
+                                <label className="col-sm-2 col-form-label"></label>
+                                <div className="col-sm-10">
+                                    <button className="btn col-6 btn-light">
+                                        Cancel
+                                    </button>
 
-                            {/*        <button href="" className="btn col-6 btn-info"*/}
-                            {/*           id="logoutBtn">*/}
-                            {/*            Save*/}
-                            {/*        </button>*/}
-                            {/*    </div>*/}
-                            {/*</div>*/}
+                                    <button href="" className="btn col-6 btn-info"
+                                       id="logoutBtn">
+                                        Save
+                                    </button>
+                                </div>
+                            </div>
 
                         </form>
                     </div>

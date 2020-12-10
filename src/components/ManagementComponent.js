@@ -32,20 +32,22 @@ class ManagementComponent extends React.Component {
 
     componentDidMount() {
         // TO TEST THE GIVEN USER
-        // if (this.state.userId) {
-        //     findUserById(this.state.userId)
-        //         .then(user => {
-        //             this.setState({
-        //                 userInfo: user
-        //             })
-        //         })
-        // }
+        if (this.state.userId) {
+            findUserById(this.state.userId)
+                .then(user => {
+                    console.log(user)
+                    this.setState({
+                        userId: '5fc9cde5d839e57c51ef3b4c',
+                        userInfo: user
+                    })
+                })
+        }
 
         // TO FETCH THE USER FROM THE SESSION
-        profile()
-            .then(profile => this.setState({
-                userInfo: profile
-            }))
+        // profile()
+        //     .then(profile => this.setState({
+        //         userInfo: profile
+        //     }))
     }
 
     register = () => {

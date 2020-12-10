@@ -2,7 +2,7 @@ const url = "http://localhost:8080/api/users"
 const base_url = "http://localhost:8080/api"
 
 export const findUserById = (uid) =>
-    fetch(`${url}/${uid}`)
+    fetch(`${url}/${uid}/details`)
         .then(response => response.json())
 
 export const createUser = (newUser) =>

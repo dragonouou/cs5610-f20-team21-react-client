@@ -93,6 +93,8 @@ class OrderDetailComponent extends React.Component{
                                                             <div className="col-3 recipe-count">
                                                                 X 1
                                                             </div>
+                                                            <br/>
+                                                            <br/>
                                                             <div className="col-8 order-address">
                                                                 <div>Pick up information</div>
                                                                 <p>1005 Main St APT123 </p>

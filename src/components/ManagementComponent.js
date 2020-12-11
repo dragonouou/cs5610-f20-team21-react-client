@@ -24,7 +24,7 @@ class ManagementComponent extends React.Component {
 
     state = {
         // USER 1
-        userId: '',
+        // userId: '5fc9cde5d839e57c51ef3b4c',
         // CHEF 1
         // userId: '5fc9dcf17ecf2884edd15894',
         userInfo: {}
@@ -32,16 +32,16 @@ class ManagementComponent extends React.Component {
 
     componentDidMount() {
         // TO TEST THE GIVEN USER
-        if (this.state.userId) {
-            findUserById(this.state.userId)
-                .then(user => {
-                    console.log(user)
-                    this.setState({
-                        userId: '5fc9cde5d839e57c51ef3b4c',
-                        userInfo: user
-                    })
-                })
-        }
+        // if (this.state.userId) {
+        //     findUserById(this.state.userId)
+        //         .then(user => {
+        //             console.log(user)
+        //             this.setState({
+        //                 userId: '5fc9cde5d839e57c51ef3b4c',
+        //                 userInfo: user
+        //             })
+        //         })
+        // }
 
         // TO FETCH THE USER FROM THE SESSION
         // profile()
@@ -123,15 +123,15 @@ class ManagementComponent extends React.Component {
                         userInfo={this.state.userInfo}/>
                 </Route>
                 <Route path="/orders" exact>
-                    <OrderHistoryComponent
-                        userId={this.state.userId}
-                        userInfo={this.state.userInfo}/>
-                </Route>
-                <Route path="/orders/:orderId" exact>
                     <OrderDetailComponent
                         userId={this.state.userId}
                         userInfo={this.state.userInfo}/>
                 </Route>
+                {/*<Route path="/orders/:orderId" exact>*/}
+                {/*    <OrderDetailComponent*/}
+                {/*        userId={this.state.userId}*/}
+                {/*        userInfo={this.state.userInfo}/>*/}
+                {/*</Route>*/}
                 <Route path="/favorites" exact>
                     <AccountFavoriteComponent
                         userId={this.state.userId}

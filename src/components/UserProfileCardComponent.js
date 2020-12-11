@@ -15,22 +15,22 @@ class UserProfileCardComponent extends React.Component{
 
     //wait for :userid
 
-    componentDidMount() {
-        const userId = this.props.match.params.userId
-        findRecipeForUser (userId)
-            .then(recipes => {
-                this.setState({
-                    userRecipes:recipes
-                })
-        })
-
-        findUserById(this.state.userId)
-            .then(user => {
-                this.setState({
-                    profileUser: user
-                })
-            })
-    }
+    // componentDidMount() {
+    //     const userId = this.props.match.params.userId
+    //     findRecipeForUser (userId)
+    //         .then(recipes => {
+    //             this.setState({
+    //                 userRecipes:recipes
+    //             })
+    //     })
+    //
+    //     findUserById(this.state.userId)
+    //         .then(user => {
+    //             this.setState({
+    //                 profileUser: user
+    //             })
+    //         })
+    // }
 
     render() {
         return (

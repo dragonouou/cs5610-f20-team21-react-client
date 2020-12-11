@@ -46,8 +46,8 @@ export class DetailComponent extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        // findUserById(this.state.recipe.chefId)
-        //     .then(chef => this.setState({chef: chef}))
+        findUserById(this.state.recipe.chefId)
+            .then(chef => this.setState({chef: chef}))
         // console.log(this.state.userInfo)
         // findUserByIdSimple(this.state.userId)
         //     .then(user => {
@@ -94,7 +94,7 @@ export class DetailComponent extends React.Component {
 
                     <br style={{marginTop: "5vh"}}/>
                     {
-                        this.state.userId !== "" &&
+                        // this.state.userId !== "" &&
                         <div>
                             <button className="btn btn-success">
                                 Add to cart

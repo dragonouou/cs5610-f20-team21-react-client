@@ -31,10 +31,12 @@ class ProfileComponent extends React.Component{
         // TO FETCH THE USER FROM THE SESSION
         profile()
             .then(profile => {
-                this.setState({
-                    userInfo: profile,
-                    userId: profile._id
-                })
+                if (profile.length != 0){
+                    this.setState({
+                        userInfo: profile,
+                        userId: profile._id
+                    })
+                }
             })
     }
 

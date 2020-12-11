@@ -1,7 +1,7 @@
-// const url = "http://localhost:8080/api/users"
-// const base_url = "http://localhost:8080/api"
-const url = "https://homekitchenserver.herokuapp.com/api/users"
-const base_url = "https://homekitchenserver.herokuapp.com/api"
+const url = "http://localhost:8080/api/users"
+const base_url = "http://localhost:8080/api"
+// const url = "https://homekitchenserver.herokuapp.com/api/users"
+// const base_url = "https://homekitchenserver.herokuapp.com/api"
 
 export const findUserById = (uid) =>
     fetch(`${url}/${uid}/details`)
@@ -57,6 +57,16 @@ export const login = (user) =>
     fetch(`${base_url}/login`,{
         method: 'POST',
         body: JSON.stringify(user),
+        headers: {
+            'content-type': 'application/json'
+        },
+        credentials:"include"
+    }).then(response => response.json())
+
+export const logout = () =>
+    fetch(`${base_url}/logout`,{
+        method: 'POST',
+        body: JSON.stringify({}),
         headers: {
             'content-type': 'application/json'
         },

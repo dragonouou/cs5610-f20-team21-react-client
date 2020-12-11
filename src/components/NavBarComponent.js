@@ -1,5 +1,5 @@
 import React from "react";
-import {profile} from "../services/UserService";
+import {profile,logout} from "../services/UserService";
 
 export class NavBarComponent extends React.Component {
 
@@ -9,6 +9,13 @@ export class NavBarComponent extends React.Component {
         // CHEF 1
         // userId: '5fc9dcf17ecf2884edd15894',
         userInfo: {}
+    }
+
+    logout = () => {
+        logout()
+            .then(status => {
+                this.setState({userInfo:{},userId:''})
+            })
     }
 
     componentDidMount() {
@@ -25,10 +32,12 @@ export class NavBarComponent extends React.Component {
         // TO FETCH THE USER FROM THE SESSION
         profile()
             .then(profile => {
-                this.setState({
-                    userInfo: profile,
-                    userId: profile._id
-                })
+                if (profile.length != 0){
+                    this.setState({
+                        userInfo: profile,
+                        userId: profile._id
+                    })
+                }
             })
     }
 
@@ -85,7 +94,7 @@ export class NavBarComponent extends React.Component {
                                                 <i className="fa fa-shopping-cart" aria-hidden="true"></i>
                                             </a>
                                         </div>
-                                        <div><a href="">Logout</a></div>
+                                        <div><a href="" onClick={this.logout}>Logout</a></div>
                                     </div>
 
                             }

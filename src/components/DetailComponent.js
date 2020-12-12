@@ -36,8 +36,10 @@ export class DetailComponent extends React.Component {
                 //     userId: profile[0]._id
                 // })
                 // console.log(profile)
-                this.setState({userInfo:profile[0]})
-                this.setState({userId:profile[0].userId})
+                if (profile.length !== 0) {
+                    this.setState({userInfo:profile})
+                    this.setState({userId:profile.userId})
+                }
                 // findUserByIdSimple(profile[0].userId)
                 //     .then(user => {
                 //         console.log(user)

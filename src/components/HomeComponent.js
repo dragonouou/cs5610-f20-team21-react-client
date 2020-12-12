@@ -14,7 +14,9 @@ export class HomeComponent extends React.Component {
 
     state = {
         recipes: [],
-        userInfo: {},
+        userInfo: {
+            firstname: ""
+        },
         userId: "",
         favorites: []
     }
@@ -65,12 +67,15 @@ export class HomeComponent extends React.Component {
     componentDidMount() {
         profile()
             .then(profile => {
-                // this.setState({
-                //     userId: profile[0]._id
-                // })
                 // this.setState({userInfo:profile[0]})
-                this.setState({userId:profile[0]._id})
+
+                if (profile.length !== 0) {
+                    this.setState({userId:profile._id})
+                }
+                // console.log(profile)
+
                 // this.setState({favorites:profile[0].favorites})
+
                 // findUserByIdSimple(profile[0].userId)
                 //     .then(user => {
                 //         console.log(user)

@@ -1,4 +1,9 @@
-const url = "http://localhost:8080.com/api"
+const url = "http://localhost:8080/api"
+// const url = "https://homekitchenserver.herokuapp.com/api"
+
+export const searchRecipe = (criteria) =>
+    fetch(`${url}/recipes/search?criteria=${criteria}`)
+        .then(response => response.json())
 
 export const findAllRecipes = () =>
     fetch(`${url}/recipes`)

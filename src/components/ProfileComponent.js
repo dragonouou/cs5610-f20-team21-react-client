@@ -9,6 +9,37 @@ import {profile} from "../services/UserService";
 
 class ProfileComponent extends React.Component{
 
+    state = {
+        // USER 1
+        userId: '',
+        // CHEF 1
+        // userId: '5fc9dcf17ecf2884edd15894',
+        userInfo: {}
+    }
+
+    componentDidMount() {
+        // TO TEST THE GIVEN USER
+        // if (this.state.userId) {
+        //     findUserById(this.state.userId)
+        //         .then(user => {
+        //             this.setState({
+        //                 userInfo: user
+        //             })
+        //         })
+        // }
+
+        // TO FETCH THE USER FROM THE SESSION
+        profile()
+            .then(profile => {
+                if (profile.length != 0){
+                    this.setState({
+                        userInfo: profile,
+                        userId: profile._id
+                    })
+                }
+            })
+    }
+
     render() {
         return (
             <div>
@@ -74,7 +105,7 @@ class ProfileComponent extends React.Component{
                                            type="text"
                                            id="usernameFld"
                                            placeholder="username"
-                                           value={this.props.userInfo.username} readOnly/>
+                                           value={this.state.userInfo.username} readOnly/>
                                 </div>
                             </div>
 
@@ -87,7 +118,7 @@ class ProfileComponent extends React.Component{
                                            type="text"
                                            id="firstFld"
                                            placeholder="firstname"
-                                           value={this.props.userInfo.firstname}/>
+                                           value={this.state.userInfo.firstname}/>
                                 </div>
                             </div>
 
@@ -100,7 +131,7 @@ class ProfileComponent extends React.Component{
                                            type="text"
                                            id="firstFld"
                                            placeholder="lastname"
-                                           value={this.props.userInfo.lastname}/>
+                                           value={this.state.userInfo.lastname}/>
                                 </div>
                             </div>
 
@@ -113,7 +144,7 @@ class ProfileComponent extends React.Component{
                                            className="form-control"
                                            id="emailFld"
                                            placeholder="teddybear@kitcken.com"
-                                           value={this.props.userInfo.email}/>
+                                           value={this.state.userInfo.email}/>
                                 </div>
                             </div>
 
@@ -126,7 +157,7 @@ class ProfileComponent extends React.Component{
                                            className="form-control"
                                            id="phoneFld"
                                            placeholder="000-000-0000"
-                                           value={this.props.userInfo.phoneNumber}/>
+                                           value={this.state.userInfo.phoneNumber}/>
                                 </div>
                             </div>
 
@@ -138,7 +169,7 @@ class ProfileComponent extends React.Component{
                                     <input type="text"
                                            className="form-control"
                                            id="addressFld"
-                                           value={this.props.userInfo.address}/>
+                                           value={this.state.userInfo.address}/>
                                 </div>
                             </div>
 
@@ -151,7 +182,7 @@ class ProfileComponent extends React.Component{
                                            type="text"
                                            id="roleFld"
                                            placeholder="Role"
-                                           value={this.props.userInfo.role} readOnly/>
+                                           value={this.state.userInfo.role} readOnly/>
                                 </div>
                             </div>
 

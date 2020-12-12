@@ -8,7 +8,9 @@ export default class WikiComponent extends React.Component {
             <div>
                 <div className="row">
                     <div className="col-2">
-                        <NavBarComponent />
+                        <NavBarComponent
+                            userId={this.props.userId}
+                            user={this.props.userInfo}/>
                     </div>
 
                     <div className="col-10">

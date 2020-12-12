@@ -1,7 +1,7 @@
 const searchUrl = "https://api.spoonacular.com/recipes/complexSearch"
 const url ="https://api.spoonacular.com/recipes"
 const apiKey = "apiKey=c8b6eac40e34427886d68e4409e9ae56"
-const maxNum = "number=2"
+const maxNum = "number=4"
 
 export const findRecipesByTitle = (title) =>
     fetch(`${searchUrl}?${apiKey}&query=${title}&${maxNum}`)

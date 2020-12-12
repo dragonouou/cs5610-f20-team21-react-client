@@ -13,7 +13,7 @@ import OrderHistoryComponent from "./OrderHistoryComponent";
 import AccountFavoriteComponent from "./AccountFavoriteComponent";
 import CartComponent from "./CartComponent";
 import React from "react";
-import {findUserById, updateUser, createUser, register, profile, login} from "../services/UserService"
+import {findUserById, updateUser, createUser, register, profile, login, logout} from "../services/UserService"
 import OrderDetailComponent from "./OrderDetailComponent";
 import history from "./history";
 
@@ -45,11 +45,13 @@ class ManagementComponent extends React.Component {
         // TO FETCH THE USER FROM THE SESSION
         profile()
             .then(profile => {
-                this.setState({
-                    userInfo: profile
-                })
+                if (profile.length != 0) {
+                    this.setState({
+                        userInfo: profile,
+                        useId:profile._id
+                    })
+                }
             })
-
     }
 
     register = () => {
@@ -66,8 +68,6 @@ class ManagementComponent extends React.Component {
         register(newUser)
             .then(newUser => {
                 this.setState({userInfo:newUser,userId:newUser._id})
-                console.log(this.state.userId)
-                console.log(this.state.userInfo)
             })
     }
 
@@ -84,6 +84,7 @@ class ManagementComponent extends React.Component {
                 }
             })
     }
+
 
     render() {
         return (

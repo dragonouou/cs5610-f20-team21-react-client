@@ -14,7 +14,9 @@ class ProfileComponent extends React.Component{
         userId: '',
         // CHEF 1
         // userId: '5fc9dcf17ecf2884edd15894',
-        userInfo: {}
+        userInfo: {
+            username: ''
+        }
     }
 
     componentDidMount() {
@@ -31,7 +33,8 @@ class ProfileComponent extends React.Component{
         // TO FETCH THE USER FROM THE SESSION
         profile()
             .then(profile => {
-                if (profile.length != 0){
+                console.log(profile)
+                if (profile.length !== 0){
                     this.setState({
                         userInfo: profile,
                         userId: profile._id
@@ -105,7 +108,16 @@ class ProfileComponent extends React.Component{
                                            type="text"
                                            id="usernameFld"
                                            placeholder="username"
-                                           value={this.state.userInfo.username} readOnly/>
+                                           value={this.state.userInfo.username}
+                                           onChange={(e) => {
+                                               const newUser = {
+                                                   ...this.state.userInfo,
+                                                   username: e.target.value
+                                               }
+                                               this.setState(prevState => ({
+                                                   userInfo: newUser
+                                               }))
+                                           }}/>
                                 </div>
                             </div>
 

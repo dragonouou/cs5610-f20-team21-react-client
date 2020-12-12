@@ -1,4 +1,4 @@
-import {BrowserRouter, Router, Route} from "react-router-dom";
+import {BrowserRouter, Router, Route, Redirect} from "react-router-dom";
 import WikiComponent from "./WikiComponent";
 import {DetailComponent} from "./DetailComponent";
 import {HomeComponent} from "./HomeComponent";
@@ -45,7 +45,7 @@ class ManagementComponent extends React.Component {
         // TO FETCH THE USER FROM THE SESSION
         profile()
             .then(profile => {
-                if (profile.length != 0) {
+                if (profile.length !== 0) {
                     this.setState({
                         userInfo: profile,
                         useId:profile._id
@@ -78,7 +78,7 @@ class ManagementComponent extends React.Component {
         }
         login(user)
             .then(currentUser => {
-                if (currentUser.length != 0) {
+                if (currentUser.length !== 0) {
                     this.setState({userInfo:currentUser[0],userId:currentUser[0]._id})
                     history.push("/profile")
                 }
@@ -106,7 +106,6 @@ class ManagementComponent extends React.Component {
                 </Route>
                 <Route path="/detail/:recipeId"
                        component={DetailComponent}
-                       favorite={this.favorite}
                        exact/>
                 {/*<Route path="/detail/:recipeId" exact>*/}
                 {/*    <DetailComponent*/}
@@ -146,6 +145,9 @@ class ManagementComponent extends React.Component {
                         userId={this.state.userId}
                         userInfo={this.state.userInfo}/>
                 </Route>
+                    <Route path="/profile-created">
+                        <Redirect to="/profile"/>
+                    </Route>
                 <Route path="/orders" exact>
                     <OrderHistoryComponent
                         userId={this.state.userId}

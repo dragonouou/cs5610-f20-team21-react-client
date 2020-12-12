@@ -90,7 +90,6 @@ export class SearchComponent extends React.Component {
                                 onClick={() => this.search(this.state.criteria)}>
                             Submit
                         </button>
-
                         {
                             this.state.recipes.map(recipe =>
                                 <div className="grid-item col-4" key={recipe._id}>

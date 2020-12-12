@@ -30,7 +30,7 @@ export class SearchResultComponent extends React.Component {
                     {
                         this.state.searchResults.map(result =>
                             <li className="list-group-item">
-                                <Link to={`/search/${result.id}`}>{result.title}</Link>
+                                <Link to={`/search/api/${result.id}`}>{result.title}</Link>
                             </li> )
                     }
                 </ul>

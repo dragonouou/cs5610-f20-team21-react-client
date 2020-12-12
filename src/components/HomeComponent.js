@@ -69,11 +69,23 @@ export class HomeComponent extends React.Component {
             .then(profile => {
                 // this.setState({userInfo:profile[0]})
 
-                if (profile.length !== 0) {
-                    this.setState({userId:profile._id})
-                }
+                // if (profile.length !== 0) {
+                //     this.setState({userId:profile._id})
+                // }
                 // console.log(profile)
-
+                if (Array.isArray(profile)) {
+                    if (profile.length !== 0) {
+                        this.setState({
+                            userInfo: profile[0],
+                            userId: profile[0]._id
+                        })
+                    }
+                } else {
+                    this.setState({
+                        userInfo: profile,
+                        userId: profile._id
+                    })
+                }
                 // this.setState({favorites:profile[0].favorites})
 
                 // findUserByIdSimple(profile[0].userId)

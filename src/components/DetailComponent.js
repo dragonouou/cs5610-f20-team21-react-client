@@ -15,7 +15,7 @@ export class DetailComponent extends React.Component {
         chefId: '',
         chef: {},
         userId: "",
-        userInfo: {favorites: []}
+        userInfo: {}
     }
 
     componentDidMount() {
@@ -37,6 +37,7 @@ export class DetailComponent extends React.Component {
                 // })
                 // console.log(profile)
                 this.setState({userInfo:profile[0]})
+                this.setState({userId:profile[0].userId})
                 // findUserByIdSimple(profile[0].userId)
                 //     .then(user => {
                 //         console.log(user)
@@ -46,8 +47,8 @@ export class DetailComponent extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        // findUserById(this.state.recipe.chefId)
-        //     .then(chef => this.setState({chef: chef}))
+        findUserByIdSimple(this.state.recipe.chefId)
+            .then(chef => this.setState({chef: chef}))
         // console.log(this.state.userInfo)
         // findUserByIdSimple(this.state.userId)
         //     .then(user => {
@@ -79,7 +80,7 @@ export class DetailComponent extends React.Component {
                         userId={this.props.userId}
                         user={this.props.userInfo}/>
                 </div>
-                {/*{console.log(this.state.userInfo)}*/}
+                {console.log(this.state.userInfo)}
                 <div className="hero-full-wrapper col-10" style={{paddingRight: "5vw", marginTop: "1vh"}}>
                     <h2>{this.state.recipe.title}</h2>
                     <img src={this.state.recipe.img} alt=""/>
@@ -89,7 +90,7 @@ export class DetailComponent extends React.Component {
                     </div>
                     <h2 style={{marginTop: "5vh", fontSize: "20px"}}>Chef Information</h2>
                     <div>
-                        <a href={"/profile/" + this.state.chef.username}>{this.state.chef.username}</a>
+                        <a href={"/profile/" + this.state.chef._id}>{this.state.chef.username}</a>
                     </div>
 
                     <br style={{marginTop: "5vh"}}/>

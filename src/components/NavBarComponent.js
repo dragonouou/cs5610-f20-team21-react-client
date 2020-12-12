@@ -32,9 +32,9 @@ export class NavBarComponent extends React.Component {
         // TO FETCH THE USER FROM THE SESSION
         profile()
             .then(profile => {
-                if (profile.length != 0){
+                if (profile.length != 0) {
                     this.setState({
-                        userInfo: profile,
+                        userInfo: profile[0],
                         userId: profile._id
                     })
                 }
@@ -88,8 +88,9 @@ export class NavBarComponent extends React.Component {
                                             </a>
                                         </p>
                                         <div>
-                                            {/*Hello {this.state.userInfo.firstname}!*/}
-                                            Hi there!
+                                            {console.log(this.state.userInfo)}
+                                            Hello {this.state.userInfo.firstname}!
+                                            {/*Hi there!*/}
                                             <a className="fa-icon" href="/cart" title="">
                                                 <i className="fa fa-shopping-cart" aria-hidden="true"></i>
                                             </a>

@@ -33,8 +33,14 @@ class ProfileComponent extends React.Component{
         // TO FETCH THE USER FROM THE SESSION
         profile()
             .then(profile => {
-                console.log(profile)
-                if (profile.length !== 0){
+                if (Array.isArray(profile)) {
+                    if (profile.length !== 0) {
+                        this.setState({
+                            userInfo: profile[0],
+                            userId: profile[0]._id
+                        })
+                    }
+                } else {
                     this.setState({
                         userInfo: profile,
                         userId: profile._id

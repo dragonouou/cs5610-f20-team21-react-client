@@ -36,9 +36,22 @@ export class DetailComponent extends React.Component {
                 //     userId: profile[0]._id
                 // })
                 // console.log(profile)
-                if (profile.length !== 0) {
-                    this.setState({userInfo:profile})
-                    this.setState({userId:profile.userId})
+                // if (profile.length !== 0) {
+                //     this.setState({userInfo:profile})
+                //     this.setState({userId:profile.userId})
+                // }
+                if (Array.isArray(profile)) {
+                    if (profile.length !== 0) {
+                        this.setState({
+                            userInfo: profile[0],
+                            userId: profile[0]._id
+                        })
+                    }
+                } else {
+                    this.setState({
+                        userInfo: profile,
+                        userId: profile._id
+                    })
                 }
                 // findUserByIdSimple(profile[0].userId)
                 //     .then(user => {

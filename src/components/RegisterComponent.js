@@ -56,10 +56,11 @@ export class RegisterComponent extends React.Component {
                         </select>
                     </div>
                     <div className="line">
-                        <Link to="/profile">
+                        {/*<Link to="/profile-created">*/}
                         <button type="button" className="btn btn-success" onClick={this.props.register}>
                             Submit
-                        </button></Link>
+                        </button>
+                    {/*</Link>*/}
                     </div>
                 </div>
             </div>

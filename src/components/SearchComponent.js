@@ -90,13 +90,12 @@ export class SearchComponent extends React.Component {
                                 onClick={() => this.search(this.state.criteria)}>
                             Submit
                         </button>
-
                         {
                             this.state.recipes.map(recipe =>
                                 <div className="grid-item col-4" key={recipe._id}>
                                     <img style={{height: "35vh", objectFit: "cover", width: "100%"}}
                                          className="img-responsive" alt="" src={recipe.img}/>
-                                    <a href="/" className="project-description">
+                                    <a href={"/detail/" + recipe._id} className="project-description">
                                         <div className="project-text-holder">
                                             <div className="project-text-inner">
                                                 <h3>{recipe.title}</h3>

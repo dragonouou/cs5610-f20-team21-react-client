@@ -7,12 +7,18 @@ import {SearchComponent} from "./SearchComponent";
 import {DetailComponent} from "./DetailComponent";
 import {NavBarComponent} from "./NavBarComponent";
 import {findAllRecipes} from "../services/recipeDatabaseService";
+import {findUserById, profile} from "../services/UserService";
 
 
 export class HomeComponent extends React.Component {
 
     state = {
-        recipes: []
+        recipes: [],
+        userInfo: {
+            firstname: ""
+        },
+        userId: "",
+        favorites: []
     }
 
     // recipes = [
@@ -59,13 +65,50 @@ export class HomeComponent extends React.Component {
     // ]
 
     componentDidMount() {
+        profile()
+            .then(profile => {
+                // this.setState({userInfo:profile[0]})
+
+                // if (profile.length !== 0) {
+                //     this.setState({userId:profile._id})
+                // }
+                // console.log(profile)
+                if (Array.isArray(profile)) {
+                    if (profile.length !== 0) {
+                        this.setState({
+                            userInfo: profile[0],
+                            userId: profile[0]._id
+                        })
+                    }
+                } else {
+                    this.setState({
+                        userInfo: profile,
+                        userId: profile._id
+                    })
+                }
+                // this.setState({favorites:profile[0].favorites})
+
+                // findUserByIdSimple(profile[0].userId)
+                //     .then(user => {
+                //         console.log(user)
+                //         // this.setState({userInfo : user})}
+                //     })
+            })
         findAllRecipes()
             .then(recipes => this.setState({recipes : recipes}))
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        if (this.state.recipes) {
-            console.log(this.state.recipes)
+        // if (this.state.recipes) {
+        //     console.log(this.state.recipes)
+        // }
+        if (this.state.userId) {
+            // console.log(this.state.userId)
+            findUserById(this.state.userId)
+                .then(userInfo => {
+                    this.setState({userInfo:userInfo})
+                    this.setState({favorites:userInfo.favorites})
+                })
         }
     }
 
@@ -83,9 +126,26 @@ export class HomeComponent extends React.Component {
                         {/*<div className="gutter-sizer"></div>*/}
                         {/*<div className="grid-sizer"></div>*/}
                         {
-
+                            this.state.userId !== "" &&
+                            this.state.favorites.map(favorite =>
+                                <div className="grid-item col-4">
+                                    <img style={{height: "35vh", objectFit: "cover", width: "100%"}}
+                                         className="img-responsive" alt="" src={favorite.img}/>
+                                    <a href="/" className="project-description">
+                                        <div className="project-text-holder">
+                                            <div className="project-text-inner">
+                                                <a href={"/detail/" + favorite._id}>
+                                                    <h3>{favorite.title}</h3>
+                                                    <p>Discover more</p>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            )
                         }
                         {
+                            this.state.userId === "" &&
                             this.state.recipes.map(recipe =>
                                 <div className="grid-item col-4">
                                     <img style={{height: "35vh", objectFit: "cover", width: "100%"}}

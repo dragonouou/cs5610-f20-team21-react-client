@@ -1,4 +1,4 @@
-import {BrowserRouter, Router, Route} from "react-router-dom";
+import {BrowserRouter, Router, Route, Redirect} from "react-router-dom";
 import WikiComponent from "./WikiComponent";
 import {DetailComponent} from "./DetailComponent";
 import {HomeComponent} from "./HomeComponent";
@@ -16,6 +16,7 @@ import React from "react";
 import {findUserById, updateUser, createUser, register, profile, login, logout} from "../services/UserService"
 import OrderDetailComponent from "./OrderDetailComponent";
 import history from "./history";
+import {SearchDetailComponent} from "./SearchDetailComponent";
 
 class ManagementComponent extends React.Component {
 
@@ -51,10 +52,24 @@ class ManagementComponent extends React.Component {
         // TO FETCH THE USER FROM THE SESSION
         profile()
             .then(profile => {
-                if (profile.length != 0) {
+                // if (profile.length !== 0) {
+                //     this.setState({
+                //         userInfo: profile,
+                //         useId:profile._id
+                //     })
+                // }
+                if (Array.isArray(profile)) {
+                    if (profile.length !== 0) {
+                        this.setState({
+                            userInfo: profile[0],
+                            userId: profile[0]._id
+                        })
+                    }
+                }
+                else {
                     this.setState({
                         userInfo: profile,
-                        useId:profile._id
+                        userId: profile._id
                     })
                 }
             })
@@ -74,6 +89,7 @@ class ManagementComponent extends React.Component {
         register(newUser)
             .then(newUser => {
                 this.setState({userInfo:newUser,userId:newUser._id})
+                history.push("/profile")
             })
     }
 
@@ -84,7 +100,7 @@ class ManagementComponent extends React.Component {
         }
         login(user)
             .then(currentUser => {
-                if (currentUser.length != 0) {
+                if (currentUser.length !== 0) {
                     this.setState({userInfo:currentUser[0],userId:currentUser[0]._id})
                     history.push("/profile")
                 }
@@ -96,10 +112,10 @@ class ManagementComponent extends React.Component {
         return (
             <BrowserRouter>
                 <Router history={history}>
-                <Route path="/wiki" exact>
+                <Route path="/search/api" exact>
                     <WikiComponent/>
                 </Route>
-                <Route path="/search/:recipeId" component={DetailComponent} exact/>
+                <Route path="/search/api/:recipeId" component={SearchDetailComponent} exact/>
                 <Route path="/" exact>
                     <HomeComponent
                         userId={this.state.userId}
@@ -112,7 +128,6 @@ class ManagementComponent extends React.Component {
                 </Route>
                 <Route path="/detail/:recipeId"
                        component={DetailComponent}
-                       favorite={this.favorite}
                        exact/>
                 {/*<Route path="/detail/:recipeId" exact>*/}
                 {/*    <DetailComponent*/}
@@ -152,6 +167,9 @@ class ManagementComponent extends React.Component {
                         userId={this.state.userId}
                         userInfo={this.state.userInfo}/>
                 </Route>
+                    <Route path="/profile-created">
+                        <Redirect to="/profile"/>
+                    </Route>
                 <Route path="/orders" exact>
                     <OrderDetailComponent
                         userId={this.state.userId}

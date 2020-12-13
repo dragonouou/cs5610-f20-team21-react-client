@@ -4,7 +4,7 @@ import {BrowserRouter, Redirect, Route} from "react-router-dom";
 import {Link} from "react-router-dom";
 import OrderHistoryComponent from "./OrderHistoryComponent";
 import {NavBarComponent} from "./NavBarComponent";
-import {profile} from "../services/UserService";
+import {findUserById, findUserByIdSimple, profile, updateUser} from "../services/UserService";
 
 
 class ProfileComponent extends React.Component{
@@ -17,6 +17,7 @@ class ProfileComponent extends React.Component{
         userInfo: {
             username: ''
         }
+
     }
 
     componentDidMount() {
@@ -30,24 +31,34 @@ class ProfileComponent extends React.Component{
         //         })
         // }
 
+
+
         // TO FETCH THE USER FROM THE SESSION
         profile()
             .then(profile => {
                 if (Array.isArray(profile)) {
                     if (profile.length !== 0) {
                         this.setState({
-                            userInfo: profile[0],
+                            // userInfo: profile[0],
                             userId: profile[0]._id
                         })
+
+                        findUserByIdSimple(profile[0]._id)
+                            .then(user => {this.setState({userInfo:user})})
                     }
                 } else {
                     this.setState({
-                        userInfo: profile,
+                        // userInfo: profile,
                         userId: profile._id
                     })
+
+                    findUserByIdSimple(profile._id)
+                        .then(user => {this.setState({userInfo:user})})
                 }
             })
+
     }
+
 
     render() {
         return (
@@ -115,14 +126,12 @@ class ProfileComponent extends React.Component{
                                            id="usernameFld"
                                            placeholder="username"
                                            value={this.state.userInfo.username}
-                                           onChange={(e) => {
+                                           onChange={(event) => {
                                                const newUser = {
                                                    ...this.state.userInfo,
-                                                   username: e.target.value
+                                                   username: event.target.value
                                                }
-                                               this.setState(prevState => ({
-                                                   userInfo: newUser
-                                               }))
+                                               this.setState({...this.state,userInfo:newUser})
                                            }}/>
                                 </div>
                             </div>
@@ -136,7 +145,15 @@ class ProfileComponent extends React.Component{
                                            type="text"
                                            id="firstFld"
                                            placeholder="firstname"
-                                           value={this.state.userInfo.firstname}/>
+                                           value={this.state.userInfo.firstname}
+                                            onChange={(event) =>{
+                                                const newUser ={
+                                                    ...this.state.userInfo,
+                                                    firstname:event.target.value
+                                                }
+                                                this.setState({...this.state,userInfo:newUser})
+                                            }}
+                                    />
                                 </div>
                             </div>
 
@@ -149,7 +166,15 @@ class ProfileComponent extends React.Component{
                                            type="text"
                                            id="firstFld"
                                            placeholder="lastname"
-                                           value={this.state.userInfo.lastname}/>
+                                           value={this.state.userInfo.lastname}
+                                           onChange={(event) =>{
+                                               const newUser ={
+                                                   ...this.state.userInfo,
+                                                   lastname:event.target.value
+                                               }
+                                               this.setState({...this.state,userInfo:newUser})
+                                           }}
+                                    />
                                 </div>
                             </div>
 
@@ -162,7 +187,7 @@ class ProfileComponent extends React.Component{
                                            className="form-control"
                                            id="emailFld"
                                            placeholder="teddybear@kitcken.com"
-                                           value={this.state.userInfo.email}/>
+                                           value={this.state.userInfo.email} readOnly/>
                                 </div>
                             </div>
 
@@ -175,7 +200,14 @@ class ProfileComponent extends React.Component{
                                            className="form-control"
                                            id="phoneFld"
                                            placeholder="000-000-0000"
-                                           value={this.state.userInfo.phoneNumber}/>
+                                           value={this.state.userInfo.phoneNumber}
+                                           onChange={(event) =>{
+                                               const newUser ={
+                                                   ...this.state.userInfo,
+                                                   phoneNumber:event.target.value
+                                               }
+                                               this.setState({...this.state,userInfo:newUser})
+                                           }}/>
                                 </div>
                             </div>
 
@@ -187,7 +219,14 @@ class ProfileComponent extends React.Component{
                                     <input type="text"
                                            className="form-control"
                                            id="addressFld"
-                                           value={this.state.userInfo.address}/>
+                                           value={this.state.userInfo.address}
+                                           onChange={(event) =>{
+                                               const newUser ={
+                                                   ...this.state.userInfo,
+                                                   address:event.target.value
+                                               }
+                                               this.setState({...this.state,userInfo:newUser})
+                                           }}/>
                                 </div>
                             </div>
 
@@ -207,12 +246,17 @@ class ProfileComponent extends React.Component{
                             <div className="form-group">
                                 <label className="col-sm-2 col-form-label"></label>
                                 <div className="col-sm-10">
-                                    <button className="btn col-6 btn-light">
-                                        Cancel
-                                    </button>
+                                    {/*<button className="btn col-6 btn-light">*/}
+                                    {/*    Cancel*/}
+                                    {/*</button>*/}
 
-                                    <button href="" className="btn col-6 btn-info"
-                                       id="logoutBtn">
+                                    <button className="btn col-12 btn-info"
+                                            id="logoutBtn"
+                                            onClick={()=>{
+                                               updateUser(this.state.userId,this.state.userInfo)
+                                            }}>
+
+
                                         Save
                                     </button>
                                 </div>

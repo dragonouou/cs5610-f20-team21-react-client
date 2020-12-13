@@ -43,21 +43,20 @@ export class DetailComponent extends React.Component {
                 if (Array.isArray(profile)) {
                     if (profile.length !== 0) {
                         this.setState({
-                            userInfo: profile[0],
+                            // userInfo: profile[0],
                             userId: profile[0]._id
                         })
+                        findUserByIdSimple(profile[0]._id)
+                            .then(user => this.setState({userInfo : user}))
                     }
                 } else {
                     this.setState({
-                        userInfo: profile,
+                        // userInfo: profile,
                         userId: profile._id
                     })
+                    findUserByIdSimple(profile._id)
+                        .then(user => this.setState({userInfo : user}))
                 }
-                // findUserByIdSimple(profile[0].userId)
-                //     .then(user => {
-                //         console.log(user)
-                //         // this.setState({userInfo : user})}
-                //     })
             })
     }
 
@@ -106,9 +105,18 @@ export class DetailComponent extends React.Component {
                             {/*    Add to cart*/}
                             {/*</button>*/}
                             {/*<br/>*/}
-                            <button style={{marginTop: "1vh"}} className="btn btn-info" onClick={() => this.favorite(this.state.recipeId)}>
-                                favorite
-                            </button>
+                            {
+                                !this.state.userInfo.favorites.includes(this.state.recipeId) &&
+                                <button style={{marginTop: "1vh"}} className="btn btn-info" onClick={() => this.favorite(this.state.recipeId)}>
+                                    favorite
+                                </button>
+                            }
+                            {
+                                this.state.userInfo.favorites.includes(this.state.recipeId) &&
+                                <button style={{marginTop: "1vh"}} className="btn btn-dark" disabled>
+                                    saved
+                                </button>
+                            }
                         </div>
                     }
 

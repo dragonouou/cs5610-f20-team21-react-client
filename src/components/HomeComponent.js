@@ -78,15 +78,33 @@ export class HomeComponent extends React.Component {
                 if (Array.isArray(profile)) {
                     if (profile.length !== 0) {
                         this.setState({
-                            userInfo: profile[0],
+                            // userInfo: profile[0],
                             userId: profile[0]._id
                         })
+                        findUserById(profile[0]._id)
+                            .then(userInfo => {
+                                this.setState({userInfo:userInfo})
+                                this.setState({favorites:userInfo.favorites})
+                            })
+                        if (profile.role === "chef") {
+                            findRecipeForUser(profile[0]._id)
+                                .then(recipes => this.setState({userRecipes : recipes}))
+                        }
                     }
                 } else {
                     this.setState({
                         userInfo: profile,
                         userId: profile._id
                     })
+                    findUserById(profile._id)
+                        .then(userInfo => {
+                            this.setState({userInfo:userInfo})
+                            this.setState({favorites:userInfo.favorites})
+                        })
+                    if (profile.role === "chef") {
+                        findRecipeForUser(profile._id)
+                            .then(recipes => this.setState({userRecipes : recipes}))
+                    }
                 }
                 // this.setState({favorites:profile[0].favorites})
 
@@ -102,21 +120,19 @@ export class HomeComponent extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        // if (this.state.recipes) {
-        //     console.log(this.state.recipes)
+
+        // if (this.state.userId) {
+        //     // console.log(this.state.userId)
+        //     findUserById(this.state.userId)
+        //         .then(userInfo => {
+        //             this.setState({userInfo:userInfo})
+        //             this.setState({favorites:userInfo.favorites})
+        //         })
+        //     if (this.state.userInfo.role === "chef") {
+        //         findRecipeForUser(this.state.userId)
+        //             .then(recipes => this.setState({userRecipes : recipes}))
+        //     }
         // }
-        if (this.state.userId) {
-            // console.log(this.state.userId)
-            findUserById(this.state.userId)
-                .then(userInfo => {
-                    this.setState({userInfo:userInfo})
-                    this.setState({favorites:userInfo.favorites})
-                })
-            if (this.state.userInfo.role === "chef") {
-                findRecipeForUser(this.state.userId)
-                    .then(recipes => this.setState({userRecipes : recipes}))
-            }
-        }
     }
 
     render() {

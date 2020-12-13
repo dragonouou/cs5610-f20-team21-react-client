@@ -99,26 +99,31 @@ export class DetailComponent extends React.Component {
                 <div className="hero-full-wrapper col-10" style={{paddingRight: "5vw", marginTop: "1vh"}}>
                     <h2>{this.state.recipe.title}</h2>
                     <img src={this.state.recipe.img} alt=""/>
+                    {
+                        this.state.userId !== "" && this.state.userInfo.role === "customer" &&
+                        <div>
+                            {/*<button className="btn btn-success">*/}
+                            {/*    Add to cart*/}
+                            {/*</button>*/}
+                            {/*<br/>*/}
+                            <button style={{marginTop: "1vh"}} className="btn btn-info" onClick={() => this.favorite(this.state.recipeId)}>
+                                favorite
+                            </button>
+                        </div>
+                    }
+
                     <h2 style={{marginTop: "5vh", fontSize: "20px"}}>Summary</h2>
                     <div>
                         <Markup content={this.state.recipe.summary}/>
                     </div>
-                    <h2 style={{marginTop: "5vh", fontSize: "20px"}}>Chef Information</h2>
-                    <div>
-                        <a href={"/profile/" + this.state.chef._id}>{this.state.chef.username}</a>
-                    </div>
 
-                    <br style={{marginTop: "5vh"}}/>
                     {
-                        this.state.userId !== "" &&
+                        this.state.userId !== "" && this.state.userInfo.role === "customer" &&
                         <div>
-                            <button className="btn btn-success">
-                                Add to cart
-                            </button>
-                            <br/>
-                            <button style={{marginTop: "1vh"}} className="btn btn-info" onClick={() => this.favorite(this.state.recipeId)}>
-                                favorite
-                            </button>
+                            <h2 style={{marginTop: "5vh", fontSize: "20px"}}>Chef Information</h2>
+                            <div>
+                                <a href={"/profile/" + this.state.chef._id}>{this.state.chef.username}</a>
+                            </div>
                         </div>
                     }
 

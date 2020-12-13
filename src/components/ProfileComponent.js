@@ -32,7 +32,6 @@ class ProfileComponent extends React.Component{
         // }
 
 
-
         // TO FETCH THE USER FROM THE SESSION
         profile()
             .then(profile => {
@@ -83,9 +82,9 @@ class ProfileComponent extends React.Component{
                                         My Information
                                     </Link>
                                 </li>
-                                <li className="">
-                                    <Link to='/orders'><i className="fa fa-shopping-bag order-icon" aria-hidden="true"></i> My Order</Link>
-                                </li>
+                                {/*<li className="">*/}
+                                {/*    <Link to='/orders'><i className="fa fa-shopping-bag order-icon" aria-hidden="true"></i> My Order</Link>*/}
+                                {/*</li>*/}
                                 <li className="">
                                     <Link to='/favorites'>
                                         <i className="fa fa-heart-o favorite-icon" aria-hidden="true"></i>
@@ -249,14 +248,11 @@ class ProfileComponent extends React.Component{
                                     {/*<button className="btn col-6 btn-light">*/}
                                     {/*    Cancel*/}
                                     {/*</button>*/}
-
                                     <button className="btn col-12 btn-info"
                                             id="logoutBtn"
                                             onClick={()=>{
                                                updateUser(this.state.userId,this.state.userInfo)
                                             }}>
-
-
                                         Save
                                     </button>
                                 </div>

@@ -1,12 +1,8 @@
 import React from "react";
-import "./AccountFavoriteComponent.css"
+import {findUserById, profile} from "../services/UserService";
 import {Link} from "react-router-dom";
-import OrderHistoryComponent from "./OrderHistoryComponent";
-import {findUserByIdSimple, findUserById,profile} from "../services/UserService";
 
-
-
-class AccountFavoriteComponent extends React.Component{
+class AccountFollowingComponent extends React.Component{
 
 
     state = {
@@ -15,7 +11,7 @@ class AccountFavoriteComponent extends React.Component{
         // CHEF 1
         userInfo: {
             username: '',
-            favorites:[]
+            following:[]
         },
 
     }
@@ -94,18 +90,18 @@ class AccountFavoriteComponent extends React.Component{
                         </div>
 
                         <div className="col-8 favorite-content">
-                            <h1>Your favorite recipe</h1>
+                            <h1>Your Following List</h1>
                             <ul className="list-group" >
-                                {
-                                    this.state.userInfo.favorites.map(recipe =>
-                                            <li className="list-group-item">
-                                                <Link to={`/detail/${recipe._id}`}>
-                                                    <i className="fa fa-cube order-icon" aria-hidden="true"></i>
-                                                    {recipe.title}
-                                                </Link>
-                                            </li>
-                                    )
-                                }
+                                {/*{*/}
+                                {/*    this.state.userInfo.following.map(recipe =>*/}
+                                {/*        <li className="list-group-item">*/}
+                                {/*            <Link to={`/detail/${recipe._id}`}>*/}
+                                {/*                <i className="fa fa-cube order-icon" aria-hidden="true"></i>*/}
+                                {/*                {recipe.title}*/}
+                                {/*            </Link>*/}
+                                {/*        </li>*/}
+                                {/*    )*/}
+                                {/*}*/}
                             </ul>
 
                         </div>
@@ -118,4 +114,4 @@ class AccountFavoriteComponent extends React.Component{
     }
 }
 
-export default AccountFavoriteComponent;
+export default AccountFollowingComponent;

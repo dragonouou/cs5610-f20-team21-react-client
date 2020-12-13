@@ -17,6 +17,7 @@ import {findUserById, updateUser, createUser, register, profile, login, logout} 
 import OrderDetailComponent from "./OrderDetailComponent";
 import history from "./history";
 import {SearchDetailComponent} from "./SearchDetailComponent";
+import AccountFollowingComponent from "./AccountFollowingComponent";
 
 class ManagementComponent extends React.Component {
 
@@ -151,11 +152,9 @@ class ManagementComponent extends React.Component {
                         userInfo={this.state.userInfo}
                         register={this.register}/>
                 </Route>
-                <Route path="/profile/:userId" exact>
-                    <UserProfileCardComponent
-                        userId={this.state.userId}
-                        userInfo={this.state.userInfo}/>
-                </Route>
+                <Route path="/profile/:userId"
+                       component={UserProfileCardComponent}
+                       exact/>
                 <Route path="/profile" exact>
                     <ProfileComponent
                         userId={this.state.userId}
@@ -174,6 +173,12 @@ class ManagementComponent extends React.Component {
                 {/*        userId={this.state.userId}*/}
                 {/*        userInfo={this.state.userInfo}/>*/}
                 {/*</Route>*/}
+                <Route path="/following" exact>
+                    <AccountFollowingComponent
+                        userId={this.state.userId}
+                        userInfo={this.state.userInfo}
+                    />
+                </Route>
                 <Route path="/favorites" exact>
                     <AccountFavoriteComponent
                         userId={this.state.userId}

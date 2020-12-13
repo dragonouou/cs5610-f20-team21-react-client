@@ -79,7 +79,7 @@ class AccountFavoriteComponent extends React.Component{
                                     </Link>
                                 </li>
                                 <li className="">
-                                    <Link to='/favorites'>
+                                    <Link to='/following'>
                                         <i className="fa fa-user favorite-icon" aria-hidden="true"></i>
                                         My Following
                                     </Link>
@@ -94,7 +94,7 @@ class AccountFavoriteComponent extends React.Component{
                         </div>
 
                         <div className="col-8 favorite-content">
-                            <h1>Your favorite recipe</h1>
+                            <h1>Your Favorite Recipes</h1>
                             <ul className="list-group" >
                                 {
                                     this.state.userInfo.favorites.map(recipe =>

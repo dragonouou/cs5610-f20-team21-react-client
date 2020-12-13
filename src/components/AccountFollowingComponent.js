@@ -1,6 +1,7 @@
 import React from "react";
 import {findUserById, profile} from "../services/UserService";
 import {Link} from "react-router-dom";
+import "./AccountFollowingComponent.css"
 
 class AccountFollowingComponent extends React.Component{
 
@@ -75,7 +76,7 @@ class AccountFollowingComponent extends React.Component{
                                     </Link>
                                 </li>
                                 <li className="">
-                                    <Link to='/favorites'>
+                                    <Link to='/following'>
                                         <i className="fa fa-user favorite-icon" aria-hidden="true"></i>
                                         My Following
                                     </Link>
@@ -92,16 +93,16 @@ class AccountFollowingComponent extends React.Component{
                         <div className="col-8 favorite-content">
                             <h1>Your Following List</h1>
                             <ul className="list-group" >
-                                {/*{*/}
-                                {/*    this.state.userInfo.following.map(recipe =>*/}
-                                {/*        <li className="list-group-item">*/}
-                                {/*            <Link to={`/detail/${recipe._id}`}>*/}
-                                {/*                <i className="fa fa-cube order-icon" aria-hidden="true"></i>*/}
-                                {/*                {recipe.title}*/}
-                                {/*            </Link>*/}
-                                {/*        </li>*/}
-                                {/*    )*/}
-                                {/*}*/}
+                                {
+                                    this.state.userInfo.following.map(user =>
+                                        <li className="list-group-item">
+                                            <Link to={`/profile/${user._id}`}>
+                                                <i className="fa fa-cube order-icon" aria-hidden="true"></i>
+                                                {user.username}
+                                            </Link>
+                                        </li>
+                                    )
+                                }
                             </ul>
 
                         </div>

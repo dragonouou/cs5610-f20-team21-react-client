@@ -92,7 +92,7 @@ class ProfileComponent extends React.Component{
                                     </Link>
                                 </li>
                                 <li className="">
-                                    <Link to='/favorites'>
+                                    <Link to='/following'>
                                         <i className="fa fa-user favorite-icon" aria-hidden="true"></i>
                                         My Following
                                     </Link>

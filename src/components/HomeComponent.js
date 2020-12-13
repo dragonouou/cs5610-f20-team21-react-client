@@ -8,6 +8,7 @@ import {DetailComponent} from "./DetailComponent";
 import {NavBarComponent} from "./NavBarComponent";
 import {findAllRecipes} from "../services/recipeDatabaseService";
 import {findUserById, profile} from "../services/UserService";
+import {findRecipeForUser} from "../services/recipeService";
 
 
 export class HomeComponent extends React.Component {
@@ -18,7 +19,8 @@ export class HomeComponent extends React.Component {
             firstname: ""
         },
         userId: "",
-        favorites: []
+        favorites: [],
+        userRecipes: []
     }
 
     // recipes = [
@@ -94,6 +96,7 @@ export class HomeComponent extends React.Component {
                 //         // this.setState({userInfo : user})}
                 //     })
             })
+
         findAllRecipes()
             .then(recipes => this.setState({recipes : recipes}))
     }
@@ -109,6 +112,10 @@ export class HomeComponent extends React.Component {
                     this.setState({userInfo:userInfo})
                     this.setState({favorites:userInfo.favorites})
                 })
+            if (this.state.userInfo.role === "chef") {
+                findRecipeForUser(this.state.userId)
+                    .then(recipes => this.setState({userRecipes : recipes}))
+            }
         }
     }
 
@@ -126,7 +133,7 @@ export class HomeComponent extends React.Component {
                         {/*<div className="gutter-sizer"></div>*/}
                         {/*<div className="grid-sizer"></div>*/}
                         {
-                            this.state.userId !== "" &&
+                            this.state.userId !== "" && this.state.userInfo.role === "customer" &&
                             this.state.favorites.map(favorite =>
                                 <div className="grid-item col-4">
                                     <img style={{height: "35vh", objectFit: "cover", width: "100%"}}
@@ -136,6 +143,25 @@ export class HomeComponent extends React.Component {
                                             <div className="project-text-inner">
                                                 <a href={"/detail/" + favorite._id}>
                                                     <h3>{favorite.title}</h3>
+                                                    <p>Discover more</p>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            )
+                        }
+                        {
+                            this.state.userId !== "" && this.state.userInfo.role === "chef" &&
+                            this.state.userRecipes.map(recipe =>
+                                <div className="grid-item col-4">
+                                    <img style={{height: "35vh", objectFit: "cover", width: "100%"}}
+                                         className="img-responsive" alt="" src={recipe.img}/>
+                                    <a href="/" className="project-description">
+                                        <div className="project-text-holder">
+                                            <div className="project-text-inner">
+                                                <a href={"/detail/" + recipe._id}>
+                                                    <h3>{recipe.title}</h3>
                                                     <p>Discover more</p>
                                                 </a>
                                             </div>

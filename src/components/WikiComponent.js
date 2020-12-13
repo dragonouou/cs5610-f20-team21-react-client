@@ -9,6 +9,7 @@ export default class WikiComponent extends React.Component {
                 <div className="row">
                     <div className="col-2">
                         <NavBarComponent
+                            page="searchApi"
                             userId={this.props.userId}
                             user={this.props.userInfo}/>
                     </div>

@@ -80,8 +80,14 @@ export class NavBarComponent extends React.Component {
 
                         <ul className="" style={{listStyleType: "none", paddingLeft: "0px"}}>
                             <li><a href="/" title="" className="" style={{fontWeight: this.props.page === "home" ? "bold":"none"}}>Home</a></li>
-                            <li><a href="/search" title="" className="" style={{fontWeight: this.props.page === "search" ? "bold":"none"}}>Search</a></li>
-                            <li><a href="/search/api" title="" className="" style={{fontWeight: this.props.page === "search" ? "bold":"none"}}>Search in API</a></li>
+                            {
+                                this.state.userInfo.role === "customer" &&
+                                <li><a href="/search" title="" className="" style={{fontWeight: this.props.page === "search" ? "bold":"none"}}>Search</a></li>
+                            }
+                            {
+                                this.state.userInfo.role === "chef" &&
+                                <li><a href="/search/api" title="" className="" style={{fontWeight: this.props.page === "searchApi" ? "bold":"none"}}>Search in API</a></li>
+                            }
                             <li><a href="/about" title="" className="" style={{fontWeight: this.props.page === "about" ? "bold":"none"}}>About</a></li>
                             <li><a href="/policy" title="" className="" style={{fontWeight: this.props.page === "policy" ? "bold":"none"}}>Policy</a></li>
                         </ul>
@@ -103,10 +109,21 @@ export class NavBarComponent extends React.Component {
                                             <a className="fa-icon" href="/profile" title="" style={{marginLeft: "8px"}}>
                                                 <i className="fa fa-2x fa-user-circle-o" aria-hidden="true"></i>
                                             </a>
+                                            {
+                                                this.state.userInfo.role === "chef" &&
+                                                <i className="fa fa-shopping-basket"></i>
+                                            }
                                         </p>
-                                        <div>
+                                        <div style={{marginTop: "6px"}}>
                                             {/*{console.log(this.state.userInfo)}*/}
-                                            Hello {this.state.userInfo.firstname}!
+                                            {
+                                                this.state.userInfo.role === "chef" &&
+                                                <span>Hello Chef {this.state.userInfo.firstname}!</span>
+                                            }
+                                            {
+                                                this.state.userInfo.role === "customer" &&
+                                                <span>Hello {this.state.userInfo.firstname}!</span>
+                                            }
                                             {/*Hi there!*/}
                                             {/*<a className="fa-icon" href="/cart" title="">*/}
                                             {/*    <i className="fa fa-shopping-cart" aria-hidden="true"></i>*/}

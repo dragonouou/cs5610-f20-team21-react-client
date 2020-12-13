@@ -37,13 +37,7 @@ class ManagementComponent extends React.Component {
         // if (this.state.userId) {
         //     findUserById(this.state.userId)
         //         .then(user => {
-<<<<<<< HEAD
-        //             console.log(user)
         //             this.setState({
-        //                 userId: '5fc9cde5d839e57c51ef3b4c',
-=======
-        //             this.setState({
->>>>>>> 355d07cdbd3ee56d38c0b04da40171cf7b81611a
         //                 userInfo: user
         //             })
         //         })

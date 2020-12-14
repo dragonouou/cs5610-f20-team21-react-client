@@ -8,7 +8,6 @@ import {findUserById, findUserByIdSimple, profile, updateUser} from "../services
 class UserProfileCardComponent extends React.Component{
 
     state = {
-
         // User
         userId: '',
 
@@ -24,7 +23,6 @@ class UserProfileCardComponent extends React.Component{
 
         profileUser:[]
     }
-
 
 
     componentDidMount() {

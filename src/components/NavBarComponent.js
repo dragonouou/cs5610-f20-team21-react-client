@@ -61,9 +61,9 @@ export class NavBarComponent extends React.Component {
         return (
             <header>
                 <div className="navbar navbar-default visible-xs">
-                    <button type="button" className="navbar-toggle collapsed">
-                        <span className="sr-only">Toggle navigation</span>
-                    </button>
+                    {/*<button type="button" className="navbar-toggle collapsed">*/}
+                    {/*    <span className="sr-only">Toggle navigation</span>*/}
+                    {/*</button>*/}
                     <a href="/" className="navbar-brand">Kitchen</a>
                 </div>
 

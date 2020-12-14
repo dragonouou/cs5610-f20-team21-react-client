@@ -116,14 +116,30 @@ class ProfileComponent extends React.Component{
                         </div>
 
                         <form className="col-8 profile-content">
-                            <h3 className="profile-title">My Profile</h3>
+                            <h1 className="profile-title">My Profile</h1>
                             <div className="form-group">
                                 <div className="col-sm-10">
-                                <button
-                                    className="btn col-12 btn-info">
-                                    <i className="fa fa-user info-icon" aria-hidden="true"></i>
-                                    Information
-                                </button>
+                                    {
+                                        this.state.userInfo.role === "customer" &&
+                                        <button
+                                            className="btn col-12 btn-info">
+                                            <i className="fa fa-user info-icon" aria-hidden="true"></i>
+                                            Information
+                                        </button>
+                                    }
+                                    {
+                                        this.state.userInfo.role === "chef" &&
+                                        <Link to={`/profile/${this.state.userId}`}>
+                                            <button
+                                                className="btn col-12 btn-info">
+                                                <i className="fa fa-user info-icon" aria-hidden="true"></i>
+                                                Enter Your Profile
+                                            </button>
+
+                                        </Link>
+                                    }
+
+
                                 </div>
                                 <label htmlFor="usernameFld" className="col-sm-2 col-form-label">
                                     Username
@@ -232,6 +248,26 @@ class ProfileComponent extends React.Component{
                                                const newUser ={
                                                    ...this.state.userInfo,
                                                    address:event.target.value
+                                               }
+                                               this.setState({...this.state,userInfo:newUser})
+                                           }}/>
+                                </div>
+                            </div>
+
+                            <div className="form-group">
+                                <label htmlFor="aboutFld"className="col-sm-2 col-form-label">
+                                    About Me
+                                </label>
+                                <div className="col-sm-10">
+                                    <input type="text"
+                                           className="form-control"
+                                           id="aboutFld"
+                                           placeholder="Write something about you"
+                                           value={this.state.userInfo.aboutMe}
+                                           onChange={(event) =>{
+                                               const newUser ={
+                                                   ...this.state.userInfo,
+                                                   aboutMe:event.target.value
                                                }
                                                this.setState({...this.state,userInfo:newUser})
                                            }}/>

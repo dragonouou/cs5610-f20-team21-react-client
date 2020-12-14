@@ -85,7 +85,7 @@ export class SearchComponent extends React.Component {
                                    }))
                                }}
                         />
-                        <button className="btn btn-success btn-block"
+                        <button className="btn btn-info btn-block"
                                 style={{display: "inline", height: "50px", marginBottom: "25x"}}
                                 onClick={() => this.search(this.state.criteria)}>
                             Submit

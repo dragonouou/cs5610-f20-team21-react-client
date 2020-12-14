@@ -99,7 +99,7 @@ class AccountFavoriteComponent extends React.Component{
                         </div>
 
                         <div className="col-8 favorite-content">
-                            <h1>Your Favorite Recipes</h1>
+                            <h1 className="favorite-title">Your Favorite Recipes</h1>
                             <ul className="list-group" >
                                 {
                                     this.state.userInfo.favorites.map(recipe =>

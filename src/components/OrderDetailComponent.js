@@ -1,9 +1,50 @@
 import React from "react";
 import "./OrderDetailComponent.css"
 import {Link} from "react-router-dom";
+import {findUserById, logout, profile} from "../services/UserService";
 
 
 class OrderDetailComponent extends React.Component{
+
+    state = {
+        // USER 1
+        userId: '',
+        // CHEF 1
+        userInfo: {
+            username: '',
+            orders:[]
+        },
+    }
+    componentDidMount() {
+        // TO FETCH THE USER FROM THE SESSION
+        profile()
+            .then(profile => {
+                if (Array.isArray(profile)) {
+                    if (profile.length !== 0) {
+                        this.setState({
+                            // userInfo: profile[0],
+                            userId: profile[0]._id
+                        })
+                        findUserById(profile[0]._id)
+                            .then(user => {this.setState({userInfo:user})})
+                    }
+                } else {
+                    this.setState({
+                        // userInfo: profile,
+                        userId: profile._id
+                    })
+                    findUserById(profile._id)
+                        .then(user => {this.setState({userInfo:user})})
+                }
+            })
+    }
+
+    logout = () => {
+        logout()
+            .then(status => {
+                this.setState({userInfo:{},userId:''})
+            })
+    }
 
     render() {
         return (
@@ -55,6 +96,7 @@ class OrderDetailComponent extends React.Component{
                             <h3 className="order-title">My Order History</h3>
                             <div>
                                 <ul className="list-group" >
+
                                     {/*code for order detail*/}
                                     {/*{*/}
                                     {/*    this.props.userInfo.orders.map(order =>*/}
@@ -68,7 +110,7 @@ class OrderDetailComponent extends React.Component{
                                     {/*}*/}
 
                                     {
-                                        this.props.userInfo.orders.map(order =>
+                                        this.state.userInfo.orders.map(order =>
                                             <li className="list-group-item order-list-item">
                                                 <div className="row">
                                                     <Link to={`/orders/${order._id}`}>

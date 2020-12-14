@@ -86,6 +86,22 @@ export class DetailComponent extends React.Component {
             })
     }
 
+    //add to order
+    // addOrder = (recipeId) =>{
+    //     const oldUser = this.state.userInfo;
+    //     const newUser = {
+    //         ...oldUser,
+    //         orders:[
+    //             ...oldUser.orders,
+    //             recipeId
+    //         ]
+    //     }
+    //     updateUser(this.state.userInfo._id, newUser)
+    //         .then(status => {
+    //             this.setState({userInfo : newUser})
+    //         })
+    // }
+
     render() {
         return (
             <div className="row">
@@ -119,6 +135,24 @@ export class DetailComponent extends React.Component {
                             }
                         </div>
                     }
+
+                    {/*{*/}
+                    {/*    this.state.userId !== "" && this.state.userInfo.role === "customer" &&*/}
+                    {/*    <div>*/}
+                    {/*        {*/}
+                    {/*            !this.state.userInfo.orders.includes(this.state.recipeId) &&*/}
+                    {/*            <button style={{marginTop: "1vh"}} className="btn btn-info" onClick={() => this.addOrder(this.state.recipeId)}>*/}
+                    {/*                Add*/}
+                    {/*            </button>*/}
+                    {/*        }*/}
+                    {/*        {*/}
+                    {/*            this.state.userInfo.orders.includes(this.state.recipeId)&&*/}
+                    {/*            <button style={{marginTop: "1vh"}} className="btn btn-dark" disabled>*/}
+                    {/*                Added*/}
+                    {/*            </button>*/}
+                    {/*        }*/}
+                    {/*    </div>*/}
+                    {/*}*/}
 
                     <h2 style={{marginTop: "5vh", fontSize: "20px"}}>Summary</h2>
                     <div>

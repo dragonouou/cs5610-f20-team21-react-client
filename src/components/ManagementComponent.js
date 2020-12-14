@@ -163,16 +163,13 @@ class ManagementComponent extends React.Component {
                     <Route path="/profile-created">
                         <Redirect to="/profile"/>
                     </Route>
-                <Route path="/orders" exact>
-                    <OrderDetailComponent
-                        userId={this.state.userId}
-                        userInfo={this.state.userInfo}/>
-                </Route>
-                {/*<Route path="/orders/:orderId" exact>*/}
+
+                {/*<Route path="/orders" exact>*/}
                 {/*    <OrderDetailComponent*/}
                 {/*        userId={this.state.userId}*/}
                 {/*        userInfo={this.state.userInfo}/>*/}
                 {/*</Route>*/}
+
                 <Route path="/following" exact>
                     <AccountFollowingComponent
                         userId={this.state.userId}

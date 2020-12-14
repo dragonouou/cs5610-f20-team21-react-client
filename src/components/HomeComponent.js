@@ -69,12 +69,14 @@ export class HomeComponent extends React.Component {
     componentDidMount() {
         profile()
             .then(profile => {
+
                 // this.setState({userInfo:profile[0]})
 
                 // if (profile.length !== 0) {
                 //     this.setState({userId:profile._id})
                 // }
                 // console.log(profile)
+
                 if (Array.isArray(profile)) {
                     if (profile.length !== 0) {
                         this.setState({
@@ -86,9 +88,11 @@ export class HomeComponent extends React.Component {
                                 this.setState({userInfo:userInfo})
                                 this.setState({favorites:userInfo.favorites})
                             })
-                        if (profile.role === "chef") {
+                        if (profile[0].role === "chef") {
                             findRecipeForUser(profile[0]._id)
-                                .then(recipes => this.setState({userRecipes : recipes}))
+                                .then(recipes => {
+                                    this.setState({userRecipes: recipes})
+                                })
                         }
                     }
                 } else {
@@ -106,6 +110,7 @@ export class HomeComponent extends React.Component {
                             .then(recipes => this.setState({userRecipes : recipes}))
                     }
                 }
+
                 // this.setState({favorites:profile[0].favorites})
 
                 // findUserByIdSimple(profile[0].userId)

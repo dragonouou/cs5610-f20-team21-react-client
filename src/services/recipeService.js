@@ -4,6 +4,7 @@ const apiKey = "apiKey=c8b6eac40e34427886d68e4409e9ae56"
 const maxNum = "number=4"
 
 const serverUrl = "http://localhost:8080/api"
+// const serverUrl = "https://homekitchenserver.herokuapp.com/api"
 
 export const findRecipesByTitle = (title) =>
     fetch(`${searchUrl}?${apiKey}&query=${title}&${maxNum}`)

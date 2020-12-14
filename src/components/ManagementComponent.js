@@ -17,6 +17,7 @@ import {findUserById, updateUser, createUser, register, profile, login, logout} 
 import OrderDetailComponent from "./OrderDetailComponent";
 import history from "./history";
 import {SearchDetailComponent} from "./SearchDetailComponent";
+import AccountFollowingComponent from "./AccountFollowingComponent";
 
 class ManagementComponent extends React.Component {
 
@@ -26,7 +27,7 @@ class ManagementComponent extends React.Component {
 
     state = {
         // USER 1
-        userId: '',
+        // userId: '5fc9cde5d839e57c51ef3b4c',
         // CHEF 1
         // userId: '5fc9dcf17ecf2884edd15894',
         userInfo: {}
@@ -151,11 +152,9 @@ class ManagementComponent extends React.Component {
                         userInfo={this.state.userInfo}
                         register={this.register}/>
                 </Route>
-                <Route path="/profile/:userId" exact>
-                    <UserProfileCardComponent
-                        userId={this.state.userId}
-                        userInfo={this.state.userInfo}/>
-                </Route>
+                <Route path="/profile/:userId"
+                       component={UserProfileCardComponent}
+                       exact/>
                 <Route path="/profile" exact>
                     <ProfileComponent
                         userId={this.state.userId}
@@ -165,14 +164,20 @@ class ManagementComponent extends React.Component {
                         <Redirect to="/profile"/>
                     </Route>
                 <Route path="/orders" exact>
-                    <OrderHistoryComponent
-                        userId={this.state.userId}
-                        userInfo={this.state.userInfo}/>
-                </Route>
-                <Route path="/orders/:orderId" exact>
                     <OrderDetailComponent
                         userId={this.state.userId}
                         userInfo={this.state.userInfo}/>
+                </Route>
+                {/*<Route path="/orders/:orderId" exact>*/}
+                {/*    <OrderDetailComponent*/}
+                {/*        userId={this.state.userId}*/}
+                {/*        userInfo={this.state.userInfo}/>*/}
+                {/*</Route>*/}
+                <Route path="/following" exact>
+                    <AccountFollowingComponent
+                        userId={this.state.userId}
+                        userInfo={this.state.userInfo}
+                    />
                 </Route>
                 <Route path="/favorites" exact>
                     <AccountFavoriteComponent

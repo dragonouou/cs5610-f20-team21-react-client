@@ -1,12 +1,9 @@
 import React from "react";
-import "./AccountFavoriteComponent.css"
+import {findUserById, logout, profile} from "../services/UserService";
 import {Link} from "react-router-dom";
-import OrderHistoryComponent from "./OrderHistoryComponent";
-import {findUserByIdSimple, findUserById, profile, logout} from "../services/UserService";
+import "./AccountFollowingComponent.css"
 
-
-
-class AccountFavoriteComponent extends React.Component{
+class AccountFollowingComponent extends React.Component{
 
 
     state = {
@@ -15,7 +12,7 @@ class AccountFavoriteComponent extends React.Component{
         // CHEF 1
         userInfo: {
             username: '',
-            favorites:[]
+            following:[]
         },
 
     }
@@ -54,6 +51,8 @@ class AccountFavoriteComponent extends React.Component{
     render() {
 
         return (
+
+
             <div>
                 <div className="container">
                     <div className="row wrapper">
@@ -99,16 +98,16 @@ class AccountFavoriteComponent extends React.Component{
                         </div>
 
                         <div className="col-8 favorite-content">
-                            <h1>Your Favorite Recipes</h1>
+                            <h1>Your Following List</h1>
                             <ul className="list-group" >
                                 {
-                                    this.state.userInfo.favorites.map(recipe =>
-                                            <li className="list-group-item">
-                                                <Link to={`/detail/${recipe._id}`}>
-                                                    <i className="fa fa-heart order-icon" aria-hidden="true"></i>
-                                                    {recipe.title}
-                                                </Link>
-                                            </li>
+                                    this.state.userInfo.following.map(user =>
+                                        <li className="list-group-item">
+                                            <Link to={`/profile/${user._id}`}>
+                                                <i className="fa fa-user-circle order-icon" aria-hidden="true"></i>
+                                                {user.username}
+                                            </Link>
+                                        </li>
                                     )
                                 }
                             </ul>
@@ -123,4 +122,4 @@ class AccountFavoriteComponent extends React.Component{
     }
 }
 
-export default AccountFavoriteComponent;
+export default AccountFollowingComponent;

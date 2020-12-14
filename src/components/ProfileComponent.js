@@ -4,7 +4,7 @@ import {BrowserRouter, Redirect, Route} from "react-router-dom";
 import {Link} from "react-router-dom";
 import OrderHistoryComponent from "./OrderHistoryComponent";
 import {NavBarComponent} from "./NavBarComponent";
-import {findUserById, findUserByIdSimple, profile, updateUser} from "../services/UserService";
+import {findUserById, findUserByIdSimple, logout, profile, updateUser} from "../services/UserService";
 
 
 class ProfileComponent extends React.Component{
@@ -17,10 +17,12 @@ class ProfileComponent extends React.Component{
         userInfo: {
             username: ''
         }
-
     }
 
+
+
     componentDidMount() {
+
         // TO TEST THE GIVEN USER
         // if (this.state.userId) {
         //     findUserById(this.state.userId)
@@ -56,6 +58,13 @@ class ProfileComponent extends React.Component{
                 }
             })
 
+    }
+
+    logout = () => {
+        logout()
+            .then(status => {
+                this.setState({userInfo:{},userId:''})
+            })
     }
 
 
@@ -98,7 +107,7 @@ class ProfileComponent extends React.Component{
                                     </Link>
                                 </li>
                                 <li className="">
-                                    <Link to='/'>
+                                    <Link to='/' onClick={this.logout}>
                                         <i className="fa fa-sign-out logout-icon" aria-hidden="true"></i>
                                         Logout
                                     </Link>

@@ -2,7 +2,7 @@ import React from "react";
 import "./AccountFavoriteComponent.css"
 import {Link} from "react-router-dom";
 import OrderHistoryComponent from "./OrderHistoryComponent";
-import {findUserByIdSimple, findUserById,profile} from "../services/UserService";
+import {findUserByIdSimple, findUserById, profile, logout} from "../services/UserService";
 
 
 
@@ -44,11 +44,16 @@ class AccountFavoriteComponent extends React.Component{
             })
     }
 
+    logout = () => {
+        logout()
+            .then(status => {
+                this.setState({userInfo:{},userId:''})
+            })
+    }
+
     render() {
 
         return (
-
-
             <div>
                 <div className="container">
                     <div className="row wrapper">
@@ -85,7 +90,7 @@ class AccountFavoriteComponent extends React.Component{
                                     </Link>
                                 </li>
                                 <li className="">
-                                    <Link to='/'>
+                                    <Link to='/' onClick={this.logout}>
                                         <i className="fa fa-sign-out logout-icon" aria-hidden="true"></i>
                                         Logout
                                     </Link>
@@ -100,7 +105,7 @@ class AccountFavoriteComponent extends React.Component{
                                     this.state.userInfo.favorites.map(recipe =>
                                             <li className="list-group-item">
                                                 <Link to={`/detail/${recipe._id}`}>
-                                                    <i className="fa fa-cube order-icon" aria-hidden="true"></i>
+                                                    <i className="fa fa-heart order-icon" aria-hidden="true"></i>
                                                     {recipe.title}
                                                 </Link>
                                             </li>

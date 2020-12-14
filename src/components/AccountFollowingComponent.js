@@ -1,5 +1,5 @@
 import React from "react";
-import {findUserById, profile} from "../services/UserService";
+import {findUserById, logout, profile} from "../services/UserService";
 import {Link} from "react-router-dom";
 import "./AccountFollowingComponent.css"
 
@@ -38,6 +38,13 @@ class AccountFollowingComponent extends React.Component{
                     findUserById(profile._id)
                         .then(user => {this.setState({userInfo:user})})
                 }
+            })
+    }
+
+    logout = () => {
+        logout()
+            .then(status => {
+                this.setState({userInfo:{},userId:''})
             })
     }
 
@@ -82,7 +89,7 @@ class AccountFollowingComponent extends React.Component{
                                     </Link>
                                 </li>
                                 <li className="">
-                                    <Link to='/'>
+                                    <Link to='/' onClick={this.logout}>
                                         <i className="fa fa-sign-out logout-icon" aria-hidden="true"></i>
                                         Logout
                                     </Link>
@@ -97,7 +104,7 @@ class AccountFollowingComponent extends React.Component{
                                     this.state.userInfo.following.map(user =>
                                         <li className="list-group-item">
                                             <Link to={`/profile/${user._id}`}>
-                                                <i className="fa fa-cube order-icon" aria-hidden="true"></i>
+                                                <i className="fa fa-user-circle order-icon" aria-hidden="true"></i>
                                                 {user.username}
                                             </Link>
                                         </li>

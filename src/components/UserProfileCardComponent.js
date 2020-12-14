@@ -75,12 +75,6 @@ class UserProfileCardComponent extends React.Component{
 
     }
 
-    componentDidUpdate(prevProps, prevState, snapshot) {
-        // findUserByIdSimple(this.state.userId)
-        //     .then(user => this.setState({userInfo:user}))
-        // console.log("hello")
-    }
-
     following = (profileUserId) =>{
         const preUser = this.state.userInfo;
         const newUser ={
@@ -104,7 +98,7 @@ class UserProfileCardComponent extends React.Component{
                 <div className="row py-5 px-4">
                     <div className="col-xl-4 col-md-6 col-sm-10 mx-auto">
                         <div>
-                            <Link to='/profile'>
+                            <Link to='/'>
                                 <i className="fa fa-chevron-left mr-2"></i>
                                 Back
                             </Link>
@@ -116,7 +110,7 @@ class UserProfileCardComponent extends React.Component{
                                         <img
                                         src="https://cdn.pixabay.com/photo/2016/03/09/09/13/chef-1245676_1280.jpg"
                                         alt="..." className="rounded mb-2 img-thumbnail profile-avatar"/>
-                                        {/*{console.log(this.state.userInfo.following)}*/}
+
                                         {
                                             this.state.userId !== "" &&
                                                 <div>
@@ -143,8 +137,8 @@ class UserProfileCardComponent extends React.Component{
                                     <div className="media-body mb-5 col-7 text-white">
                                         <h4 className="mt-0 mb-0">{this.state.profileUser.firstname} {this.state.profileUser.lastname}</h4>
                                         <p className="small mb-4">
-                                            <i className="fa fa-map-marker mr-2"></i>
-                                            San Farcisco
+                                            {/*<i className="fa fa-map-marker mr-2"></i>*/}
+                                            {/*San Farcisco*/}
                                         </p>
                                     </div>
                                 </div>

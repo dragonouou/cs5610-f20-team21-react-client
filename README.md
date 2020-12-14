@@ -1,3 +1,7 @@
+# Project Description
+  Happy Kitchen is an online web application which provides a platform for home kitchens to display their best dishes and attract customers to follow and buy dishes from them. Customers can search/follow dishes and follow their favorite chefs. Chef can search different dishes from a external Food API and add it to their dish list.
+  We use React.js for the front-end, Node.js for the server and MongoDB for the database. Our project runs remotely, including the client, server and database.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

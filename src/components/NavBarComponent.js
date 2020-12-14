@@ -1,5 +1,5 @@
 import React from "react";
-import {profile,logout} from "../services/UserService";
+import {profile, logout, findUserByIdSimple} from "../services/UserService";
 
 export class NavBarComponent extends React.Component {
 
@@ -44,15 +44,20 @@ export class NavBarComponent extends React.Component {
                 if (Array.isArray(profile)) {
                     if (profile.length !== 0) {
                         this.setState({
-                            userInfo: profile[0],
+                            // userInfo: profile[0],
                             userId: profile[0]._id
                         })
+
+                        findUserByIdSimple(profile[0]._id)
+                            .then(user => {this.setState({userInfo:user})})
                     }
                 } else {
                     this.setState({
-                        userInfo: profile,
+                        // userInfo: profile,
                         userId: profile._id
                     })
+                    findUserByIdSimple(profile[0]._id)
+                        .then(user => {this.setState({userInfo:user})})
                 }
             })
     }

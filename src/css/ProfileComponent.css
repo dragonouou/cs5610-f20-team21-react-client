@@ -86,7 +86,6 @@
 }
 
 
-
 /*@media screen and (min-width:1050px) {*/
 /*    .top-bar {*/
 /*        display: none;*/
@@ -99,4 +98,14 @@
 /*    }*/
 /*}*/
 
+.Link{
+    color:black;
+}
 
+.a:hover{
+    color:cadetblue;
+}
+
+.a{
+    color:black;
+}

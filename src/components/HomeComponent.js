@@ -70,14 +70,12 @@ export class HomeComponent extends React.Component {
     componentDidMount() {
         profile()
             .then(profile => {
-
                 // this.setState({userInfo:profile[0]})
 
                 // if (profile.length !== 0) {
                 //     this.setState({userId:profile._id})
                 // }
                 // console.log(profile)
-
                 if (Array.isArray(profile)) {
                     if (profile.length !== 0) {
                         this.setState({
@@ -163,7 +161,7 @@ export class HomeComponent extends React.Component {
                                     <a href="/" className="project-description">
                                         <div className="project-text-holder">
                                             <div className="project-text-inner">
-                                                <a href={"/detail/" + favorite._id}>
+                                                <a href={"/details/" + favorite._id}>
                                                     <h3>{favorite.title}</h3>
                                                     <p>Discover more</p>
                                                 </a>

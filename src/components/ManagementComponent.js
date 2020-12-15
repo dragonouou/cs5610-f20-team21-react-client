@@ -123,9 +123,7 @@ class ManagementComponent extends React.Component {
                         userInfo={this.state.userInfo}/>
                 </Route>
                 <Route path={["/search","/search?criteria=:query"]} exact component={SearchComponent}/>
-                <Route path="/details/:recipeId"
-                       component={DetailComponent}
-                       exact/>
+                <Route path="/details/:recipeId" component={DetailComponent} exact/>
                 {/*<Route path="/detail/:recipeId" exact>*/}
                 {/*    <DetailComponent*/}
                 {/*        userId={this.state.userId}*/}

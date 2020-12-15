@@ -61,6 +61,7 @@ class ProfileComponent extends React.Component{
         logout()
             .then(status => {
                 this.setState({userInfo:{},userId:''})
+                history.push("/")
             })
     }
 

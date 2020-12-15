@@ -104,7 +104,7 @@ class AccountFavoriteComponent extends React.Component{
                                 {
                                     this.state.userInfo.favorites.map(recipe =>
                                             <li className="list-group-item">
-                                                <Link to={`/detail/${recipe._id}`}>
+                                                <Link to={`/details/${recipe._id}`}>
                                                     <i className="fa fa-heart order-icon" aria-hidden="true"></i>
                                                     {recipe.title}
                                                 </Link>

@@ -50,32 +50,55 @@ class OrderDetailComponent extends React.Component{
             })
     }
 
-    // deleteOrder = (orderId) =>{
-    //     deleteOrder(orderId)
-    //         .then(status => this.setState(prevState => ({
-    //             ...this.state,
-    //             order: prevState.userInfo.orders.filter(order => order._id !== orderId)
-    //
-    //         })))
-    // }
-
     deleteOrder = (orderId) =>{
         const oldUser = this.state.userInfo;
-        const newOrders = this.state.userInfo.orders.filter(order => order._id !== orderId)
+        const newOrders = this.state.userInfo.orders.filter(order => order._id !== orderId);
         const newUser = {
             ...oldUser,
-            orders:newOrders
+            orders: newOrders
         }
-        updateUser(this.state.userInfo._id,newUser)
-            .then(status =>{
-                this.setState({userInfo:newUser})})
-
-        // deleteOrder(orderId)
-        //     .then(status=>this.setState(prevState =>({
-        //         orders:prevState.userInfo.orders.filter(order => order._id !== orderId)
-        //         })
-        //     ))
+        updateUser(this.state.userInfo._id, newUser)
+            .then(status => {
+                this.setState({userInfo : newUser})
+            })
+        deleteOrder(orderId)
+            .then(status => console.log("order deleted"))
     }
+    // deleteOrder = (orderId) =>{
+    //     const oldUser = this.state.userInfo;
+    //     const newOrders = this.state.userInfo.orders.filter(order => order._id !== orderId)
+    //     const newUser = {
+    //         ...oldUser,
+    //         orders:newOrders
+    //     }
+    //     updateUser(this.state.userInfo._id,newUser)
+    //         .then(status =>{
+    //             this.setState({userInfo:newUser})})
+    //
+    //     deleteOrder(orderId)
+    //         .then(status=>this.setState(prevState =>({
+    //             orders:prevState.userInfo.orders.filter(order => order._id !== orderId)
+    //             })
+    //         ))
+    // }
+
+
+
+    // deleteOrder = (orderId) =>{
+    //     const oldUser = this.state.userInfo;
+    //
+    //     deleteOrder(orderId)
+    //         .then(status =>(
+    //             findUserById(this.state.userId)
+    //             .then(user => {this.setState({userInfo:user})}))
+    //         )
+    // }
+    //
+    // deleteOrder = (orderId) =>{
+    //     const oldUser = this.state.userInfo;
+    //     deleteOrder(orderId)
+    //         .then(status=>this.setState())
+    // }
 
 
 
@@ -129,7 +152,7 @@ class OrderDetailComponent extends React.Component{
 
                         <form className="col-8 order-content">
                             <h3 className="order-title">My Order History</h3>
-                            {console.log(this.state.userInfo.orders)}
+                            {/*{console.log(this.state.userInfo.orders)}*/}
                             <div>
                                 <ul className="list-group" >
 
@@ -151,11 +174,7 @@ class OrderDetailComponent extends React.Component{
                                                 <div className="row">
                                                         <i className="fa fa-cube order-icon" aria-hidden="true"></i>
                                                         Order Number: {order._id}
-                                                    {/*<div>*/}
-                                                    {/*    <i className="fa fa-trash float-right deleteBtn" aria-hidden="true"*/}
-                                                    {/*    onClick={()=>this.deleteOrder(order._id)}*/}
-                                                    {/*    ></i>*/}
-                                                    {/*</div>*/}
+
                                                 </div>
 
                                                 <div className="order-detail">
@@ -172,6 +191,7 @@ class OrderDetailComponent extends React.Component{
                                                                     {/*<div className="col-3 float-right recipe-count">*/}
                                                                     {/*    X 1*/}
                                                                     {/*</div>*/}
+
                                                                 </li>
 
                                                             </div>
@@ -184,6 +204,9 @@ class OrderDetailComponent extends React.Component{
                                                         {/*</div>*/}
 
                                                     </ul>
+                                                </div>
+                                                <div>
+                                                    <button className="btn btn-info btn-block" onClick={() => this.deleteOrder(order._id)}>Delete Order</button>
                                                 </div>
                                             </li>
                                         )

@@ -55,7 +55,7 @@ export class SearchApiDetailComponent extends React.Component {
         }
         createRecipe(newRecipe)
             .then(actualRecipe => this.setState({recipe:actualRecipe}))
-        history.goBack()
+        history.push("/")
     }
 
 

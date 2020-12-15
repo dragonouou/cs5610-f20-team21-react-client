@@ -27,7 +27,11 @@ export class DetailComponent extends React.Component {
         //     .then(recipe => this.setState({recipe:recipe}))
 
         findRecipeById(recipeId)
-            .then(recipe => {this.setState({recipe:recipe})})
+            .then(recipe => {
+                this.setState({recipe:recipe})
+                findUserByIdSimple(recipe.chefId)
+                    .then(chef => this.setState({chef: chef}))
+            })
 
         profile()
             .then(profile => {
@@ -61,8 +65,8 @@ export class DetailComponent extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        findUserByIdSimple(this.state.recipe.chefId)
-            .then(chef => this.setState({chef: chef}))
+        // findUserByIdSimple(this.state.recipe.chefId)
+        //     .then(chef => this.setState({chef: chef}))
         // console.log(this.state.userInfo)
         // findUserByIdSimple(this.state.userId)
         //     .then(user => {

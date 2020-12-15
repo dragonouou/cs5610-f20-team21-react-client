@@ -89,79 +89,81 @@ export class RegisterComponent extends React.Component {
     render() {
         return (
             <div className="row">
-                <div className="col-2">
+                <div className="col-lg-2 col-sm-2 col-xs-12">
                     <NavBarComponent
                         userId={this.props.userId}
                         user={this.props.userInfo}/>
                 </div>
 
-                <div className="hero-full-wrapper col-10" style={{paddingRight: "5vw", marginTop: "1vh"}}>
-                    <h1 style={{marginBottom: "50px"}}>Register</h1>
-                    <div className="line">
-                        <label htmlFor="username">UserName</label>
-                        <input id="username" type="text" placeholder="username"
-                               value={this.state.newUser.username}
-                               onChange={this.handleChange.bind(this, "username")}/>
-                        <span style={{color: "red"}}>{this.state.errors["username"]}</span>
-                    </div>
-                    <div className="line">
-                        <label htmlFor="firstname">First Name</label>
-                        <input id="firstname" type="text" placeholder="firstname"
-                               value={this.state.newUser.firstname}
-                               onChange={this.handleChange.bind(this, "firstname")}/>
-                        <span style={{color: "red"}}>{this.state.errors["firstname"]}</span>
-                    </div>
-                    <div className="line">
-                        <label htmlFor="lastname">Last Name</label>
-                        <input id="lastname" type="text" placeholder="lastname"
-                               value={this.state.newUser.lastname}
-                               onChange={this.handleChange.bind(this, "lastname")}/>
-                    </div>
-                    <div className="line">
-                        <label htmlFor="email" style={{width: "80px"}}>Email</label>
-                        <input id="email" type="email" placeholder="abc@example.com"
-                               value={this.state.newUser.email}
-                               onChange={this.handleChange.bind(this, "email")}/>
-                        <span style={{color: "red"}}>{this.state.errors["email"]}</span>
-                    </div>
-                    <div className="line">
-                        <label htmlFor="pw">Password</label>
-                        <input type="text" id="pw" placeholder="password"
-                               value={this.state.newUser.password}
-                               onChange={this.handleChange.bind(this, "password")}/>
-                        <span style={{color: "red"}}>{this.state.errors["password"]}</span>
-                    </div>
+                <div className="hero-full-wrapper col-lg-10 col-sm-10 col-xs-12" style={{paddingRight: "5vw", marginTop: "1vh"}}>
+                    <div style={{marginLeft: "10vw"}}>
+                        <h1 style={{marginBottom: "50px"}}>Register</h1>
+                        <div className="line">
+                            <label htmlFor="username">UserName</label>
+                            <input id="username" type="text" placeholder="username"
+                                   value={this.state.newUser.username}
+                                   onChange={this.handleChange.bind(this, "username")}/>
+                            <span style={{color: "red"}}>{this.state.errors["username"]}</span>
+                        </div>
+                        <div className="line">
+                            <label htmlFor="firstname">First Name</label>
+                            <input id="firstname" type="text" placeholder="firstname"
+                                   value={this.state.newUser.firstname}
+                                   onChange={this.handleChange.bind(this, "firstname")}/>
+                            <span style={{color: "red"}}>{this.state.errors["firstname"]}</span>
+                        </div>
+                        <div className="line">
+                            <label htmlFor="lastname">Last Name</label>
+                            <input id="lastname" type="text" placeholder="lastname"
+                                   value={this.state.newUser.lastname}
+                                   onChange={this.handleChange.bind(this, "lastname")}/>
+                        </div>
+                        <div className="line">
+                            <label htmlFor="email" style={{width: "80px"}}>Email</label>
+                            <input id="email" type="email" placeholder="abc@example.com"
+                                   value={this.state.newUser.email}
+                                   onChange={this.handleChange.bind(this, "email")}/>
+                            <span style={{color: "red"}}>{this.state.errors["email"]}</span>
+                        </div>
+                        <div className="line">
+                            <label htmlFor="pw">Password</label>
+                            <input type="text" id="pw" placeholder="password"
+                                   value={this.state.newUser.password}
+                                   onChange={this.handleChange.bind(this, "password")}/>
+                            <span style={{color: "red"}}>{this.state.errors["password"]}</span>
+                        </div>
 
-                    <div className="line">
-                        <label htmlFor="phonenumber">PhoneNumber</label>
-                        <input id="phonenumber" type="tel" placeholder="000-000-0000"
-                               value={this.state.newUser.phoneNumber}
-                               onChange={this.handleChange.bind(this, "phoneNumber")}/>
-                        <span style={{color: "red"}}>{this.state.errors["phoneNumber"]}</span>
-                    </div>
+                        <div className="line">
+                            <label htmlFor="phonenumber">PhoneNumber</label>
+                            <input id="phonenumber" type="tel" placeholder="000-000-0000"
+                                   value={this.state.newUser.phoneNumber}
+                                   onChange={this.handleChange.bind(this, "phoneNumber")}/>
+                            <span style={{color: "red"}}>{this.state.errors["phoneNumber"]}</span>
+                        </div>
 
-                    <div className="line">
-                        <label htmlFor="address">Address</label>
-                        <input id="address" type="text" placeholder="Your address"
-                               value={this.state.newUser.address}
-                               onChange={this.handleChange.bind(this, "address")}/>
-                    </div>
+                        <div className="line">
+                            <label htmlFor="address">Address</label>
+                            <input id="address" type="text" placeholder="Your address"
+                                   value={this.state.newUser.address}
+                                   onChange={this.handleChange.bind(this, "address")}/>
+                        </div>
 
-                    <div className="line">
-                        <label htmlFor="role">Role</label>
-                        <select type="text" id="role" placeholder="role" style={{width: "180px"}}
-                                value={this.state.newUser.role}
-                                onChange={this.handleChange.bind(this, "role")}>
-                            <option value="customer">Customer</option>
-                            <option value="chef">Chef</option>
-                        </select>
-                    </div>
-                    <div className="line">
-                        {/*<Link to="/profile-created">*/}
-                        <button type="button" className="btn btn-success" onClick={this.contactSubmit}>
-                            Submit
-                        </button>
-                    {/*</Link>*/}
+                        <div className="line">
+                            <label htmlFor="role">Role</label>
+                            <select type="text" id="role" placeholder="role" style={{width: "180px"}}
+                                    value={this.state.newUser.role}
+                                    onChange={this.handleChange.bind(this, "role")}>
+                                <option value="customer">Customer</option>
+                                <option value="chef">Chef</option>
+                            </select>
+                        </div>
+                        <div className="line">
+                            {/*<Link to="/profile-created">*/}
+                            <button type="button" className="btn btn-success" onClick={this.contactSubmit}>
+                                Submit
+                            </button>
+                            {/*</Link>*/}
+                        </div>
                     </div>
                 </div>
             </div>

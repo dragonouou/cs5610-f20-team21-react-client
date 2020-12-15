@@ -6,14 +6,14 @@ export class AboutComponent extends React.Component {
     render() {
         return (
             <div className="row">
-                <div className="col-2">
+                <div className="col-lg-2 col-sm-2 col-xs-12">
                     <NavBarComponent
                         page="about"
                         userId={this.props.userId}
                         user={this.props.userInfo}/>
                 </div>
                 <div className="container">
-                    <div className="hero-full-wrapper col-10 about">
+                    <div className="hero-full-wrapper col-lg-10 col-md-9 col-sm-8 about">
                         <h1>About</h1>
 
                         <img className="img-thumbnail" src="https://www.urban-wellness.ca/wp-content/uploads/2017/06/fresh-food.jpg" alt=""/>

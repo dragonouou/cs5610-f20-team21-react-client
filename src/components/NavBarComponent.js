@@ -174,7 +174,7 @@ export class NavBarComponent extends React.Component {
                 {/*    </div>*/}
                 {/*</nav>*/}
 
-                <div style={{marginLeft: "2vw"}} className="d-none d-sm-block">
+                <div style={{marginLeft: "1.5vw"}} className="d-none d-sm-block">
                     {/*<div className="navbar-collapse" id="navbar-collapse">*/}
                     <div  className="">
                         {/*<div className="site-header hidden-xs">*/}

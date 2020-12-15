@@ -48,9 +48,8 @@ export class NavBarComponent extends React.Component {
                             // userInfo: profile[0],
                             userId: profile[0]._id
                         })
-
                         findUserByIdSimple(profile[0]._id)
-                            .then(user => {this.setState({userInfo:user})})
+                            .then(user => this.setState({userInfo : user}))
                     }
                 } else {
                     this.setState({
@@ -58,7 +57,9 @@ export class NavBarComponent extends React.Component {
                         userId: profile._id
                     })
                     findUserByIdSimple(profile._id)
-                        .then(user => {this.setState({userInfo:user})})
+
+                        .then(user => this.setState({userInfo : user}))
+
                 }
             })
     }
@@ -66,18 +67,19 @@ export class NavBarComponent extends React.Component {
     render() {
         return (
             <header>
-                <div className="navbar navbar-default visible-xs">
-                    {/*<button type="button" className="navbar-toggle collapsed">*/}
-                    {/*    <span className="sr-only">Toggle navigation</span>*/}
-                    {/*</button>*/}
-                    <a href="/" className="navbar-brand">Kitchen</a>
-                </div>
+                {/*<div className="navbar navbar-default visible-xs">*/}
+                {/*    /!*<button type="button" className="navbar-toggle collapsed">*!/*/}
+                {/*    /!*    <span className="sr-only">Toggle navigation</span>*!/*/}
+                {/*    /!*</button>*!/*/}
+                {/*    <a href="/" className="navbar-brand">Kitchen</a>*/}
+                {/*</div>*/}
 
                 <nav className="sidebar">
-                    <div className="navbar-collapse" id="navbar-collapse">
-                        <div className="site-header hidden-xs">
+                    {/*<div className="navbar-collapse" id="navbar-collapse">*/}
+                    <div>
+                        {/*<div className="site-header hidden-xs">*/}
+                        <div>
                             <a className="site-brand" href="/" title="">
-                                <img className="img-responsive site-logo" src="../assets/images/mashup-logo.svg" alt=""/>
                                 Happy Kitchen
                             </a>
                             <br/>
@@ -112,7 +114,6 @@ export class NavBarComponent extends React.Component {
                         </div>
 
                         <nav className="nav-footer">
-
                             {
                                 this.state.userId !== "" &&
                                     <div>

@@ -9,6 +9,7 @@ import {NavBarComponent} from "./NavBarComponent";
 import {findAllRecipes} from "../services/recipeDatabaseService";
 import {findUserById, profile} from "../services/UserService";
 import {findRecipeForUser} from "../services/recipeService";
+import MetaTags from 'react-meta-tags';
 
 
 export class HomeComponent extends React.Component {
@@ -69,12 +70,14 @@ export class HomeComponent extends React.Component {
     componentDidMount() {
         profile()
             .then(profile => {
+
                 // this.setState({userInfo:profile[0]})
 
                 // if (profile.length !== 0) {
                 //     this.setState({userId:profile._id})
                 // }
                 // console.log(profile)
+
                 if (Array.isArray(profile)) {
                     if (profile.length !== 0) {
                         this.setState({
@@ -86,9 +89,11 @@ export class HomeComponent extends React.Component {
                                 this.setState({userInfo:userInfo})
                                 this.setState({favorites:userInfo.favorites})
                             })
-                        if (profile.role === "chef") {
+                        if (profile[0].role === "chef") {
                             findRecipeForUser(profile[0]._id)
-                                .then(recipes => this.setState({userRecipes : recipes}))
+                                .then(recipes => {
+                                    this.setState({userRecipes: recipes})
+                                })
                         }
                     }
                 } else {
@@ -106,6 +111,7 @@ export class HomeComponent extends React.Component {
                             .then(recipes => this.setState({userRecipes : recipes}))
                     }
                 }
+
                 // this.setState({favorites:profile[0].favorites})
 
                 // findUserByIdSimple(profile[0].userId)
@@ -151,7 +157,7 @@ export class HomeComponent extends React.Component {
                         {
                             this.state.userId !== "" && this.state.userInfo.role === "customer" &&
                             this.state.favorites.map(favorite =>
-                                <div className="grid-item col-4">
+                                <div className="grid-item col-lg-4 col-md-6 col-sm-12">
                                     <img style={{height: "35vh", objectFit: "cover", width: "100%"}}
                                          className="img-responsive" alt="" src={favorite.img}/>
                                     <a href="/" className="project-description">
@@ -170,7 +176,7 @@ export class HomeComponent extends React.Component {
                         {
                             this.state.userId !== "" && this.state.userInfo.role === "chef" &&
                             this.state.userRecipes.map(recipe =>
-                                <div className="grid-item col-4">
+                                <div className="grid-item col-lg-4 col-md-6 col-sm-12">
                                     <img style={{height: "35vh", objectFit: "cover", width: "100%"}}
                                          className="img-responsive" alt="" src={recipe.img}/>
                                     <a href="/" className="project-description">
@@ -189,7 +195,7 @@ export class HomeComponent extends React.Component {
                         {
                             this.state.userId === "" &&
                             this.state.recipes.map(recipe =>
-                                <div className="grid-item col-4">
+                                <div className="grid-item col-lg-4 col-md-6 col-sm-12">
                                     <img style={{height: "35vh", objectFit: "cover", width: "100%"}}
                                          className="img-responsive" alt="" src={recipe.img}/>
                                     <a href="/" className="project-description">

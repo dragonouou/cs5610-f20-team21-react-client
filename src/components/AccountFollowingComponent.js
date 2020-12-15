@@ -97,8 +97,8 @@ class AccountFollowingComponent extends React.Component{
                             </ul>
                         </div>
 
-                        <div className="col-8 favorite-content">
-                            <h1>Your Following List</h1>
+                        <div className="col-8 following-content">
+                            <h1 className="following-title">Your Following List</h1>
                             <ul className="list-group" >
                                 {
                                     this.state.userInfo.following.map(user =>

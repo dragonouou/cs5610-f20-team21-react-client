@@ -9,6 +9,7 @@ import {NavBarComponent} from "./NavBarComponent";
 import {findAllRecipes} from "../services/recipeDatabaseService";
 import {findUserById, profile} from "../services/UserService";
 import {findRecipeForUser} from "../services/recipeService";
+import MetaTags from 'react-meta-tags';
 
 
 export class HomeComponent extends React.Component {
@@ -156,7 +157,7 @@ export class HomeComponent extends React.Component {
                         {
                             this.state.userId !== "" && this.state.userInfo.role === "customer" &&
                             this.state.favorites.map(favorite =>
-                                <div className="grid-item col-4">
+                                <div className="grid-item col-lg-4 col-md-6 col-sm-12">
                                     <img style={{height: "35vh", objectFit: "cover", width: "100%"}}
                                          className="img-responsive" alt="" src={favorite.img}/>
                                     <a href="/" className="project-description">
@@ -175,7 +176,7 @@ export class HomeComponent extends React.Component {
                         {
                             this.state.userId !== "" && this.state.userInfo.role === "chef" &&
                             this.state.userRecipes.map(recipe =>
-                                <div className="grid-item col-4">
+                                <div className="grid-item col-lg-4 col-md-6 col-sm-12">
                                     <img style={{height: "35vh", objectFit: "cover", width: "100%"}}
                                          className="img-responsive" alt="" src={recipe.img}/>
                                     <a href="/" className="project-description">
@@ -194,7 +195,7 @@ export class HomeComponent extends React.Component {
                         {
                             this.state.userId === "" &&
                             this.state.recipes.map(recipe =>
-                                <div className="grid-item col-4">
+                                <div className="grid-item col-lg-4 col-md-6 col-sm-12">
                                     <img style={{height: "35vh", objectFit: "cover", width: "100%"}}
                                          className="img-responsive" alt="" src={recipe.img}/>
                                     <a href="/" className="project-description">

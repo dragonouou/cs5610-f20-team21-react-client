@@ -27,7 +27,11 @@ export class DetailComponent extends React.Component {
         //     .then(recipe => this.setState({recipe:recipe}))
 
         findRecipeById(recipeId)
-            .then(recipe => {this.setState({recipe:recipe})})
+            .then(recipe => {
+                this.setState({recipe:recipe})
+                findUserByIdSimple(recipe.chefId)
+                    .then(chef => this.setState({chef: chef}))
+            })
 
         profile()
             .then(profile => {
@@ -61,8 +65,8 @@ export class DetailComponent extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        findUserByIdSimple(this.state.recipe.chefId)
-            .then(chef => this.setState({chef: chef}))
+        // findUserByIdSimple(this.state.recipe.chefId)
+        //     .then(chef => this.setState({chef: chef}))
         // console.log(this.state.userInfo)
         // findUserByIdSimple(this.state.userId)
         //     .then(user => {
@@ -84,6 +88,25 @@ export class DetailComponent extends React.Component {
             .then(status => {
                 this.setState({userInfo : newUser})
             })
+    }
+
+    unfavorite = (recipeId) => {
+        const oldUser = this.state.userInfo;
+        const newUser = {
+            ...oldUser,
+            favorites: [
+                ...oldUser.favorites,
+                recipeId
+            ]
+        }
+        updateUser(this.state.userInfo._id, newUser)
+            .then(status => {
+                this.setState({userInfo : newUser})
+            })
+    }
+
+    tryFavorite = () => {
+        alert("Please login!")
     }
 
     //add to order
@@ -129,11 +152,19 @@ export class DetailComponent extends React.Component {
                             }
                             {
                                 this.state.userInfo.favorites.includes(this.state.recipeId) &&
-                                <button style={{marginTop: "1vh"}} className="btn btn-dark" disabled>
-                                    saved
+                                <button style={{marginTop: "1vh"}} className="btn btn-dark" onClick={() => this.unfavorite(this.state.recipeId)}>
+                                    unfavorite
                                 </button>
                             }
                         </div>
+                    }
+                    {
+                        this.state.userId === "" &&
+                            <div>
+                                <button onClick={this.tryFavorite} className="btn btn-info" style={{marginTop: "1vh"}}>
+                                    favorite
+                                </button>
+                            </div>
                     }
 
                     {/*{*/}

@@ -130,7 +130,7 @@ class OrderDetailComponent extends React.Component{
                                                             <div>
                                                                 <li className="row">
                                                                     <div className="col- recipe-name">
-                                                                        Recipe Name : {recipe.title}
+                                                                        Name : {recipe.title}
                                                                     </div>
                                                                     {/*<div className="col-3 recipe-count">*/}
                                                                     {/*    X 1*/}

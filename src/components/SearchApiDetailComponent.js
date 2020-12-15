@@ -74,7 +74,6 @@ export class SearchApiDetailComponent extends React.Component {
                         I can make it!
                     </button>
                 </div>
-
             </div>
 
         )

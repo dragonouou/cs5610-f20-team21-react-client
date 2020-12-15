@@ -36,6 +36,11 @@ export const updateRecipe = (recipeId, newRecipe) =>
     })
         .then(response => response.json())
 
+export const deleteRecipe = (recipeId) =>
+    fetch(`${url}/recipes/${recipeId}`,{
+        method:"DELETE"
+    }).then(response => response.json())
+
 export default {
     findRecipeById,findAllRecipes,createRecipe,updateRecipe
 }

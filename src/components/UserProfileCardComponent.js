@@ -180,7 +180,7 @@ class UserProfileCardComponent extends React.Component{
                                     {
                                         this.state.userRecipes.map(recipe =>
                                             <div className="col-lg-6 mb-2 col-sm-12 pr-lg-1 ">
-                                                <Link to={`/detail/${recipe._id}`}>
+                                                <Link to={`/details/${recipe._id}`}>
                                                     <img
                                                         className="col-lg-6 mb-2 col-sm-12 pr-lg-1"
                                                         src={recipe.img}

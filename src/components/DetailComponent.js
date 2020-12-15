@@ -1,9 +1,9 @@
 import React from "react";
 import "../css/Home.css";
 import {NavBarComponent} from "./NavBarComponent";
-// import {findRecipeById, findSummaryById} from "../services/recipeService";
 import { Markup } from 'interweave';
-import {findRecipeById} from "../services/recipeDatabaseService";
+import history from "./history";
+import {deleteRecipe, findRecipeById} from "../services/recipeDatabaseService";
 import {findUserById, findUserByIdSimple, profile, updateUser} from "../services/UserService";
 
 export class DetailComponent extends React.Component {
@@ -123,6 +123,12 @@ export class DetailComponent extends React.Component {
             })
     }
 
+    deleteRecipe = (recipeId) =>{
+        deleteRecipe(recipeId)
+            .then(status => status)
+        history.goBack()
+    }
+
     render() {
         return (
             <div className="row" style={{marginTop:"18px"}}>
@@ -161,6 +167,14 @@ export class DetailComponent extends React.Component {
                             <div>
                                 <button onClick={this.tryFavorite} className="btn btn-info" style={{marginTop: "1vh"}}>
                                     favorite
+                                </button>
+                            </div>
+                    }
+                    {
+                        this.state.userId !== "" && this.state.userInfo.role === "chef" &&
+                            <div>
+                                <button onClick={()=>this.deleteRecipe(this.state.recipeId)} className="btn btn-info" style={{marginTop: "1vh"}}>
+                                    Remove it from my recipes
                                 </button>
                             </div>
                     }

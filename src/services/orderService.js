@@ -17,6 +17,14 @@ export const createOrder = (newOrder) =>
     })
         .then(response => response.json())
 
+
+export const deleteOrder = (orderId) =>
+    fetch(`${url}/orders/${orderId}`,{
+        method:'DELETE'
+    })
+        .then(response => response.json())
+
+
 export default {
     findAllOrders, createOrder
 }

@@ -2,6 +2,7 @@ import React from "react";
 import "../css/OrderDetailComponent.css"
 import {Link} from "react-router-dom";
 import {findUserById, logout, profile} from "../services/UserService";
+import {deleteOrder} from "../services/orderService";
 
 
 class OrderDetailComponent extends React.Component{
@@ -48,6 +49,34 @@ class OrderDetailComponent extends React.Component{
                 this.setState({userInfo:{},userId:''})
             })
     }
+
+    // deleteOrder = (orderId) =>{
+    //     deleteOrder(orderId)
+    //         .then(status => this.setState(prevState => ({
+    //             ...this.state,
+    //             order: prevState.userInfo.orders.filter(order => order._id !== orderId)
+    //
+    //         })))
+    // }
+
+    // deleteOrder = (orderId) =>{
+    //     const oldUser = this.state.userInfo;
+    //
+    //     deleteOrder(orderId)
+    //         .then(status =>(
+    //             findUserById(this.state.userId)
+    //             .then(user => {this.setState({userInfo:user})}))
+    //         )
+    // }
+
+    deleteOrder = (orderId) =>{
+        const oldUser = this.state.userInfo;
+        deleteOrder(orderId)
+            .then(status=>this.setState())
+    }
+
+
+
 
     render() {
         return (
@@ -120,7 +149,13 @@ class OrderDetailComponent extends React.Component{
                                                         <i className="fa fa-cube order-icon" aria-hidden="true"></i>
                                                         Order Number: {order._id}
                                                     {console.log(order.recipes)}
+                                                    <div>
+                                                        <i className="fa fa-trash float-right deleteBtn" aria-hidden="true"
+                                                        onClick={()=>this.deleteOrder(order._id)}
+                                                        ></i>
+                                                    </div>
                                                 </div>
+
                                                 <div className="order-detail">
                                                     <ul className="list-group">
                                                         {/*<li className="order-time">*/}
@@ -132,16 +167,19 @@ class OrderDetailComponent extends React.Component{
                                                                     <div className="col- recipe-name">
                                                                         Name : {recipe.title}
                                                                     </div>
-                                                                    {/*<div className="col-3 recipe-count">*/}
-                                                                    {/*    X 1*/}
-                                                                    {/*</div>*/}
-                                                                    {/*<div className="col-8 order-address">*/}
-                                                                    {/*    <div>Pick up information</div>*/}
-                                                                    {/*    <p>1005 Main St APT123 </p>*/}
-                                                                    {/*</div>*/}
+                                                                    <div className="col-3 float-right recipe-count">
+                                                                        X 1
+                                                                    </div>
                                                                 </li>
+
                                                             </div>
                                                         )}
+                                                        {/*<br/>*/}
+                                                        {/*<br/>*/}
+                                                        {/*<div className="col-8 order-address">*/}
+                                                        {/*    <div>Pick up information</div>*/}
+                                                        {/*    <p>1005 Main St APT123 </p>*/}
+                                                        {/*</div>*/}
 
                                                     </ul>
                                                 </div>

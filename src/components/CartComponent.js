@@ -3,6 +3,7 @@ import "../css/OrderHistoryComponent.css"
 import "../css/CartComponent.css"
 import {findUserById, findUserByIdSimple, profile, updateUser} from "../services/UserService";
 import {createOrder} from "../services/orderService";
+import {Link} from "react-router-dom";
 
 class CartComponent extends React.Component{
 
@@ -153,7 +154,9 @@ class CartComponent extends React.Component{
 
                         <div className="row mt-4 d-flex align-items-center">
                             <div className="col-sm-6 order-md-2 text-right">
-                                <button className="btn btn-primary mb-4 btn-lg pl-5 pr-5" onClick={this.placeOrder}>Place Order</button>
+                                <Link to="/">
+                                    <button className="btn btn-primary mb-4 btn-lg pl-5 pr-5" onClick={this.placeOrder}>Place Order</button>
+                                </Link>
                             </div>
                             <div className="col-sm-6 mb-3 mb-m-1 order-md-1 text-md-left">
                                 <a href="/">

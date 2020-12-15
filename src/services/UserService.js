@@ -1,7 +1,12 @@
-const url = "http://localhost:8080/api/users"
-const base_url = "http://localhost:8080/api"
+// const url = "http://localhost:8080/api/users"
+// const base_url = "http://localhost:8080/api"
 // const url = "https://homekitchenserver.herokuapp.com/api/users"
 // const base_url = "https://homekitchenserver.herokuapp.com/api"
+
+
+import {server} from "./serverUrl";
+const base_url = server
+const url = `${server}/users`
 
 export const findUserById = (uid) =>
     fetch(`${url}/${uid}/details`)

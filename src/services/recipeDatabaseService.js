@@ -1,5 +1,8 @@
-const url = "http://localhost:8080/api"
-// const url = "https://homekitchenserver.herokuapp.com/api"
+// const url = "http://localhost:8080/api"
+// // const url = "https://homekitchenserver.herokuapp.com/api"
+
+import {server} from "./serverUrl";
+const url = server
 
 export const searchRecipe = (criteria) =>
     fetch(`${url}/recipes/search?criteria=${criteria}`)

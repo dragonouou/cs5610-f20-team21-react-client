@@ -18,6 +18,8 @@ import OrderDetailComponent from "./OrderDetailComponent";
 import history from "./history";
 import {SearchDetailComponent} from "./SearchDetailComponent";
 import AccountFollowingComponent from "./AccountFollowingComponent";
+import SearchApiComponent from "./SearchApiComponent";
+import {SearchApiDetailComponent} from "./SearchApiDetailComponent";
 
 class ManagementComponent extends React.Component {
 
@@ -107,21 +109,15 @@ class ManagementComponent extends React.Component {
         return (
             <BrowserRouter>
                 <Router history={history}>
-                <Route path="/search/api" exact>
-                    <WikiComponent/>
-                </Route>
-                <Route path="/search/api/:recipeId" component={SearchDetailComponent} exact/>
+                <Route path={["/search/api","/search/api?criteria=:query"]} exact component={SearchApiComponent}/>
+                <Route path="/details/api/:recipeId" component={SearchApiDetailComponent} exact/>
                 <Route path="/" exact>
                     <HomeComponent
                         userId={this.state.userId}
                         userInfo={this.state.userInfo}/>
                 </Route>
-                <Route path="/search" exact>
-                    <SearchComponent
-                        userId={this.state.userId}
-                        userInfo={this.state.userInfo}/>
-                </Route>
-                <Route path="/detail/:recipeId"
+                <Route path={["/search","/search?criteria=:query"]} exact component={SearchComponent}/>
+                <Route path="/details/:recipeId"
                        component={DetailComponent}
                        exact/>
                 {/*<Route path="/detail/:recipeId" exact>*/}

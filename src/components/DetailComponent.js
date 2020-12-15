@@ -199,12 +199,12 @@ export class DetailComponent extends React.Component {
                         </div>
                     </div>
 
-                    <h2 style={{marginTop: "5vh", fontSize: "20px"}}>Comments</h2>
-                    {
-                        this.state.recipe.review.map(rev =>
-                            <p>{rev}</p>
-                        )
-                    }
+                    {/*<h2 style={{marginTop: "5vh", fontSize: "20px"}}>Comments</h2>*/}
+                    {/*{*/}
+                    {/*    this.state.recipe.review.map(rev =>*/}
+                    {/*        <p>{rev}</p>*/}
+                    {/*    )*/}
+                    {/*}*/}
                 </div>
             </div>
 

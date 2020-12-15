@@ -122,10 +122,57 @@ input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-
     height:100%;
     overflow:hidden
 }
+
 .grid-item .project-description .project-text-holder .project-text-inner{
     display:table-cell;text-align:center;vertical-align:middle;width:100%;height:100%;margin:0;padding:0}
 .grid-item:hover .project-description{opacity:1}
-.section-container-spacer{margin-bottom:30px}.btn{-webkit-transition:all .1s linear;-o-transition:all .1s linear;transition:all .1s linear}.fa-icon{color:#000;width:32px;height:32px;display:inline-block;line-height:32px;font-size:15px;text-align:center}.form-control{box-shadow:none}.form-control:focus{outline:0;box-shadow:none;border-color:#000}label{font-weight:400}textarea{max-width:100%}main{-webkit-transition:all .2s linear;-o-transition:all .2s linear;transition:all .2s linear;padding:15px;height:100%}@media (min-width:768px){main{}}@media (min-width:992px){main{padding:30px}}.sidebar{position:fixed;top:0;bottom:0;width:240px;height:auto;overflow-x:hidden;overflow-y:auto;background-color:#fff;z-index:999;-webkit-transition:left .2s linear;-o-transition:left .2s linear;transition:left .2s linear;left:-240px;top:52px;padding:20px}.sidebar .navbar-collapse{padding:0}.sidebar.open{left:0}@media (min-width:768px){.sidebar{padding:30px;left:0;top:0}}.site-header{margin-bottom:30px;overflow:hidden}.site-brand,.site-logo{margin-bottom:6px}.site-brand{color:#000;font-family:Cabin,Helvetica,Arial,sans-serif;font-size:18px;font-weight:700;display:block;-webkit-transition:all .2s linear;-o-transition:all .2s linear;transition:all .2s linear}.site-brand:hover{text-decoration:none}.nav-footer{position:absolute;bottom:0;padding-bottom:30px}.nav-footer a,.nav>li>a{color:#000}.nav>li>a.active{font-weight:700}.nav>li>a:hover{color:#ff6360}.nav-footer-social-buttons{margin-bottom:0;margin-left:-10px}.navbar-default{margin-bottom:0}.navbar-toggle{margin-left:15px;float:left;margin-right:0}.template-example{margin-bottom:30px}.template-example .template-title-example{font-family:Lato,Times,serif;font-weight:400;color:#34495e;padding:0}.template-example .template-title-example:after,.template-example .template-title-example:before{display:none}.template-example h2{font-size:32px}.template-example h3{font-size:20px}.template-example .table>tbody>tr>td,.template-example .table>tbody>tr>th,.template-example .table>tfoot>tr>td,.template-example .table>tfoot>tr>th,.template-example .table>thead>tr>td,.template-example .table>thead>tr>th{padding:0 15px}.list-icons{list-style:none;margin:0;padding:0;overflow:hidden}.list-icons li{float:left;margin-right:5px}
+
+.section-container-spacer{margin-bottom:30px}
+.btn{-webkit-transition:all .1s linear;-o-transition:all .1s linear;transition:all .1s linear}
+.fa-icon{color:#000;width:32px;height:32px;display:inline-block;line-height:32px;font-size:15px;text-align:center}
+.form-control{box-shadow:none}
+.form-control:focus{outline:0;box-shadow:none;border-color:#000}
+label{font-weight:400}
+textarea{max-width:100%}
+main{-webkit-transition:all .2s linear;-o-transition:all .2s linear;transition:all .2s linear;padding:15px;height:100%}
+@media (min-width:768px){main{}}@media (min-width:992px){main{padding:30px}}
+
+.sidebar{
+    position:fixed;
+    top:0;
+    bottom:0;
+    width:240px;
+    height:auto;
+    overflow-x:hidden;
+    overflow-y:auto;
+    background-color:#fff;
+    z-index:999;
+    -webkit-transition:left .2s linear;
+    -o-transition:left .2s linear;
+    transition:left .2s linear;
+    left:-240px;
+    top:52px;
+    padding:20px
+}
+
+
+.sidebar .navbar-collapse{padding:0}
+.sidebar.open{left:0}
+@media (min-width:768px){.sidebar{padding:30px;left:0;top:0}}
+.site-header{margin-bottom:30px;overflow:hidden}.site-brand,.site-logo{margin-bottom:6px}
+.site-brand{color:#000;font-family:Cabin,Helvetica,Arial,sans-serif;font-size:18px;font-weight:700;display:block;-webkit-transition:all .2s linear;-o-transition:all .2s linear;transition:all .2s linear}
+.site-brand:hover{text-decoration:none}.nav-footer{position:absolute;bottom:0;padding-bottom:30px}
+.nav-footer a,.nav>li>a{color:#000}.nav>li>a.active{font-weight:700}
+.nav>li>a:hover{color:#ff6360}
+.nav-footer-social-buttons{margin-bottom:0;margin-left:-10px}
+.navbar-default{margin-bottom:0}.navbar-toggle{margin-left:15px;float:left;margin-right:0}
+.template-example{margin-bottom:30px}
+.template-example .template-title-example{font-family:Lato,Times,serif;font-weight:400;color:#34495e;padding:0}.template-example .template-title-example:after,
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        .template-example .template-title-example:before{display:none}.template-example h2{font-size:32px}
+
+
+.template-example h3{font-size:20px}.template-example .table>tbody>tr>td,.template-example .table>tbody>tr>th,
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                .template-example .table>tfoot>tr>td,.template-example .table>tfoot>tr>th,.template-example .table>thead>tr>td,.template-example .table>thead>tr>th{padding:0 15px}.list-icons{list-style:none;margin:0;padding:0;overflow:hidden}.list-icons li{float:left;margin-right:5px}
 /*# sourceMappingURL=main.85741bff.map*/
 
 a {

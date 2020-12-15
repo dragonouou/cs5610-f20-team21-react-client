@@ -1,5 +1,5 @@
 import React from "react";
-import "./ProfileComponent.css"
+import "../css/ProfileComponent.css"
 import {BrowserRouter, Redirect, Route} from "react-router-dom";
 import {Link} from "react-router-dom";
 import OrderHistoryComponent from "./OrderHistoryComponent";
@@ -71,7 +71,7 @@ class ProfileComponent extends React.Component{
 
                 <div className="container" >
                     <div className="row wrapper">
-                        <div className="col-4 sidebar">
+                        <div className="col-4 sidebar innersidebar">
                             <div className="back-to-home">
                                 <a href="">
                                     <Link to='/'>

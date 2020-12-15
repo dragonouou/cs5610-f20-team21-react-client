@@ -9,7 +9,7 @@ import {NavBarComponent} from "./NavBarComponent";
 import {findAllRecipes} from "../services/recipeDatabaseService";
 import {findUserById, profile} from "../services/UserService";
 import {findRecipeForUser} from "../services/recipeService";
-import MetaTags from 'react-meta-tags';
+// import MetaTags from 'react-meta-tags';
 
 
 export class HomeComponent extends React.Component {

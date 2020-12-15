@@ -1,5 +1,5 @@
 import React from "react";
-import "./OrderHistoryComponent.css"
+import "../css/OrderHistoryComponent.css"
 import {Link} from "react-router-dom";
 
 

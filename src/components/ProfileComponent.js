@@ -19,8 +19,6 @@ class ProfileComponent extends React.Component{
         }
     }
 
-
-
     componentDidMount() {
 
         // TO TEST THE GIVEN USER
@@ -32,7 +30,6 @@ class ProfileComponent extends React.Component{
         //             })
         //         })
         // }
-
 
         // TO FETCH THE USER FROM THE SESSION
         profile()

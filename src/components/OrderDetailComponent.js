@@ -151,12 +151,11 @@ class OrderDetailComponent extends React.Component{
                                                 <div className="row">
                                                         <i className="fa fa-cube order-icon" aria-hidden="true"></i>
                                                         Order Number: {order._id}
-                                                    {console.log(order.recipes)}
-                                                    <div>
-                                                        <i className="fa fa-trash float-right deleteBtn" aria-hidden="true"
-                                                        onClick={()=>this.deleteOrder(order._id)}
-                                                        ></i>
-                                                    </div>
+                                                    {/*<div>*/}
+                                                    {/*    <i className="fa fa-trash float-right deleteBtn" aria-hidden="true"*/}
+                                                    {/*    onClick={()=>this.deleteOrder(order._id)}*/}
+                                                    {/*    ></i>*/}
+                                                    {/*</div>*/}
                                                 </div>
 
                                                 <div className="order-detail">

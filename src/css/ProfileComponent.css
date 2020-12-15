@@ -81,6 +81,22 @@
     color: grey;
 }
 
-.innersidebar{
+.inner{
     position: fixed;
 }
+
+
+
+/*@media screen and (min-width:1050px) {*/
+/*    .top-bar {*/
+/*        display: none;*/
+/*    }*/
+/*}*/
+
+/*@media screen and (max-width:1024px){*/
+/*    .inner{*/
+/*        display:none;*/
+/*    }*/
+/*}*/
+
+

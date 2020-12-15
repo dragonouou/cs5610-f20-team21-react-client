@@ -144,13 +144,13 @@ export class HomeComponent extends React.Component {
     render() {
         return (
             <div className="row">
-                <div className="col-2">
+                <div className="col-lg-2 col-md-3 col-sm-4">
                     <NavBarComponent
                         page="home"
                         userId={this.props.userId}
                         user={this.props.userInfo}/>
                 </div>
-                <div className="hero-full-wrapper col-10" style={{marginTop: "25px"}}>
+                <div className="hero-full-wrapper col-lg-10 col-md-9 col-sm-8" style={{marginTop: "25px"}}>
                     <div className="grid row">
                         {/*<div className="gutter-sizer"></div>*/}
                         {/*<div className="grid-sizer"></div>*/}

@@ -67,19 +67,32 @@ export class NavBarComponent extends React.Component {
     render() {
         return (
             <header>
-                <div className="navbar navbar-default visible-xs">
-                    {/*<button type="button" className="navbar-toggle collapsed">*/}
-                    {/*    <span className="sr-only">Toggle navigation</span>*/}
-                    {/*</button>*/}
+                {/*top nav ar?*/}
+                {/*<div className="navbar navbar-default visible-xs hidden-lg">*/}
+                {/*    /!*<button type="button" className="navbar-toggle collapsed">*!/*/}
+                {/*    /!*    <span className="sr-only">Toggle navigation</span>*!/*/}
+                {/*    /!*    <span className="icon-bar"></span>*!/*/}
+                {/*    /!*    <span className="icon-bar"></span>*!/*/}
+                {/*    /!*    <span className="icon-bar"></span>*!/*/}
+                {/*    /!*</button>*!/*/}
+                {/*    <a href="/" className="navbar-brand">Kitchen</a>*/}
 
-                    {/*<a href="/" className="navbar-brand">Kitchen</a>*/}
-                </div>
+                {/*    {*/}
+                {/*        this.state.userInfo.role === "customer" &&*/}
+                {/*        <a href="/search" title="" className="navbar-brand" >Search</a>*/}
+                {/*    }*/}
+                {/*    {*/}
+                {/*        this.state.userInfo.role === "chef" &&*/}
+                {/*        <a href="/search/api" title="" className="navbar-brand">Search in API</a>*/}
+                {/*    }*/}
+                {/*    <a href="/profile" className="navbar-brand">Profile</a>*/}
+                {/*</div>*/}
 
-                <nav className="sidebar">
+                <nav className="sidebar ">
                     {/*<div className="navbar-collapse" id="navbar-collapse">*/}
-                    <div>
+                    <div  className="">
                         {/*<div className="site-header hidden-xs">*/}
-                        <div>
+                        <div className="">
                             <a className="site-brand" href="/" title="">
                                 Happy Kitchen
                             </a>
@@ -91,7 +104,6 @@ export class NavBarComponent extends React.Component {
                             <br/>
                             <br/>
                         </div>
-
 
                         <ul className="" style={{listStyleType: "none", paddingLeft: "0px"}}>
                             <li><a href="/" title="" className="" style={{fontWeight: this.props.page === "home" ? "bold":"none"}}>Home</a></li>
@@ -170,6 +182,9 @@ export class NavBarComponent extends React.Component {
                         </nav>
                     </div>
                 </nav>
+
+
+
             </header>
         )
     }

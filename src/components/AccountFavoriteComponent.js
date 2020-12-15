@@ -74,9 +74,9 @@ class AccountFavoriteComponent extends React.Component{
                                         My Information
                                     </Link>
                                 </li>
-                                {/*<li className="">*/}
-                                {/*    <Link to='/orders'><i className="fa fa-shopping-bag order-icon" aria-hidden="true"></i> My Order</Link>*/}
-                                {/*</li>*/}
+                                <li className="">
+                                    <Link to='/orders'><i className="fa fa-shopping-bag order-icon" aria-hidden="true"></i> My Order</Link>
+                                </li>
                                 <li className="">
                                     <Link to='/favorites'>
                                         <i className="fa fa-heart-o favorite-icon" aria-hidden="true"></i>

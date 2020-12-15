@@ -1,7 +1,7 @@
 import React from "react";
-import "./OrderHistoryComponent.css"
+import "../css/OrderHistoryComponent.css"
 import {Link} from "react-router-dom";
-import "./CartComponent.css"
+import "../css/CartComponent.css"
 
 class CartComponent extends React.Component{
     render() {

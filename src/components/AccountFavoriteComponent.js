@@ -1,5 +1,5 @@
 import React from "react";
-import "./AccountFavoriteComponent.css"
+import "../css/AccountFavoriteComponent.css"
 import {Link} from "react-router-dom";
 import OrderHistoryComponent from "./OrderHistoryComponent";
 import {findUserByIdSimple, findUserById, profile, logout} from "../services/UserService";

@@ -1,7 +1,7 @@
 import React from "react";
 import {findUserById, logout, profile} from "../services/UserService";
 import {Link} from "react-router-dom";
-import "./AccountFollowingComponent.css"
+import "../css/AccountFollowingComponent.css"
 
 class AccountFollowingComponent extends React.Component{
 

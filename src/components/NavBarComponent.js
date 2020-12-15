@@ -1,6 +1,6 @@
 import React from "react";
 import {profile, logout, findUserByIdSimple} from "../services/UserService";
-import "./NavBarComponent.css"
+import "../css/NavBarComponent.css"
 
 export class NavBarComponent extends React.Component {
 
@@ -70,7 +70,8 @@ export class NavBarComponent extends React.Component {
                     {/*<button type="button" className="navbar-toggle collapsed">*/}
                     {/*    <span className="sr-only">Toggle navigation</span>*/}
                     {/*</button>*/}
-                    <a href="/" className="navbar-brand">Kitchen</a>
+
+                    {/*<a href="/" className="navbar-brand">Kitchen</a>*/}
                 </div>
 
                 <nav className="sidebar">
@@ -88,6 +89,7 @@ export class NavBarComponent extends React.Component {
                             <br/>
                             <br/>
                         </div>
+
 
                         <ul className="" style={{listStyleType: "none", paddingLeft: "0px"}}>
                             <li><a href="/" title="" className="" style={{fontWeight: this.props.page === "home" ? "bold":"none"}}>Home</a></li>

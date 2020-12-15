@@ -1,5 +1,5 @@
 import React from "react";
-import "./UserProfileCardComponent.css"
+import "../css/UserProfileCardComponent.css"
 import {Link} from "react-router-dom";
 import {findRecipeForUser,findRecipeById} from "../services/recipeService";
 import {findUserById, findUserByIdSimple, profile, updateUser} from "../services/UserService";

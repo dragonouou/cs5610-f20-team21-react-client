@@ -80,3 +80,7 @@
 .profile-title{
     color: grey;
 }
+
+.innersidebar{
+    position: fixed;
+}

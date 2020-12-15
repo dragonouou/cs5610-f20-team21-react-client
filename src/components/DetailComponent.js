@@ -105,6 +105,10 @@ export class DetailComponent extends React.Component {
             })
     }
 
+    tryFavorite = () => {
+        alert("Please login!")
+    }
+
     //add to order
     // addOrder = (recipeId) =>{
     //     const oldUser = this.state.userInfo;
@@ -153,6 +157,14 @@ export class DetailComponent extends React.Component {
                                 </button>
                             }
                         </div>
+                    }
+                    {
+                        this.state.userId === "" &&
+                            <div>
+                                <button onClick={this.tryFavorite} className="btn btn-info" style={{marginTop: "1vh"}}>
+                                    favorite
+                                </button>
+                            </div>
                     }
 
                     {/*{*/}

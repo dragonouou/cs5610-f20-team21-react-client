@@ -5,6 +5,7 @@ import { Markup } from 'interweave';
 import history from "./history";
 import {deleteRecipe, findRecipeById} from "../services/recipeDatabaseService";
 import {findUserById, findUserByIdSimple, profile, updateUser} from "../services/UserService";
+import {Link} from "react-router-dom";
 
 export class DetailComponent extends React.Component {
 
@@ -144,9 +145,11 @@ export class DetailComponent extends React.Component {
                     {
                         this.state.userId !== "" && this.state.userInfo.role === "customer" &&
                         <div>
-                            <button className="btn btn-success" onClick={() => this.addToCart(this.state.recipeId)} style={{marginTop: "1vh"}}>
-                                Add to cart
-                            </button>
+                            <Link to="/cart">
+                                <button className="btn btn-success" onClick={() => this.addToCart(this.state.recipeId)} style={{marginTop: "1vh"}}>
+                                    Add to cart
+                                </button>
+                            </Link>
                             <br/>
                             {
                                 !this.state.userInfo.favorites.includes(this.state.recipeId) &&

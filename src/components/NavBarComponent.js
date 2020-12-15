@@ -66,18 +66,19 @@ export class NavBarComponent extends React.Component {
     render() {
         return (
             <header>
-                <div className="navbar navbar-default visible-xs">
-                    {/*<button type="button" className="navbar-toggle collapsed">*/}
-                    {/*    <span className="sr-only">Toggle navigation</span>*/}
-                    {/*</button>*/}
-                    <a href="/" className="navbar-brand">Kitchen</a>
-                </div>
+                {/*<div className="navbar navbar-default visible-xs">*/}
+                {/*    /!*<button type="button" className="navbar-toggle collapsed">*!/*/}
+                {/*    /!*    <span className="sr-only">Toggle navigation</span>*!/*/}
+                {/*    /!*</button>*!/*/}
+                {/*    <a href="/" className="navbar-brand">Kitchen</a>*/}
+                {/*</div>*/}
 
                 <nav className="sidebar">
-                    <div className="navbar-collapse" id="navbar-collapse">
-                        <div className="site-header hidden-xs">
+                    {/*<div className="navbar-collapse" id="navbar-collapse">*/}
+                    <div>
+                        {/*<div className="site-header hidden-xs">*/}
+                        <div>
                             <a className="site-brand" href="/" title="">
-                                <img className="img-responsive site-logo" src="../assets/images/mashup-logo.svg" alt=""/>
                                 Happy Kitchen
                             </a>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
@@ -107,7 +108,6 @@ export class NavBarComponent extends React.Component {
                         </div>
 
                         <nav className="nav-footer">
-
                             {
                                 this.state.userId !== "" &&
                                     <div>

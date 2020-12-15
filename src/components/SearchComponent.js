@@ -92,7 +92,7 @@ export class SearchComponent extends React.Component {
                         </button>
                         {
                             this.state.recipes.map(recipe =>
-                                <div className="grid-item col-4" key={recipe._id}>
+                                <div className="grid-item col-lg-4 col-md-6 col-sm-12" key={recipe._id}>
                                     <img style={{height: "35vh", objectFit: "cover", width: "100%"}}
                                          className="img-responsive" alt="" src={recipe.img}/>
                                     <a href={"/detail/" + recipe._id} className="project-description">

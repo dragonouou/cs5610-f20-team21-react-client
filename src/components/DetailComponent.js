@@ -90,6 +90,21 @@ export class DetailComponent extends React.Component {
             })
     }
 
+    unfavorite = (recipeId) => {
+        const oldUser = this.state.userInfo;
+        const newUser = {
+            ...oldUser,
+            favorites: [
+                ...oldUser.favorites,
+                recipeId
+            ]
+        }
+        updateUser(this.state.userInfo._id, newUser)
+            .then(status => {
+                this.setState({userInfo : newUser})
+            })
+    }
+
     //add to order
     // addOrder = (recipeId) =>{
     //     const oldUser = this.state.userInfo;
@@ -133,8 +148,8 @@ export class DetailComponent extends React.Component {
                             }
                             {
                                 this.state.userInfo.favorites.includes(this.state.recipeId) &&
-                                <button style={{marginTop: "1vh"}} className="btn btn-dark" disabled>
-                                    saved
+                                <button style={{marginTop: "1vh"}} className="btn btn-dark" onClick={() => this.unfavorite(this.state.recipeId)}>
+                                    unfavorite
                                 </button>
                             }
                         </div>

@@ -108,41 +108,40 @@ export class DetailComponent extends React.Component {
         alert("Please login!")
     }
 
-    //add to order
-    // addOrder = (recipeId) =>{
-    //     const oldUser = this.state.userInfo;
-    //     const newUser = {
-    //         ...oldUser,
-    //         orders:[
-    //             ...oldUser.orders,
-    //             recipeId
-    //         ]
-    //     }
-    //     updateUser(this.state.userInfo._id, newUser)
-    //         .then(status => {
-    //             this.setState({userInfo : newUser})
-    //         })
-    // }
+    addToCart = (recipeId) => {
+        const oldUser = this.state.userInfo;
+        const newUser = {
+            ...oldUser,
+            cart:[
+                ...oldUser.cart,
+                recipeId
+            ]
+        }
+        updateUser(this.state.userInfo._id, newUser)
+            .then(status => {
+                this.setState({userInfo : newUser})
+            })
+    }
 
     render() {
         return (
-            <div className="row">
+            <div className="row" style={{marginTop:"18px"}}>
                 <div className="col-2">
                     <NavBarComponent
                         userId={this.props.userId}
                         user={this.props.userInfo}/>
                 </div>
-                {console.log(this.state.userInfo)}
+                {/*{console.log(this.state.userInfo)}*/}
                 <div className="hero-full-wrapper col-10" style={{paddingRight: "5vw", marginTop: "1vh"}}>
                     <h2>{this.state.recipe.title}</h2>
                     <img src={this.state.recipe.img} alt=""/>
                     {
                         this.state.userId !== "" && this.state.userInfo.role === "customer" &&
                         <div>
-                            {/*<button className="btn btn-success">*/}
-                            {/*    Add to cart*/}
-                            {/*</button>*/}
-                            {/*<br/>*/}
+                            <button className="btn btn-success" onClick={() => this.addToCart(this.state.recipeId)} style={{marginTop: "1vh"}}>
+                                Add to cart
+                            </button>
+                            <br/>
                             {
                                 !this.state.userInfo.favorites.includes(this.state.recipeId) &&
                                 <button style={{marginTop: "1vh"}} className="btn btn-info" onClick={() => this.favorite(this.state.recipeId)}>

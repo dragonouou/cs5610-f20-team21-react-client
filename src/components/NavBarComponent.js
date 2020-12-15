@@ -139,9 +139,9 @@ export class NavBarComponent extends React.Component {
                                                 <span>Hello {this.state.userInfo.firstname}!</span>
                                             }
                                             {/*Hi there!*/}
-                                            {/*<a className="fa-icon" href="/cart" title="">*/}
-                                            {/*    <i className="fa fa-shopping-cart" aria-hidden="true"></i>*/}
-                                            {/*</a>*/}
+                                            <a className="fa-icon" href="/cart" title="">
+                                                <i className="fa fa-shopping-cart" aria-hidden="true"></i>
+                                            </a>
                                         </div>
                                         <div><a href="" onClick={this.logout}>Logout</a></div>
                                     </div>

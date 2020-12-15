@@ -18,7 +18,10 @@ export class SearchApiDetailComponent extends React.Component {
     componentDidMount() {
         const recipeId = this.props.match.params.recipeId
         findRecipeById(recipeId)
-            .then(recipe => this.setState({recipe:recipe}))
+            .then(recipe => {
+                console.log(recipe)
+                this.setState({recipe:recipe})
+            })
 
         profile()
             .then(profile => {
@@ -39,6 +42,7 @@ export class SearchApiDetailComponent extends React.Component {
                     findUserByIdSimple(profile._id)
                         .then(user => this.setState({userInfo : user}))
                 }
+                console.log(this.state.userId)
             })
     }
 

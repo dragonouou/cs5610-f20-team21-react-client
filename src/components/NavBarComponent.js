@@ -260,6 +260,7 @@ export class NavBarComponent extends React.Component {
                     </div>
                 </div>
 
+
                 <nav className="navbar d-block d-sm-none">
                     <a className="navbar-brand" href="/" title="">
                         Happy Kitchen

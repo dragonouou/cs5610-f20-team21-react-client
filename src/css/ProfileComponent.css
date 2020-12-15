@@ -45,7 +45,7 @@
 }
 
 .wrapper .sidebar .title{
-    color: grey;
+    color: black;
     text-align: center;
     margin-bottom: 30px;
 }
@@ -75,6 +75,7 @@
 
 .profile-content{
     margin-left: 100px;
+
     padding-top: 55px;
 }
 .profile-title{
@@ -84,7 +85,6 @@
 .inner{
     position: fixed;
 }
-
 
 
 /*@media screen and (min-width:1050px) {*/
@@ -99,4 +99,19 @@
 /*    }*/
 /*}*/
 
+.Link{
+    color:grey;
+}
 
+.a:hover{
+    color:cadetblue;
+}
+
+.a{
+    color:grey;
+    font-weight: bold;
+}
+
+.navbar-brand{
+    color:grey;
+}

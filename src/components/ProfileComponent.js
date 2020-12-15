@@ -78,8 +78,8 @@ class ProfileComponent extends React.Component{
                     {/*</div>*/}
 
                     <div className="row wrapper">
-                        <div className="col-4 sidebar inner">
-                            <div className="back-to-home">
+                        <div className="col-lg-2 col-sm-2 col-xs-12  sidebar inner  d-none d-sm-block" >
+                            <div className="back-to-home ">
                                 <a href="">
                                     <Link to='/'>
                                         <i className="fa fa-chevron-left mr-2"></i>
@@ -90,28 +90,32 @@ class ProfileComponent extends React.Component{
                             <h1 className="title">My Account</h1>
                             <ul className="" >
                                 <li className="">
-                                    <Link to='/profile'>
+                                    <Link to='/profile' style={{ color: '#808080' }}>
                                         <i className="fa fa-id-card profile-icon" aria-hidden="true"></i>
                                         My Information
                                     </Link>
                                 </li>
                                 <li className="">
-                                    <Link to='/orders'><i className="fa fa-shopping-bag order-icon" aria-hidden="true"></i> My Order</Link>
+                                    <Link to='/orders' style={{ color: '#808080' }}>
+                                        <i className="fa fa-shopping-bag order-icon" aria-hidden="true">
+
+                                        </i> My Order
+                                    </Link>
                                 </li>
                                 <li className="">
-                                    <Link to='/favorites'>
+                                    <Link to='/favorites' style={{ color: '#808080' }}>
                                         <i className="fa fa-heart-o favorite-icon" aria-hidden="true"></i>
                                         My Favorites
                                     </Link>
                                 </li>
                                 <li className="">
-                                    <Link to='/following'>
+                                    <Link to='/following' style={{ color: '#808080' }}>
                                         <i className="fa fa-user favorite-icon" aria-hidden="true"></i>
                                         My Following
                                     </Link>
                                 </li>
                                 <li className="">
-                                    <Link to='/' onClick={this.logout}>
+                                    <Link to='/' onClick={this.logout} style={{ color: '#808080' }}>
                                         <i className="fa fa-sign-out logout-icon" aria-hidden="true"></i>
                                         Logout
                                     </Link>
@@ -119,7 +123,30 @@ class ProfileComponent extends React.Component{
                             </ul>
                         </div>
 
-                        <form className="col-8 profile-content">
+                        <nav className="navbar d-block d-sm-none">
+                            <a className="navbar-brand" href="/" title="">
+                                Home
+                            </a>
+                            <a className="navbar-brand" href="/profile">
+                                <i className="fa fa-id-card profile-icon" aria-hidden="true"></i>
+                                {/*My Information*/}
+                            </a>
+                            <a className="navbar-brand" href="/orders">
+                                <i className="fa fa-shopping-bag order-icon" aria-hidden="true"></i>
+                                {/*My Orders*/}
+                            </a>
+                            <a className="navbar-brand" href="/favorites">
+                                <i className="fa fa-heart-o favorite-icon" aria-hidden="true"></i>
+                                {/*My Favorites*/}
+                            </a>
+                            <a className="navbar-brand" href="/following">
+                                <i className="fa fa-user favorite-icon" aria-hidden="true"></i>
+                                {/*My Following*/}
+                            </a>
+
+                        </nav>
+
+                        <form className="col-lg-10 col-md-9 col-sm-8 profile-content">
                             <h1 className="profile-title">My Profile</h1>
                             <div className="form-group">
                                 <div className="col-sm-10">

@@ -149,8 +149,8 @@ class OrderDetailComponent extends React.Component{
                                     {
                                         this.state.userInfo.orders.map(order =>
                                             <li className="list-group-item order-list-item">
-                                                <div className="row">
-                                                        <i className="fa fa-cube order-icon" aria-hidden="true"></i>
+                                                <div style={{marginBottom: "10px"}}>
+                                                        <i className="fa fa-cube" aria-hidden="true" style={{paddingRight: "5px"}}></i>
                                                         Order Number: {order._id}
                                                     {/*{console.log(order.recipes)}*/}
                                                     {/*<div>*/}
@@ -167,13 +167,13 @@ class OrderDetailComponent extends React.Component{
                                                         {/*</li>*/}
                                                         {order.recipes.map(recipe =>
                                                             <div>
-                                                                <li className="row">
-                                                                    <div className="col- recipe-name">
+                                                                <li className="">
+                                                                    <span className="recipe-name">
                                                                         Name : {recipe.title}
-                                                                    </div>
-                                                                    <div className="col-3 pull-right recipe-count">
+                                                                    </span>
+                                                                    <span className="pull-right recipe-count">
                                                                         X 1
-                                                                    </div>
+                                                                    </span>
                                                                 </li>
 
                                                             </div>
@@ -188,7 +188,11 @@ class OrderDetailComponent extends React.Component{
                                                     </ul>
                                                 </div>
                                                 <div>
-                                                    <button className="btn btn-info btn-block" onClick={() => this.deleteOrder(order._id)}>Delete Order</button>
+                                                    <button className="btn btn-danger btn-block"
+                                                            onClick={() => this.deleteOrder(order._id)}
+                                                            style={{marginTop: "10px"}}>
+                                                        Delete Order
+                                                    </button>
                                                 </div>
                                             </li>
                                         )

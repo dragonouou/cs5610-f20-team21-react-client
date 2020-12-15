@@ -70,9 +70,10 @@
     color: #fff;
 }
 
-.profile-content{
-    padding-top: 40px;
+.favorite-content{
+    margin-left: 100px;
+    padding-top: 55px;
 }
-.profile-title{
+.favorite-title{
     color: grey;
 }

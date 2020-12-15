@@ -24,7 +24,7 @@ export class LoginComponent extends React.Component {
                         <input type="text" id="pw" placeholder="password"/>
                     </div>
                     <div className="line">
-                        <button type="button" className="btn btn-success" onClick={this.props.login}>Login</button>
+                        <button type="button" className="btn btn-info" onClick={this.props.login}>Login</button>
                     </div>
                 </div>
             </div>

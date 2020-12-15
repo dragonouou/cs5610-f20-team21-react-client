@@ -1,5 +1,6 @@
 import React from "react";
 import {profile, logout, findUserByIdSimple} from "../services/UserService";
+import "./NavBarComponent.css"
 
 export class NavBarComponent extends React.Component {
 
@@ -49,7 +50,6 @@ export class NavBarComponent extends React.Component {
                         })
                         findUserByIdSimple(profile[0]._id)
                             .then(user => this.setState({userInfo : user}))
-
                     }
                 } else {
                     this.setState({
@@ -59,7 +59,6 @@ export class NavBarComponent extends React.Component {
                     findUserByIdSimple(profile._id)
                         .then(user => this.setState({userInfo : user}))
                 }
-                console.log(profile)
             })
     }
 
@@ -81,8 +80,13 @@ export class NavBarComponent extends React.Component {
                             <a className="site-brand" href="/" title="">
                                 Happy Kitchen
                             </a>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                ut labore et dolore magna aliqua.</p>
+                            <br/>
+                            <p className="text-left">Cooking is for the Soul!</p>
+                            <img className="img-thumbnail navimg" src="https://cdn.pixabay.com/photo/2012/04/13/11/59/cooking-ingredients-32089_960_720.png"/>
+
+
+                            <br/>
+                            <br/>
                         </div>
 
                         <ul className="" style={{listStyleType: "none", paddingLeft: "0px"}}>
@@ -96,7 +100,7 @@ export class NavBarComponent extends React.Component {
                                 <li><a href="/search/api" title="" className="" style={{fontWeight: this.props.page === "searchApi" ? "bold":"none"}}>Search in API</a></li>
                             }
                             <li><a href="/about" title="" className="" style={{fontWeight: this.props.page === "about" ? "bold":"none"}}>About</a></li>
-                            <li><a href="/policy" title="" className="" style={{fontWeight: this.props.page === "policy" ? "bold":"none"}}>Policy</a></li>
+                            {/*<li><a href="/policy" title="" className="" style={{fontWeight: this.props.page === "policy" ? "bold":"none"}}>Policy</a></li>*/}
                         </ul>
 
                         {/*logged in version*/}

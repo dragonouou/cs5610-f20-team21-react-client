@@ -110,7 +110,7 @@ class UserProfileCardComponent extends React.Component{
                                         alt="..." className="rounded mb-2 img-thumbnail profile-avatar"/>
 
                                         {
-                                            this.state.userId !== "" &&
+                                            this.state.userId !== "" && this.state.userId !== this.state.profileUserId &&
                                                 <div>
                                                     {
                                                         !this.state.userInfo.following.includes(this.state.profileUserId) &&

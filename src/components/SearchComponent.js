@@ -77,15 +77,15 @@ export class SearchComponent extends React.Component {
     render() {
         return (
             <div className="row">
-                <div className="col-2">
+                <div className="col-lg-2 col-sm-2 col-xs-12">
                     <NavBarComponent
                         page="search"
                         userId={this.props.userId}
                         user={this.props.userInfo}/>
                 </div>
 
-                <div className="hero-full-wrapper col-10" style={{paddingLeft: "0px"}}>
-                    <div className="grid row">
+                <div className="hero-full-wrapper col-lg-10 col-sm-10 col-xs-12" style={{paddingLeft: "0px"}}>
+                    <div className="grid row" style={{width: "90%", marginLeft: "5%"}}>
                         {/*<div className="gutter-sizer"></div>*/}
                         {/*<div className="grid-sizer"></div>*/}
 
@@ -101,7 +101,7 @@ export class SearchComponent extends React.Component {
                                }}
                         />
                         <button className="btn btn-info btn-block"
-                                style={{display: "inline", height: "50px", marginBottom: "25x"}}
+                                style={{display: "inline", height: "50px", marginBottom: "15px"}}
                                 onClick={() => this.search(this.state.criteria)}>
                             Submit
                         </button>

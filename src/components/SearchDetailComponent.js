@@ -22,11 +22,11 @@ export class SearchDetailComponent extends React.Component {
     render() {
         return (
             <div className="row">
-                <div className="col-2">
+                <div className="col-lg-2 col-sm-2 col-xs-12">
                     <NavBarComponent />
                 </div>
 
-                <div className="hero-full-wrapper col-10" style={{paddingRight: "5vw", marginTop: "1vh"}}>
+                <div className="hero-full-wrapper col-lg-10 col-sm-10 col-xs-12" style={{paddingRight: "5vw", marginTop: "1vh"}}>
                     <h2>{this.state.recipe.title}</h2>
                     <img src={this.state.recipe.image} alt=""/>
                     <h2 style={{marginTop: "5vh", fontSize: "20px"}}>Summary</h2>

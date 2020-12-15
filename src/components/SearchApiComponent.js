@@ -49,14 +49,14 @@ export default class SearchApiComponent extends React.Component {
         return (
             <div>
                 <div className="row">
-                    <div className="col-2">
+                    <div className="col-lg-2 col-sm-2 col-xs-12">
                         <NavBarComponent
                             page="home"
                             userId={this.props.userId}
                             user={this.props.userInfo}/>
                     </div>
 
-                    <div className="hero-full-wrapper col-10" style={{marginTop: "25px"}}>
+                    <div className="hero-full-wrapper col-lg-10 col-sm-10 col-xs-12" style={{marginTop: "25px"}}>
                         <nav className="navbar navbar-light bg-light">
                             <div className="container-fluid">
                                 <a className="navbar-brand">Spoonacular Food API</a>

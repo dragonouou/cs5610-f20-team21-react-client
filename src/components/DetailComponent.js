@@ -133,13 +133,13 @@ export class DetailComponent extends React.Component {
     render() {
         return (
             <div className="row" style={{marginTop:"18px"}}>
-                <div className="col-2">
+                <div className="col-lg-2 col-sm-2 col-xs-12">
                     <NavBarComponent
                         userId={this.props.userId}
                         user={this.props.userInfo}/>
                 </div>
                 {/*{console.log(this.state.userInfo)}*/}
-                <div className="hero-full-wrapper col-10" style={{paddingRight: "5vw", marginTop: "1vh"}}>
+                <div className="hero-full-wrapper col-lg-10 col-md-10 col-sm-12" style={{paddingRight: "5vw", marginTop: "1vh", width: "100%", paddingLeft: "6vw"}}>
                     <h2>{this.state.recipe.title}</h2>
                     <img src={this.state.recipe.img} alt=""/>
                     {

@@ -7,7 +7,7 @@ export default class WikiComponent extends React.Component {
         return (
             <div>
                 <div className="row">
-                    <div className="col-2">
+                    <div className="col-lg-2 col-sm-2 col-xs-12">
                         <NavBarComponent
                             page="searchApi"
                             userId={this.props.userId}
@@ -15,7 +15,7 @@ export default class WikiComponent extends React.Component {
                     </div>
 
                     <div className="container">
-                        <div className="col-10">
+                        <div className="col-lg-10 col-sm-10 col-xs-12">
                             <h1>PROTOTYPE</h1>
                             <h1>spoonacular Recipe API</h1>
                             <h3>Search Criteria</h3>

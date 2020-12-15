@@ -1,7 +1,7 @@
 import React from "react";
 import "../css/OrderDetailComponent.css"
 import {Link} from "react-router-dom";
-import {findUserById, logout, profile} from "../services/UserService";
+import {findUserById, logout, profile, updateUser} from "../services/UserService";
 import {deleteOrder} from "../services/orderService";
 
 
@@ -50,14 +50,20 @@ class OrderDetailComponent extends React.Component{
             })
     }
 
-    // deleteOrder = (orderId) =>{
-    //     deleteOrder(orderId)
-    //         .then(status => this.setState(prevState => ({
-    //             ...this.state,
-    //             order: prevState.userInfo.orders.filter(order => order._id !== orderId)
-    //
-    //         })))
-    // }
+    deleteOrder = (orderId) =>{
+        const oldUser = this.state.userInfo;
+        const newOrders = this.state.userInfo.orders.filter(order => order._id !== orderId);
+        const newUser = {
+            ...oldUser,
+            orders: newOrders
+        }
+        updateUser(this.state.userInfo._id, newUser)
+            .then(status => {
+                this.setState({userInfo : newUser})
+            })
+        deleteOrder(orderId)
+            .then(status => console.log("order deleted"))
+    }
 
     // deleteOrder = (orderId) =>{
     //     const oldUser = this.state.userInfo;
@@ -68,15 +74,13 @@ class OrderDetailComponent extends React.Component{
     //             .then(user => {this.setState({userInfo:user})}))
     //         )
     // }
-
-    deleteOrder = (orderId) =>{
-        const oldUser = this.state.userInfo;
-        deleteOrder(orderId)
-            .then(status=>this.setState())
-    }
-
-
-
+    //
+    // deleteOrder = (orderId) =>{
+    //     const oldUser = this.state.userInfo;
+    //     deleteOrder(orderId)
+    //         .then(status=>this.setState())
+    // }
+    //
 
     render() {
         return (
@@ -126,7 +130,7 @@ class OrderDetailComponent extends React.Component{
 
                         <form className="col-8 order-content">
                             <h3 className="order-title">My Order History</h3>
-                            {console.log(this.state.userInfo.orders)}
+                            {/*{console.log(this.state.userInfo.orders)}*/}
                             <div>
                                 <ul className="list-group" >
 
@@ -148,12 +152,12 @@ class OrderDetailComponent extends React.Component{
                                                 <div className="row">
                                                         <i className="fa fa-cube order-icon" aria-hidden="true"></i>
                                                         Order Number: {order._id}
-                                                    {console.log(order.recipes)}
-                                                    <div>
-                                                        <i className="fa fa-trash float-right deleteBtn" aria-hidden="true"
-                                                        onClick={()=>this.deleteOrder(order._id)}
-                                                        ></i>
-                                                    </div>
+                                                    {/*{console.log(order.recipes)}*/}
+                                                    {/*<div>*/}
+                                                    {/*    <i className="fa fa-trash float-right deleteBtn" aria-hidden="true"*/}
+                                                    {/*    onClick={()=>this.deleteOrder(order._id)}>*/}
+                                                    {/*    </i>*/}
+                                                    {/*</div>*/}
                                                 </div>
 
                                                 <div className="order-detail">
@@ -167,7 +171,7 @@ class OrderDetailComponent extends React.Component{
                                                                     <div className="col- recipe-name">
                                                                         Name : {recipe.title}
                                                                     </div>
-                                                                    <div className="col-3 float-right recipe-count">
+                                                                    <div className="col-3 pull-right recipe-count">
                                                                         X 1
                                                                     </div>
                                                                 </li>
@@ -182,6 +186,9 @@ class OrderDetailComponent extends React.Component{
                                                         {/*</div>*/}
 
                                                     </ul>
+                                                </div>
+                                                <div>
+                                                    <button className="btn btn-info btn-block" onClick={() => this.deleteOrder(order._id)}>Delete Order</button>
                                                 </div>
                                             </li>
                                         )

@@ -92,13 +92,12 @@ export class DetailComponent extends React.Component {
 
     unfavorite = (recipeId) => {
         const oldUser = this.state.userInfo;
+        const newFav = this.state.userInfo.favorites.filter(recipe => recipe !== this.state.recipeId);
         const newUser = {
             ...oldUser,
-            favorites: [
-                ...oldUser.favorites,
-                recipeId
-            ]
+            favorites: newFav
         }
+        // console.log(newUser)
         updateUser(this.state.userInfo._id, newUser)
             .then(status => {
                 this.setState({userInfo : newUser})

@@ -1,10 +1,8 @@
 import React from "react";
 import "../css/ProfileComponent.css"
-import {BrowserRouter, Redirect, Route} from "react-router-dom";
 import {Link} from "react-router-dom";
-import OrderHistoryComponent from "./OrderHistoryComponent";
-import {NavBarComponent} from "./NavBarComponent";
-import {findUserById, findUserByIdSimple, logout, profile, updateUser} from "../services/UserService";
+import history from "./history";
+import {findUserByIdSimple, logout, profile, updateUser} from "../services/UserService";
 
 
 class ProfileComponent extends React.Component{

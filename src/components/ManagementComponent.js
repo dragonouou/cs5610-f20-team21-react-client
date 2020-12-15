@@ -13,10 +13,9 @@ import OrderHistoryComponent from "./OrderHistoryComponent";
 import AccountFavoriteComponent from "./AccountFavoriteComponent";
 import CartComponent from "./CartComponent";
 import React from "react";
-import {findUserById, updateUser, createUser, register, profile, login, logout} from "../services/UserService"
+import {register, profile, login, logout} from "../services/UserService"
 import OrderDetailComponent from "./OrderDetailComponent";
 import history from "./history";
-import {SearchDetailComponent} from "./SearchDetailComponent";
 import AccountFollowingComponent from "./AccountFollowingComponent";
 import SearchApiComponent from "./SearchApiComponent";
 import {SearchApiDetailComponent} from "./SearchApiDetailComponent";

@@ -1,10 +1,7 @@
 import React from "react";
-import {BrowserRouter, Link, Route, Redirect} from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.css';
 import '../css/Home.css';
 import '../css/main.82cfd66e.css';
-import {SearchComponent} from "./SearchComponent";
-import {DetailComponent} from "./DetailComponent";
 import {NavBarComponent} from "./NavBarComponent";
 import {findAllRecipes} from "../services/recipeDatabaseService";
 import {findUserById, profile} from "../services/UserService";

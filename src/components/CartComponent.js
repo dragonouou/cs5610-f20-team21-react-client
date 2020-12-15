@@ -1,6 +1,5 @@
 import React from "react";
 import "../css/OrderHistoryComponent.css"
-import {Link} from "react-router-dom";
 import "../css/CartComponent.css"
 import {findUserById, findUserByIdSimple, profile, updateUser} from "../services/UserService";
 import {createOrder} from "../services/orderService";

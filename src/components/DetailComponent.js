@@ -125,8 +125,8 @@ export class DetailComponent extends React.Component {
 
     deleteRecipe = (recipeId) =>{
         deleteRecipe(recipeId)
-            .then(status => status)
-        history.goBack()
+            .then(status => console.log(status))
+        history.push("/")
     }
 
     render() {

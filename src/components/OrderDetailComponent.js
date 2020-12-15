@@ -64,6 +64,25 @@ class OrderDetailComponent extends React.Component{
         deleteOrder(orderId)
             .then(status => console.log("order deleted"))
     }
+    // deleteOrder = (orderId) =>{
+    //     const oldUser = this.state.userInfo;
+    //     const newOrders = this.state.userInfo.orders.filter(order => order._id !== orderId)
+    //     const newUser = {
+    //         ...oldUser,
+    //         orders:newOrders
+    //     }
+    //     updateUser(this.state.userInfo._id,newUser)
+    //         .then(status =>{
+    //             this.setState({userInfo:newUser})})
+    //
+    //     deleteOrder(orderId)
+    //         .then(status=>this.setState(prevState =>({
+    //             orders:prevState.userInfo.orders.filter(order => order._id !== orderId)
+    //             })
+    //         ))
+    // }
+
+
 
     // deleteOrder = (orderId) =>{
     //     const oldUser = this.state.userInfo;
@@ -80,7 +99,10 @@ class OrderDetailComponent extends React.Component{
     //     deleteOrder(orderId)
     //         .then(status=>this.setState())
     // }
-    //
+
+
+
+
 
     render() {
         return (
@@ -152,12 +174,7 @@ class OrderDetailComponent extends React.Component{
                                                 <div style={{marginBottom: "10px"}}>
                                                         <i className="fa fa-cube" aria-hidden="true" style={{paddingRight: "5px"}}></i>
                                                         Order Number: {order._id}
-                                                    {/*{console.log(order.recipes)}*/}
-                                                    {/*<div>*/}
-                                                    {/*    <i className="fa fa-trash float-right deleteBtn" aria-hidden="true"*/}
-                                                    {/*    onClick={()=>this.deleteOrder(order._id)}>*/}
-                                                    {/*    </i>*/}
-                                                    {/*</div>*/}
+
                                                 </div>
 
                                                 <div className="order-detail">
@@ -170,10 +187,12 @@ class OrderDetailComponent extends React.Component{
                                                                 <li className="">
                                                                     <span className="recipe-name">
                                                                         Name : {recipe.title}
+
                                                                     </span>
                                                                     <span className="pull-right recipe-count">
                                                                         X 1
                                                                     </span>
+
                                                                 </li>
 
                                                             </div>

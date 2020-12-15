@@ -90,6 +90,20 @@ class UserProfileCardComponent extends React.Component{
 
     }
 
+    unfollowing = (profileUserId) =>{
+        const preUser = this.state.userInfo;
+        const newFollow = this.state.userInfo.following.filter(following => following !== this.state.profileUserId)
+        const newUser ={
+            ...preUser,
+            following:newFollow
+        }
+
+        updateUser(this.state.userInfo._id,newUser)
+            .then(status => {
+                this.setState({userInfo: newUser})
+            })
+    }
+
     render() {
         return (
             <div className="myprofile-body">
@@ -122,8 +136,9 @@ class UserProfileCardComponent extends React.Component{
                                                     }
                                                     {
                                                         this.state.userInfo.following.includes(this.state.profileUserId) &&
-                                                        <button className="btn btn-dark btn-sm btn-block">
-                                                            Following
+                                                        <button className="btn btn-dark btn-sm btn-block"
+                                                        onClick={() =>this.unfollowing(this.state.profileUserId)}>
+                                                            Unfollow
                                                         </button>
                                                     }
                                                 </div>

@@ -48,17 +48,16 @@ export class NavBarComponent extends React.Component {
                             // userInfo: profile[0],
                             userId: profile[0]._id
                         })
-
                         findUserByIdSimple(profile[0]._id)
-                            .then(user => {this.setState({userInfo:user})})
+                            .then(user => this.setState({userInfo : user}))
                     }
                 } else {
                     this.setState({
                         // userInfo: profile,
                         userId: profile._id
                     })
-                    findUserByIdSimple(profile[0]._id)
-                        .then(user => {this.setState({userInfo:user})})
+                    findUserByIdSimple(profile._id)
+                        .then(user => this.setState({userInfo : user}))
                 }
             })
     }

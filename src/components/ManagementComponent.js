@@ -70,17 +70,17 @@ class ManagementComponent extends React.Component {
             })
     }
 
-    register = () => {
-        const newUser = {
-            username: document.getElementById("username").value,
-            firstname: document.getElementById("firstname").value,
-            lastname: document.getElementById("lastname").value,
-            email: document.getElementById("email").value,
-            password: document.getElementById("pw").value,
-            phoneNumber: document.getElementById("phonenumber").value,
-            address: document.getElementById("address").value,
-            role: document.getElementById("role").value,
-        }
+    register = (newUser) => {
+        // const newUser = {
+        //     username: document.getElementById("username").value,
+        //     firstname: document.getElementById("firstname").value,
+        //     lastname: document.getElementById("lastname").value,
+        //     email: document.getElementById("email").value,
+        //     password: document.getElementById("pw").value,
+        //     phoneNumber: document.getElementById("phonenumber").value,
+        //     address: document.getElementById("address").value,
+        //     role: document.getElementById("role").value,
+        // }
         register(newUser)
             .then(newUser => {
                 this.setState({userInfo:newUser,userId:newUser._id})

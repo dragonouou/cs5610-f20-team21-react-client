@@ -96,11 +96,17 @@ class ManagementComponent extends React.Component {
             password: document.getElementById("pw").value
         }
         login(user)
-            .then(currentUser => {
-                if (currentUser.length !== 0) {
-                    this.setState({userInfo:currentUser[0],userId:currentUser[0]._id})
+            .then(status => {
+                if (status.success){
+                    this.setState({userInfo:status.userInfo[0],userId:status.userInfo[0]._id})
                     history.push("/profile")
+                }else{
+                    alert(status.msg)
                 }
+                // if (currentUser.length !== 0) {
+                //     this.setState({userInfo:currentUser[0],userId:currentUser[0]._id})
+                //     history.push("/profile")
+                // }
             })
     }
 

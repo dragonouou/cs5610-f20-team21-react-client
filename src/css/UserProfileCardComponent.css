@@ -15,6 +15,7 @@
 
 .recipe-img{
     height: 30vh;
-    width: 20vw;
+    width:100%;
+    /*width: 20vw;*/
     object-fit: cover;
 }

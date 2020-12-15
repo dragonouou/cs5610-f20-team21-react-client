@@ -159,15 +159,16 @@ export class DetailComponent extends React.Component {
                         <Markup content={this.state.recipe.summary}/>
                     </div>
 
-                    {
-                        this.state.userId !== "" && this.state.userInfo.role === "customer" &&
+                    {/*{*/}
+                    {/*    this.state.userId !== "" && this.state.userInfo.role === "customer" &&*/}
+                    {/*    */}
+                    {/*}*/}
+                    <div>
+                        <h2 style={{marginTop: "5vh", fontSize: "20px"}}>Chef Information</h2>
                         <div>
-                            <h2 style={{marginTop: "5vh", fontSize: "20px"}}>Chef Information</h2>
-                            <div>
-                                <a href={"/profile/" + this.state.chef._id}>{this.state.chef.username}</a>
-                            </div>
+                            <a href={"/profile/" + this.state.chef._id}>{this.state.chef.username}</a>
                         </div>
-                    }
+                    </div>
 
                     <h2 style={{marginTop: "5vh", fontSize: "20px"}}>Comments</h2>
                     {

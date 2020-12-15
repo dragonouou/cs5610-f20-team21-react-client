@@ -1,7 +1,7 @@
 import React from "react";
 import "../css/OrderDetailComponent.css"
 import {Link} from "react-router-dom";
-import {findUserById, logout, profile} from "../services/UserService";
+import {findUserById, logout, profile, updateUser} from "../services/UserService";
 import {deleteOrder} from "../services/orderService";
 
 
@@ -59,21 +59,24 @@ class OrderDetailComponent extends React.Component{
     //         })))
     // }
 
-    // deleteOrder = (orderId) =>{
-    //     const oldUser = this.state.userInfo;
-    //
-    //     deleteOrder(orderId)
-    //         .then(status =>(
-    //             findUserById(this.state.userId)
-    //             .then(user => {this.setState({userInfo:user})}))
-    //         )
-    // }
-
     deleteOrder = (orderId) =>{
         const oldUser = this.state.userInfo;
-        deleteOrder(orderId)
-            .then(status=>this.setState())
+        const newOrders = this.state.userInfo.orders.filter(order => order._id !== orderId)
+        const newUser = {
+            ...oldUser,
+            orders:newOrders
+        }
+        updateUser(this.state.userInfo._id,newUser)
+            .then(status =>{
+                this.setState({userInfo:newUser})})
+
+        // deleteOrder(orderId)
+        //     .then(status=>this.setState(prevState =>({
+        //         orders:prevState.userInfo.orders.filter(order => order._id !== orderId)
+        //         })
+        //     ))
     }
+
 
 
 
@@ -167,9 +170,9 @@ class OrderDetailComponent extends React.Component{
                                                                     <div className="col- recipe-name">
                                                                         Name : {recipe.title}
                                                                     </div>
-                                                                    <div className="col-3 float-right recipe-count">
-                                                                        X 1
-                                                                    </div>
+                                                                    {/*<div className="col-3 float-right recipe-count">*/}
+                                                                    {/*    X 1*/}
+                                                                    {/*</div>*/}
                                                                 </li>
 
                                                             </div>

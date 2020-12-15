@@ -12,9 +12,12 @@ class OrderDetailComponent extends React.Component{
         // CHEF 1
         userInfo: {
             username: '',
-            orders:[]
+            orders:[{_id:'',
+                recipes:[]}
+                ]
         },
     }
+
     componentDidMount() {
         // TO FETCH THE USER FROM THE SESSION
         profile()
@@ -94,6 +97,7 @@ class OrderDetailComponent extends React.Component{
 
                         <form className="col-8 order-content">
                             <h3 className="order-title">My Order History</h3>
+                            {console.log(this.state.userInfo.orders)}
                             <div>
                                 <ul className="list-group" >
 
@@ -113,36 +117,32 @@ class OrderDetailComponent extends React.Component{
                                         this.state.userInfo.orders.map(order =>
                                             <li className="list-group-item order-list-item">
                                                 <div className="row">
-                                                    <Link to={`/orders/${order._id}`}>
                                                         <i className="fa fa-cube order-icon" aria-hidden="true"></i>
                                                         Order Number: {order._id}
-                                                    </Link>
+                                                    {console.log(order.recipes)}
                                                 </div>
-
                                                 <div className="order-detail">
                                                     <ul className="list-group">
                                                         {/*<li className="order-time">*/}
                                                         {/*    Order Date: {order.date}*/}
                                                         {/*</li>*/}
-                                                        <li className="row">
-                                                            {order.recipes.map(recipe =>
-                                                                <div>
-                                                                    <div className="col-6 recipe-name">
-                                                                        {recipe.title}
+                                                        {order.recipes.map(recipe =>
+                                                            <div>
+                                                                <li className="row">
+                                                                    <div className="col- recipe-name">
+                                                                        Recipe Name : {recipe.title}
                                                                     </div>
-                                                                </div>
-                                                            )}
-                                                            <div className="col-3 recipe-count">
-                                                                X 1
+                                                                    {/*<div className="col-3 recipe-count">*/}
+                                                                    {/*    X 1*/}
+                                                                    {/*</div>*/}
+                                                                    {/*<div className="col-8 order-address">*/}
+                                                                    {/*    <div>Pick up information</div>*/}
+                                                                    {/*    <p>1005 Main St APT123 </p>*/}
+                                                                    {/*</div>*/}
+                                                                </li>
                                                             </div>
-                                                            <br/>
-                                                            <br/>
-                                                            <div className="col-8 order-address">
-                                                                <div>Pick up information</div>
-                                                                <p>1005 Main St APT123 </p>
-                                                            </div>
+                                                        )}
 
-                                                        </li>
                                                     </ul>
                                                 </div>
                                             </li>

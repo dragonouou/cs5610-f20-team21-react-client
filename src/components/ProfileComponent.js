@@ -70,8 +70,16 @@ class ProfileComponent extends React.Component{
             <div>
 
                 <div className="container" >
+
+                    {/*<div className="navbar navbar-default visible-xs hidden-lg top-bar">*/}
+                    {/*    <a href="/" className="navbar-brand">Home</a>*/}
+                    {/*    <a href="/profile" className="navbar-brand">My Information</a>*/}
+                    {/*    <a href="/favorites" className="navbar-brand">My Favorites</a>*/}
+                    {/*    <a href="/following" className="navbar-brand">My Following</a>*/}
+                    {/*</div>*/}
+
                     <div className="row wrapper">
-                        <div className="col-4 sidebar innersidebar">
+                        <div className="col-4 sidebar inner">
                             <div className="back-to-home">
                                 <a href="">
                                     <Link to='/'>
@@ -88,9 +96,9 @@ class ProfileComponent extends React.Component{
                                         My Information
                                     </Link>
                                 </li>
-                                {/*<li className="">*/}
-                                {/*    <Link to='/orders'><i className="fa fa-shopping-bag order-icon" aria-hidden="true"></i> My Order</Link>*/}
-                                {/*</li>*/}
+                                <li className="">
+                                    <Link to='/orders'><i className="fa fa-shopping-bag order-icon" aria-hidden="true"></i> My Order</Link>
+                                </li>
                                 <li className="">
                                     <Link to='/favorites'>
                                         <i className="fa fa-heart-o favorite-icon" aria-hidden="true"></i>
@@ -240,6 +248,7 @@ class ProfileComponent extends React.Component{
                                     <input type="text"
                                            className="form-control"
                                            id="addressFld"
+                                           placeholder="Your Address"
                                            value={this.state.userInfo.address}
                                            onChange={(event) =>{
                                                const newUser ={
